@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Lotus, Menu } from 'lucide-react';
+import { Flower, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Lotus className="w-8 h-8 text-chittoor-green" />
+          <Flower className="w-8 h-8 text-chittoor-green" />
           <span className="font-semibold text-xl">Chittoor Project</span>
         </div>
         

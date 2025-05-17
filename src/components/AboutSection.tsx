@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Flower, Users, Temple, Landmark } from 'lucide-react';
+import { Flower, Users, Building, Landmark } from 'lucide-react';
 
 const AboutSection = () => {
   const values = [
@@ -16,7 +16,7 @@ const AboutSection = () => {
       description: "Our projects are designed with and by the communities we serve, ensuring relevance and acceptance."
     },
     {
-      icon: <Temple className="h-8 w-8 text-chittoor-earth" />,
+      icon: <Building className="h-8 w-8 text-chittoor-earth" />,
       title: "Cultural Preservation",
       description: "We value and respect the rich heritage and traditions of Andhra Pradesh's communities."
     },

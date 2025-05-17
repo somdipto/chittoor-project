@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Lotus } from 'lucide-react';
+import { Flower } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
             <div className="flex items-center gap-2 mb-4">
-              <Lotus className="w-8 h-8 text-chittoor-green" />
+              <Flower className="w-8 h-8 text-chittoor-green" />
               <span className="font-semibold text-xl">Chittoor Project</span>
             </div>
             <p className="text-gray-600 mb-6">
