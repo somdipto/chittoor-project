@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Flower, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const navItems = [
@@ -16,29 +17,48 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Flower className="w-8 h-8 text-chittoor-green" />
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-2"
+        >
+          <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full shadow-md">
+            <Flower className="w-6 h-6 text-white" />
+          </div>
           <span className="font-semibold text-xl">Chittoor Project</span>
-        </div>
+        </motion.div>
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <a 
+          {navItems.map((item, i) => (
+            <motion.a 
               key={item.title} 
-              href={item.href} 
-              className="text-sm font-medium transition-colors hover:text-chittoor-green"
+              href={item.href}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: i * 0.1 }}
+              className="text-sm font-medium transition-all hover:text-chittoor-green relative group"
             >
               {item.title}
-            </a>
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+            </motion.a>
           ))}
-          <Button className="bg-chittoor-green hover:bg-chittoor-green-dark">Donate</Button>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark shadow-md rounded-full px-6">
+              Donate
+            </Button>
+          </motion.div>
         </nav>
         
         {/* Mobile navigation */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button variant="outline" size="icon" className="md:hidden rounded-full">
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
@@ -53,7 +73,9 @@ const Navbar = () => {
                   {item.title}
                 </a>
               ))}
-              <Button className="bg-chittoor-green hover:bg-chittoor-green-dark w-full mt-4">Donate</Button>
+              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark w-full mt-4 rounded-full">
+                Donate
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
