@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				chittoor: {
+					green: {
+						light: '#4CAF50',
+						DEFAULT: '#2E7D32',
+						dark: '#1B5E20'
+					},
+					blue: {
+						light: '#33C3F0',
+						DEFAULT: '#1976D2',
+						dark: '#0D47A1'
+					},
+					earth: {
+						DEFAULT: '#D84315',
+						light: '#FF8A65'
+					},
+					offwhite: '#F5F5F5'
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'slow-fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'slow-fade-in': 'slow-fade-in 1.5s ease-in-out forwards'
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif']
+			},
+			backgroundImage: {
+				'kolam-pattern': "url('/kolam-bg.svg')"
 			}
 		}
 	},
