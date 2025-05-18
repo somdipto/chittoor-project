@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Flower, TreeDeciduous, Leaf, Sprout } from 'lucide-react';
+import { Flower, TreeDeciduous, Leaf, Sprout, Wheat } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -120,7 +120,7 @@ const Hero = () => {
             transition: { duration: 5, repeat: Infinity, ease: "easeInOut" }
           }}
         >
-          <Sprout className="h-14 w-14 text-chittoor-earth/30" />
+          <Wheat className="h-14 w-14 text-chittoor-earth/30" />
         </motion.div>
       </motion.div>
     </div>

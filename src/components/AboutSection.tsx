@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Farm } from 'lucide-react';
+import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Wheat } from 'lucide-react';
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
@@ -92,7 +91,7 @@ const AboutSection = () => {
         animate={swayAnimation}
         className="absolute bottom-20 right-5 hidden lg:block"
       >
-        <Farm className="h-16 w-16 text-chittoor-earth/30" />
+        <Wheat className="h-16 w-16 text-chittoor-earth/30" />
       </motion.div>
       
       <motion.div 
@@ -184,7 +183,7 @@ const AboutSection = () => {
             <motion.div 
               animate={floatingAnimation}
               className="absolute -right-8 -top-8 hidden lg:block">
-              <Farm className="h-12 w-12 text-chittoor-earth-light/40" />
+              <Wheat className="h-12 w-12 text-chittoor-earth-light/40" />
             </motion.div>
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative">
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-chittoor-blue rounded-br-3xl opacity-80"></div>
