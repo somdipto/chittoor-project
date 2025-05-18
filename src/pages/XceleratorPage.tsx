@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -121,6 +120,21 @@ const XceleratorPage = () => {
     }
   ];
 
+  // Helper function to get gradient colors for a category
+  const getCategoryGradient = (categoryId) => {
+    switch(categoryId) {
+      case "elementary": 
+        return { from: "#c084fc", to: "#8b5cf6" };
+      case "middle": 
+        return { from: "#38bdf8", to: "#0ea5e9" };
+      case "high": 
+        return { from: "#fb923c", to: "#f97316" };
+      case "teachers": 
+      default:
+        return { from: "#4ade80", to: "#22c55e" };
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -232,25 +246,24 @@ const XceleratorPage = () => {
             <Tabs defaultValue="elementary" className="w-full max-w-5xl mx-auto">
               <div className="flex justify-center mb-8">
                 <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                  {courseCategories.map((category) => (
-                    <TabsTrigger 
-                      key={category.id}
-                      value={category.id}
-                      className="flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:border-0 data-[state=active]:shadow-lg rounded-full"
-                      style={{
-                        ["--tw-gradient-from"]: category.id === "elementary" ? "#c084fc" : 
-                                                 category.id === "middle" ? "#38bdf8" : 
-                                                 category.id === "high" ? "#fb923c" : "#4ade80", 
-                        ["--tw-gradient-to"]: category.id === "elementary" ? "#8b5cf6" : 
-                                               category.id === "middle" ? "#0ea5e9" : 
-                                               category.id === "high" ? "#f97316" : "#22c55e"
-                      }}
-                    >
-                      {category.icon}
-                      <span className="hidden sm:inline">{category.title}</span>
-                      <span className="sm:hidden">{category.title.split(" ")[0]}</span>
-                    </TabsTrigger>
-                  ))}
+                  {courseCategories.map((category) => {
+                    const gradientColors = getCategoryGradient(category.id);
+                    
+                    return (
+                      <TabsTrigger 
+                        key={category.id}
+                        value={category.id}
+                        className={`flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:border-0 data-[state=active]:shadow-lg rounded-full`}
+                        style={{
+                          '--tw-gradient-stops': `var(--tw-gradient-from) ${gradientColors.from}, var(--tw-gradient-to) ${gradientColors.to}`
+                        }}
+                      >
+                        {category.icon}
+                        <span className="hidden sm:inline">{category.title}</span>
+                        <span className="sm:hidden">{category.title.split(" ")[0]}</span>
+                      </TabsTrigger>
+                    );
+                  })}
                 </TabsList>
               </div>
               
