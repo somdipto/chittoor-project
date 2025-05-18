@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Flower, TreeDeciduous, Leaf, Sprout } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -44,7 +45,7 @@ const Hero = () => {
         backgroundSize: "60px 60px"
       }}></div>
       
-      {/* Decorative Elements */}
+      {/* Decorative Plant Elements */}
       <motion.div 
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -57,6 +58,71 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.8 }}
         className="absolute bottom-20 right-[5%] w-24 h-24 bg-gradient-to-br from-chittoor-blue-light/20 to-chittoor-blue/20 rounded-full blur-md"
       ></motion.div>
+      
+      {/* Plant SVGs */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1 }}
+        className="absolute left-[8%] top-[30%] hidden lg:block"
+      >
+        <motion.div
+          animate={{
+            y: [-5, 5, -5],
+            transition: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <TreeDeciduous className="h-16 w-16 text-chittoor-green-dark/30" />
+        </motion.div>
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.2 }}
+        className="absolute right-[8%] top-[20%] hidden lg:block"
+      >
+        <motion.div
+          animate={{
+            rotate: [-3, 3, -3],
+            transition: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <Flower className="h-14 w-14 text-chittoor-green-light/30" />
+        </motion.div>
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.4 }}
+        className="absolute left-[15%] bottom-[15%] hidden lg:block"
+      >
+        <motion.div
+          animate={{
+            rotate: [-2, 2, -2],
+            transition: { duration: 7, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <Leaf className="h-12 w-12 text-chittoor-blue/30" />
+        </motion.div>
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.6 }}
+        className="absolute right-[15%] bottom-[25%] hidden lg:block"
+      >
+        <motion.div
+          animate={{
+            y: [-4, 4, -4],
+            transition: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <Sprout className="h-14 w-14 text-chittoor-earth/30" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

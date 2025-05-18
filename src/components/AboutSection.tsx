@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Flower, Users, Building, Landmark } from 'lucide-react';
+import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Farm } from 'lucide-react';
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
@@ -43,10 +43,67 @@ const AboutSection = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.7 } }
   };
 
+  const floatingAnimation = {
+    y: [-5, 5, -5],
+    transition: {
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
+  const swayAnimation = {
+    rotate: [-2, 2, -2],
+    transition: {
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
   return (
     <section id="about" className="py-16 md:py-24 bg-gradient-to-b from-white to-chittoor-offwhite relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-64 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%2010%20A10%2010%200%200%201%2010%200%20A10%2010%200%200%201%200%2010%22%20fill%3D%22%232E7D32%22%20fill-opacity%3D%220.03%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')] bg-repeat opacity-30"></div>
+      
+      {/* Decorative plant elements */}
+      <motion.div 
+        animate={floatingAnimation}
+        className="absolute top-20 left-5 hidden lg:block"
+      >
+        <TreeDeciduous className="h-16 w-16 text-chittoor-green-light/30" />
+      </motion.div>
+      
+      <motion.div 
+        animate={swayAnimation}
+        className="absolute bottom-40 left-10 hidden lg:block"
+      >
+        <Leaf className="h-12 w-12 text-chittoor-green/40" />
+      </motion.div>
+      
+      <motion.div 
+        animate={floatingAnimation}
+        className="absolute top-40 right-10 hidden lg:block"
+      >
+        <Sprout className="h-14 w-14 text-chittoor-green-dark/30" />
+      </motion.div>
+      
+      <motion.div 
+        animate={swayAnimation}
+        className="absolute bottom-20 right-5 hidden lg:block"
+      >
+        <Farm className="h-16 w-16 text-chittoor-earth/30" />
+      </motion.div>
+      
+      <motion.div 
+        animate={{
+          scale: [1, 1.05, 1],
+          transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+        }}
+        className="absolute top-1/2 right-20 hidden xl:block"
+      >
+        <Flower className="h-10 w-10 text-chittoor-blue/30" />
+      </motion.div>
       
       <div className="container relative z-10">
         <motion.div 
@@ -101,7 +158,13 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="relative"
           >
+            <motion.div 
+              animate={swayAnimation}
+              className="absolute -left-10 -bottom-10 hidden lg:block">
+              <Sprout className="h-12 w-12 text-chittoor-green-light/40" />
+            </motion.div>
             <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
             <p className="text-gray-700 mb-6">
               Our mission is to create sustainable development opportunities for rural communities in Chittoor district, improving quality of life while preserving cultural heritage and protecting the environment.
@@ -116,7 +179,13 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="relative"
           >
+            <motion.div 
+              animate={floatingAnimation}
+              className="absolute -right-8 -top-8 hidden lg:block">
+              <Farm className="h-12 w-12 text-chittoor-earth-light/40" />
+            </motion.div>
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative">
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-chittoor-blue rounded-br-3xl opacity-80"></div>
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-chittoor-earth rounded-tl-3xl opacity-80"></div>
