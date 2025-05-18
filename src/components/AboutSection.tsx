@@ -46,7 +46,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-16 md:py-24 bg-gradient-to-b from-white to-chittoor-offwhite relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 10 A10 10 0 0 1 10 0 A10 10 0 0 1 0 10\" fill=\"%232E7D32\" fill-opacity=\"0.03\"%3E%3C/path%3E%3C/svg%3E')] bg-repeat opacity-30"></div>
+      <div className="absolute top-0 left-0 w-full h-64 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%2010%20A10%2010%200%200%201%2010%200%20A10%2010%200%200%201%200%2010%22%20fill%3D%22%232E7D32%22%20fill-opacity%3D%220.03%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')] bg-repeat opacity-30"></div>
       
       <div className="container relative z-10">
         <motion.div 
