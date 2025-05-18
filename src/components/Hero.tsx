@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Flower, TreeDeciduous, Leaf, Sprout, Wheat } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 kolam-decoration"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 kolam-decoration"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
               Empowering Communities in Chittoor
@@ -23,7 +24,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl mb-8 text-gray-700"
+            className="text-base sm:text-lg md:text-xl mb-8 text-gray-700 px-4 sm:px-0"
           >
             Promoting sustainable development and cultural preservation in rural Andhra Pradesh through education, agriculture, and healthcare initiatives.
           </motion.p>
@@ -31,10 +32,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0"
           >
-            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 shadow-lg rounded-full px-8 py-6">Our Projects</Button>
-            <Button variant="outline" className="border-chittoor-blue text-chittoor-blue hover:bg-chittoor-blue/10 rounded-full px-8 py-6">Learn More</Button>
+            <a href="#projects">
+              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 shadow-lg rounded-full px-8 py-6 w-full sm:w-auto">Our Projects</Button>
+            </a>
+            <a href="#about">
+              <Button variant="outline" className="border-chittoor-blue text-chittoor-blue hover:bg-chittoor-blue/10 rounded-full px-8 py-6 w-full sm:w-auto">Learn More</Button>
+            </a>
           </motion.div>
         </div>
       </div>

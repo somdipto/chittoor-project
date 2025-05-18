@@ -4,6 +4,7 @@ import { Flower } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,12 +20,12 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="md:col-span-4"
           >
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-gradient-to-br from-chittoor-green to-chittoor-green-dark rounded-full shadow-md">
                 <Flower className="w-6 h-6 text-white" />
               </div>
               <span className="font-semibold text-xl">Chittoor Project</span>
-            </div>
+            </Link>
             <p className="text-gray-600 mb-6">
               Empowering rural communities in Andhra Pradesh through sustainable development initiatives since 2010.
             </p>
@@ -56,18 +57,37 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="font-semibold text-lg mb-4 text-gray-800">Quick Links</h4>
             <ul className="space-y-3">
-              {["Home", "About Us", "Projects", "News", "Contact"].map((item, i) => (
+              {[
+                { title: "Home", link: "/", isRoute: true },
+                { title: "About Us", link: "/#about", isRoute: false },
+                { title: "Projects", link: "/#projects", isRoute: false },
+                { title: "News", link: "/#news", isRoute: false },
+                { title: "Contact", link: "/#contact", isRoute: false }
+              ].map((item, i) => (
                 <motion.li 
-                  key={item}
+                  key={item.title}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.1 }}
                 >
-                  <a href={item === "Home" ? "/" : `#${item.toLowerCase().replace(' ', '')}`} className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block">
-                    {item}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
-                  </a>
+                  {item.isRoute ? (
+                    <Link 
+                      to={item.link} 
+                      className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block"
+                    >
+                      {item.title}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
+                    </Link>
+                  ) : (
+                    <a 
+                      href={item.link} 
+                      className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block"
+                    >
+                      {item.title}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -76,7 +96,13 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h4 className="font-semibold text-lg mb-4 text-gray-800">Projects</h4>
             <ul className="space-y-3">
-              {["Sustainable Agriculture", "Women's Empowerment", "Rural Education", "Healthcare Access", "Water Conservation"].map((item, i) => (
+              {[
+                "Sustainable Agriculture", 
+                "Women's Empowerment", 
+                "Rural Education", 
+                "Healthcare Access", 
+                "Water Conservation"
+              ].map((item, i) => (
                 <motion.li 
                   key={item}
                   initial={{ opacity: 0, x: -10 }}
@@ -84,7 +110,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
                 >
-                  <a href="#" className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block">
+                  <a href="#projects" className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block">
                     {item}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
                   </a>
@@ -100,13 +126,34 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="md:col-span-3"
           >
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">Newsletter</h4>
-            <p className="text-gray-600 mb-4">Subscribe to our newsletter for updates on our projects and events.</p>
-            <form className="flex gap-2">
-              <Input placeholder="Your email" className="flex-1 rounded-l-full rounded-r-none border-r-0" />
-              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 rounded-l-none rounded-r-full">
-                Subscribe
-              </Button>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">Education Initiatives</h4>
+            <ul className="space-y-3">
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.7 }}
+                className="mb-2 transform transition-transform hover:translate-x-1"
+              >
+                <Link 
+                  to="/xcelerator" 
+                  className="bg-gradient-to-r from-chittoor-green to-chittoor-blue bg-clip-text text-transparent font-semibold hover:from-chittoor-blue hover:to-chittoor-green flex items-center"
+                >
+                  <span className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-chittoor-green/20 to-chittoor-blue/20">✨</span>
+                  Xcelerator Learning Portal
+                </Link>
+                <p className="text-gray-600 text-sm mt-1 ml-8">K-12 education resources</p>
+              </motion.li>
+            </ul>
+            
+            <form className="mt-6">
+              <p className="text-gray-600 mb-4">Subscribe to our newsletter for updates on our projects and events.</p>
+              <div className="flex gap-2">
+                <Input placeholder="Your email" className="flex-1 rounded-l-full rounded-r-none border-r-0" />
+                <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 rounded-l-none rounded-r-full">
+                  Subscribe
+                </Button>
+              </div>
             </form>
           </motion.div>
         </div>
