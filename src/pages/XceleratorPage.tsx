@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -255,8 +256,9 @@ const XceleratorPage = () => {
                         value={category.id}
                         className={`flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:border-0 data-[state=active]:shadow-lg rounded-full`}
                         style={{
-                          '--tw-gradient-stops': `var(--tw-gradient-from) ${gradientColors.from}, var(--tw-gradient-to) ${gradientColors.to}`
-                        }}
+                          '--tw-gradient-from': gradientColors.from,
+                          '--tw-gradient-to': gradientColors.to
+                        } as React.CSSProperties}
                       >
                         {category.icon}
                         <span className="hidden sm:inline">{category.title}</span>
