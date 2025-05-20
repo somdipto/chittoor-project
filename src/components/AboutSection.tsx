@@ -1,15 +1,14 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Wheat, ArrowRight, SolarPanel, School, TestTube } from 'lucide-react';
+import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Wheat, ArrowRight, Battery, School, TestTube } from 'lucide-react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const values = [
     {
-      icon: <SolarPanel className="h-8 w-8 text-white" />,
+      icon: <Battery className="h-8 w-8 text-white" />,
       title: "Renewable Energy",
       description: "Distributed solar infrastructure where farmers become energy producers, creating reliable supply and additional revenue streams."
     },

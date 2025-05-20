@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { motion } from "framer-motion";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { 
-  SolarPanel, 
+  Battery, 
   Flower, 
   School, 
   Users, 
@@ -50,7 +49,7 @@ const PillarsPage = () => {
                 <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-chittoor-green-light/20 rounded-full blur-2xl"></div>
                 <div className="relative">
                   <div className="bg-gradient-to-br from-chittoor-green to-chittoor-green-dark p-4 rounded-full inline-flex mb-6 shadow-lg">
-                    <SolarPanel className="w-8 h-8 text-white" />
+                    <Battery className="w-8 h-8 text-white" />
                   </div>
                   <h2 className="text-3xl font-bold mb-4">Renewable Energy</h2>
                   <p className="text-gray-700 mb-6">
@@ -82,7 +81,7 @@ const PillarsPage = () => {
               </div>
               <div className="aspect-video bg-gradient-to-r from-chittoor-green-light to-chittoor-green rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
                 <div className="p-10">
-                  <SolarPanel className="w-32 h-32 text-white/90" />
+                  <Battery className="w-32 h-32 text-white/90" />
                 </div>
               </div>
             </motion.div>
