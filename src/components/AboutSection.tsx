@@ -1,29 +1,32 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Wheat } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Flower, Users, Building, Landmark, TreeDeciduous, Leaf, Sprout, Wheat, ArrowRight, SolarPanel, School, TestTube } from 'lucide-react';
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const values = [
     {
-      icon: <Flower className="h-8 w-8 text-white" />,
-      title: "Sustainability",
-      description: "We focus on creating long-term solutions that respect the environment and promote sustainable practices."
+      icon: <SolarPanel className="h-8 w-8 text-white" />,
+      title: "Renewable Energy",
+      description: "Distributed solar infrastructure where farmers become energy producers, creating reliable supply and additional revenue streams."
     },
     {
-      icon: <Users className="h-8 w-8 text-white" />,
-      title: "Community-Led",
-      description: "Our projects are designed with and by the communities we serve, ensuring relevance and acceptance."
+      icon: <Leaf className="h-8 w-8 text-white" />,
+      title: "Agro-Wellness Tourism",
+      description: "Farm tours, hands-on experiences, and wellness retreats focusing on Ayurveda and natural healing in rural settings."
     },
     {
-      icon: <Building className="h-8 w-8 text-white" />,
-      title: "Cultural Preservation",
-      description: "We value and respect the rich heritage and traditions of Andhra Pradesh's communities."
+      icon: <School className="h-8 w-8 text-white" />,
+      title: "Transformative Education",
+      description: "Digital learning hub bridging traditional and future-ready education, bringing rural schools on par with metro cities."
     },
     {
-      icon: <Landmark className="h-8 w-8 text-white" />,
-      title: "Transparency",
-      description: "We operate with complete transparency, ensuring funds are used effectively and as intended."
+      icon: <TestTube className="h-8 w-8 text-white" />,
+      title: "Test Bed for Innovation",
+      description: "Platform for young entrepreneurs to test concepts aligned with sustainability pillars, fostering practical solutions."
     }
   ];
 
@@ -114,7 +117,8 @@ const AboutSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 kolam-decoration">About The Chittoor Project</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Founded in 2010, we are a non-profit organization dedicated to improving the lives of rural communities in Chittoor district, Andhra Pradesh through sustainable development initiatives.
+            Project Chittoor is a rural revitalization initiative focusing on sustainable development and community living. 
+            It aims to reverse rural-to-urban migration and empower farmers to thrive on their own land.
           </p>
         </motion.div>
 
@@ -130,15 +134,15 @@ const AboutSection = () => {
               <Card className="rounded-xl overflow-hidden shadow-lg border-none h-full hover:shadow-xl transition-shadow duration-300">
                 <div className={`h-2 ${
                   index === 0 ? "bg-gradient-to-r from-chittoor-green to-chittoor-green-light" :
-                  index === 1 ? "bg-gradient-to-r from-chittoor-blue to-chittoor-blue-light" :
-                  index === 2 ? "bg-gradient-to-r from-chittoor-earth to-chittoor-earth-light" :
+                  index === 1 ? "bg-gradient-to-r from-chittoor-earth to-chittoor-earth-light" :
+                  index === 2 ? "bg-gradient-to-r from-chittoor-blue to-chittoor-blue-light" :
                   "bg-gradient-to-r from-chittoor-green-dark to-chittoor-green"
                 }`}></div>
                 <CardContent className="flex flex-col items-center text-center pt-6">
                   <div className={`mb-4 p-3 rounded-full ${
                     index === 0 ? "bg-gradient-to-br from-chittoor-green to-chittoor-green-dark" :
-                    index === 1 ? "bg-gradient-to-br from-chittoor-blue to-chittoor-blue-dark" :
-                    index === 2 ? "bg-gradient-to-br from-chittoor-earth to-chittoor-earth-light" :
+                    index === 1 ? "bg-gradient-to-br from-chittoor-earth to-chittoor-earth-light" :
+                    index === 2 ? "bg-gradient-to-br from-chittoor-blue to-chittoor-blue-dark" :
                     "bg-gradient-to-br from-chittoor-green-dark to-chittoor-green"
                   } shadow-md`}>
                     {value.icon}
@@ -150,6 +154,22 @@ const AboutSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="flex justify-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            <Link to="/pillars">
+              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-95 group px-6 py-6 rounded-xl">
+                <span className="mr-2">Learn more about our pillars</span>
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
@@ -166,10 +186,10 @@ const AboutSection = () => {
             </motion.div>
             <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
             <p className="text-gray-700 mb-6">
-              Our mission is to create sustainable development opportunities for rural communities in Chittoor district, improving quality of life while preserving cultural heritage and protecting the environment.
+              Our mission is to reshape broad trends in India by fostering sustainable rural development and community living, ultimately leading to long-term productivity growth without causing environmental and social harm.
             </p>
             <p className="text-gray-700">
-              We believe that empowering communities to address their own challenges is the key to lasting positive change. Through partnerships with local leaders, government agencies, and other non-profits, we work to build capacity and create opportunities for all.
+              We aim to create a suitable environment for the next generation to thrive by boosting revenue per acre, creating supplemental income streams, revamping education systems, and establishing appropriate organizational structures.
             </p>
           </motion.div>
           
@@ -188,23 +208,31 @@ const AboutSection = () => {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative">
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-chittoor-blue rounded-br-3xl opacity-80"></div>
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-chittoor-earth rounded-tl-3xl opacity-80"></div>
-              <h4 className="text-xl font-semibold mb-6 pl-6">Our Impact Since 2010</h4>
-              <div className="space-y-6 pl-6">
-                <div>
-                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-green-dark">25+</p>
-                  <p className="text-gray-600">Villages Supported</p>
+              <h4 className="text-xl font-semibold mb-6 pl-6">Key Objectives</h4>
+              <div className="space-y-4 pl-6">
+                <div className="flex items-start">
+                  <div className="bg-chittoor-green/10 p-2 rounded-full mr-3 mt-1">
+                    <Users className="h-4 w-4 text-chittoor-green" />
+                  </div>
+                  <p className="text-gray-600">Demonstrate innovative sustainable farming, energy, and education practices</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-green-dark">10,000+</p>
-                  <p className="text-gray-600">Lives Improved</p>
+                <div className="flex items-start">
+                  <div className="bg-chittoor-earth/10 p-2 rounded-full mr-3 mt-1">
+                    <Users className="h-4 w-4 text-chittoor-earth" />
+                  </div>
+                  <p className="text-gray-600">Show path for 44 crore farming families to make a middle-class living</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-green-dark">50+</p>
-                  <p className="text-gray-600">Community Projects</p>
+                <div className="flex items-start">
+                  <div className="bg-chittoor-blue/10 p-2 rounded-full mr-3 mt-1">
+                    <Users className="h-4 w-4 text-chittoor-blue" />
+                  </div>
+                  <p className="text-gray-600">Eliminate dependency on MNREGA and reduce urban migration</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-green-dark">100+</p>
-                  <p className="text-gray-600">Local Partnerships</p>
+                <div className="flex items-start">
+                  <div className="bg-chittoor-green-dark/10 p-2 rounded-full mr-3 mt-1">
+                    <Users className="h-4 w-4 text-chittoor-green-dark" />
+                  </div>
+                  <p className="text-gray-600">Boost local economy through job creation and skill development</p>
                 </div>
               </div>
             </div>

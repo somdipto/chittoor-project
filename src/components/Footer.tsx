@@ -27,7 +27,7 @@ const Footer = () => {
               <span className="font-semibold text-xl">Chittoor Project</span>
             </Link>
             <p className="text-gray-600 mb-6">
-              Empowering rural communities in Andhra Pradesh through sustainable development initiatives since 2010.
+              Reshaping rural development in Andhra Pradesh through sustainable practices, empowering farmers, and fostering community-driven initiatives.
             </p>
             <div className="flex space-x-3">
               {[
@@ -94,26 +94,38 @@ const Footer = () => {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">Projects</h4>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">Project Pillars</h4>
             <ul className="space-y-3">
               {[
-                "Sustainable Agriculture", 
-                "Women's Empowerment", 
-                "Rural Education", 
-                "Healthcare Access", 
-                "Water Conservation"
+                { title: "Renewable Energy", link: "/pillars", isRoute: true },
+                { title: "Agro-Wellness Tourism", link: "/pillars", isRoute: true },
+                { title: "Transformative Education", link: "/pillars", isRoute: true },
+                { title: "Test Bed for Innovation", link: "/pillars", isRoute: true }
               ].map((item, i) => (
                 <motion.li 
-                  key={item}
+                  key={item.title}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
                 >
-                  <a href="#projects" className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block">
-                    {item}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
-                  </a>
+                  {item.isRoute ? (
+                    <Link 
+                      to={item.link}
+                      className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block"
+                    >
+                      {item.title}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
+                    </Link>
+                  ) : (
+                    <a 
+                      href={item.link} 
+                      className="text-gray-600 hover:text-chittoor-green transition-colors relative group inline-block"
+                    >
+                      {item.title}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-chittoor-green/50 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -126,23 +138,18 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="md:col-span-3"
           >
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">Education Initiatives</h4>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">Initiative Impact</h4>
             <ul className="space-y-3">
               <motion.li
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: 0.7 }}
-                className="mb-2 transform transition-transform hover:translate-x-1"
+                className="mb-4"
               >
-                <Link 
-                  to="/xcelerator" 
-                  className="bg-gradient-to-r from-chittoor-green to-chittoor-blue bg-clip-text text-transparent font-semibold hover:from-chittoor-blue hover:to-chittoor-green flex items-center"
-                >
-                  <span className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-chittoor-green/20 to-chittoor-blue/20">✨</span>
-                  Xcelerator Learning Portal
-                </Link>
-                <p className="text-gray-600 text-sm mt-1 ml-8">K-12 education resources</p>
+                <p className="text-gray-600 text-sm">
+                  Starting with 600 acres in Chittoor district, we are expanding to 6,000 acres by December and 60,000 acres within 24 months, creating a template for integrated rural development nationwide.
+                </p>
               </motion.li>
             </ul>
             
