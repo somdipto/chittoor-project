@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 import Navbar from '@/components/Navbar';
@@ -9,7 +10,8 @@ import {
   Users, 
   ArrowRight, 
   Leaf, 
-  TestTube
+  TestTube,
+  TreeDeciduous
 } from 'lucide-react';
 
 const PillarsPage = () => {
@@ -75,6 +77,12 @@ const PillarsPage = () => {
                 >
                   Innovation
                 </button>
+                <button 
+                  onClick={() => scrollToSection('sustainable-agriculture')}
+                  className="px-4 py-2 bg-chittoor-green/10 text-chittoor-green rounded-full text-sm hover:bg-chittoor-green/20 transition-all"
+                >
+                  Sustainable Agriculture
+                </button>
               </div>
             </motion.div>
 
@@ -121,10 +129,12 @@ const PillarsPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video bg-gradient-to-r from-chittoor-green-light to-chittoor-green rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="p-10">
-                  <Battery className="w-32 h-32 text-white/90" />
-                </div>
+              <div className="aspect-video overflow-hidden shadow-xl rounded-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1623060693724-1e59e90a5d74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Solar panels in agricultural setting" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
 
@@ -137,10 +147,12 @@ const PillarsPage = () => {
               variants={fadeIn}
               className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24 items-center"
             >
-              <div className="order-2 lg:order-1 aspect-video bg-gradient-to-r from-chittoor-earth-light to-chittoor-earth rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="p-10">
-                  <Leaf className="w-32 h-32 text-white/90" />
-                </div>
+              <div className="order-2 lg:order-1 aspect-video overflow-hidden shadow-xl rounded-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1552071379-5999089b2c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Rural wellness retreat in India" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2 bg-gradient-to-r from-chittoor-earth/10 to-chittoor-earth-light/10 p-8 lg:p-12 rounded-2xl relative overflow-hidden">
                 <div className="absolute -left-6 -bottom-6 w-32 h-32 bg-chittoor-earth-light/20 rounded-full blur-2xl"></div>
@@ -223,10 +235,12 @@ const PillarsPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video bg-gradient-to-r from-chittoor-blue-light to-chittoor-blue rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="p-10">
-                  <School className="w-32 h-32 text-white/90" />
-                </div>
+              <div className="aspect-video overflow-hidden shadow-xl rounded-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1551984427-05d5dd9f0f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Rural education in India" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
 
@@ -239,10 +253,12 @@ const PillarsPage = () => {
               variants={fadeIn}
               className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24 items-center"
             >
-              <div className="order-2 lg:order-1 aspect-video bg-gradient-to-r from-chittoor-green-dark to-chittoor-green rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="p-10">
-                  <TestTube className="w-32 h-32 text-white/90" />
-                </div>
+              <div className="order-2 lg:order-1 aspect-video overflow-hidden shadow-xl rounded-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1559700488-2268e5ba7e2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Agricultural innovation in India" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2 bg-gradient-to-r from-chittoor-green-dark/10 to-chittoor-green/10 p-8 lg:p-12 rounded-2xl relative overflow-hidden">
                 <div className="absolute -left-6 -bottom-6 w-32 h-32 bg-chittoor-green-dark/20 rounded-full blur-2xl"></div>
@@ -277,6 +293,57 @@ const PillarsPage = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Sustainable Agriculture Section */}
+            <motion.div 
+              id="sustainable-agriculture"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24 items-center"
+            >
+              <div className="bg-gradient-to-r from-chittoor-green-light/10 to-chittoor-green/10 p-8 lg:p-12 rounded-2xl relative overflow-hidden">
+                <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-chittoor-green-light/20 rounded-full blur-2xl"></div>
+                <div className="relative">
+                  <div className="bg-gradient-to-br from-chittoor-green to-chittoor-green-dark p-4 rounded-full inline-flex mb-6 shadow-lg">
+                    <TreeDeciduous className="w-8 h-8 text-white" />
+                  </div>
+                  <h2 className="text-3xl font-bold mb-4">Sustainable Agriculture</h2>
+                  <p className="text-gray-700 mb-6">
+                    Farmer collectives will run food 'forest farms' with seven layers to renew the soil, build water reservoirs naturally, and enhance biodiversity.
+                    The project is modeled on a successful implementation of a vertical forest farm in Chittoor District, where 70 acres of once-barren land
+                    have been converted to a vertical farm providing monthly revenue in excess of ₹1 lakh per acre.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <h3 className="font-semibold mb-2 text-chittoor-green-dark">Natural Farming</h3>
+                      <p className="text-sm text-gray-600">Chemical-free farming focused on soil health and biodiversity</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <h3 className="font-semibold mb-2 text-chittoor-green-dark">Vertical Farming</h3>
+                      <p className="text-sm text-gray-600">High-yield, space-efficient cultivation with 1000 species</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <h3 className="font-semibold mb-2 text-chittoor-green-dark">Water Management</h3>
+                      <p className="text-sm text-gray-600">Check dams, drip irrigation, and groundwater recharge wells</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <h3 className="font-semibold mb-2 text-chittoor-green-dark">Food Processing</h3>
+                      <p className="text-sm text-gray-600">Value-added products like oils, powders, and dairy items</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="aspect-video overflow-hidden shadow-xl rounded-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1602600203968-7a1c67c12fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Sustainable agriculture in India" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
 
