@@ -48,6 +48,7 @@ const Navbar = () => {
                 <Link 
                   to={item.href}
                   className="text-sm font-medium transition-all hover:text-chittoor-green relative group"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   {item.title}
                   <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
@@ -89,6 +90,7 @@ const Navbar = () => {
                     <Link 
                       to={item.href} 
                       className="text-lg font-medium transition-colors hover:text-chittoor-green"
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       {item.title}
                     </Link>
