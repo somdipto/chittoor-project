@@ -19,6 +19,8 @@ const AboutProjectsSection = () => {
       description: "Distributed solar infrastructure where farmers become energy producers, creating reliable supply and additional revenue streams.",
       bg: "bg-gradient-to-br from-chittoor-green to-chittoor-green-dark",
       status: "active",
+      image: "https://images.unsplash.com/photo-1623060693724-1e59e90a5d74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Solar panels in agricultural setting",
       detailContent: (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -57,6 +59,8 @@ const AboutProjectsSection = () => {
       description: "Farm tours, hands-on experiences, and wellness retreats focusing on Ayurveda and natural healing in rural settings.",
       bg: "bg-gradient-to-br from-chittoor-earth to-chittoor-earth-light",
       status: "planning",
+      image: "https://images.unsplash.com/photo-1552071379-5999089b2c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Rural wellness retreat in India",
       detailContent: (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -102,6 +106,8 @@ const AboutProjectsSection = () => {
       description: "Digital learning hub bridging traditional and future-ready education, bringing rural schools on par with metro cities.",
       bg: "bg-gradient-to-br from-chittoor-blue to-chittoor-blue-dark",
       status: "active",
+      image: "https://images.unsplash.com/photo-1551984427-05d5dd9f0f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Rural education in India",
       detailContent: (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -145,6 +151,8 @@ const AboutProjectsSection = () => {
       description: "Platform for young entrepreneurs to test concepts aligned with sustainability pillars, fostering practical solutions.",
       bg: "bg-gradient-to-br from-chittoor-green-dark to-chittoor-green",
       status: "planning",
+      image: "https://images.unsplash.com/photo-1559700488-2268e5ba7e2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Agricultural innovation in India",
       detailContent: (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -189,6 +197,8 @@ const AboutProjectsSection = () => {
       description: "Food 'forest farms' with seven layers to renew soil, build water reservoirs naturally, and enhance biodiversity.",
       bg: "bg-gradient-to-br from-chittoor-green to-chittoor-green-dark",
       status: "active",
+      image: "https://images.unsplash.com/photo-1602600203968-7a1c67c12fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Sustainable agriculture in India",
       detailContent: (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -305,9 +315,16 @@ const AboutProjectsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
         >
-          {pillars.slice(0, 4).map((pillar, index) => (
+          {pillars.map((pillar, index) => (
             <motion.div variants={item} key={index} id={pillar.title.toLowerCase().replace(/\s+/g, '-')}>
               <Card className="rounded-xl overflow-hidden shadow-lg border-none h-full hover:shadow-xl transition-shadow duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={pillar.image} 
+                    alt={pillar.imageAlt} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="h-2 bg-gradient-to-r from-chittoor-green to-chittoor-green-light"></div>
                 <CardContent className="flex flex-col p-0">
                   <div className="p-6">
@@ -371,56 +388,6 @@ const AboutProjectsSection = () => {
             </Link>
           </motion.div>
         </div>
-        
-        {/* Sustainable Agriculture Section */}
-        <motion.div 
-          id="sustainable-agriculture"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mb-16"
-        >
-          <h3 className="text-2xl font-semibold mb-6">Sustainable Agriculture</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Sustainable farming practices" 
-                className="rounded-lg w-full h-64 object-cover"
-              />
-            </div>
-            <div>
-              <p className="text-gray-700 mb-4">
-                Farmer collectives will run food 'forest farms' with seven layers to renew the soil, build water reservoirs naturally, and enhance biodiversity. The project is modeled on a successful implementation of a vertical forest farm in Chittoor District.
-              </p>
-              <p className="text-gray-700 mb-4">
-                The initiative started with 600 acres in Chittoor district, where landowners have contributed to a farmer-operated co-operative. Based on the overwhelming response, we are expanding aggressively to 6,000 acres by December and 60,000 acres within 24 months.
-              </p>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="outline" className="border-chittoor-green text-chittoor-green hover:bg-chittoor-green/10">
-                    Read more about our agriculture projects
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[800px] max-h-[80vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl flex items-center gap-2">
-                      <div className="p-2 rounded-full bg-gradient-to-br from-chittoor-green to-chittoor-green-dark">
-                        <TreeDeciduous className="h-6 w-6 text-white" />
-                      </div>
-                      <span>Sustainable Agriculture</span>
-                    </DialogTitle>
-                    <DialogDescription>
-                      Project Chittoor Initiative
-                    </DialogDescription>
-                  </DialogHeader>
-                  {pillars[4].detailContent}
-                </DialogContent>
-              </Dialog>
-            </div>
-          </div>
-        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
