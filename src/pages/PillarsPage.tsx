@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -18,6 +18,19 @@ const PillarsPage = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
   };
 
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -35,10 +48,39 @@ const PillarsPage = () => {
                 Project Chittoor reverses rural-to-urban migration by providing farmers with the tools they need
                 to thrive on their land, serving as a blueprint for rural revitalization across India.
               </p>
+              
+              {/* Quick navigation links */}
+              <div className="flex flex-wrap justify-center gap-3 mt-8">
+                <button 
+                  onClick={() => scrollToSection('renewable-energy')}
+                  className="px-4 py-2 bg-chittoor-green/10 text-chittoor-green rounded-full text-sm hover:bg-chittoor-green/20 transition-all"
+                >
+                  Renewable Energy
+                </button>
+                <button 
+                  onClick={() => scrollToSection('agro-wellness')}
+                  className="px-4 py-2 bg-chittoor-earth/10 text-chittoor-earth rounded-full text-sm hover:bg-chittoor-earth/20 transition-all"
+                >
+                  Agro-Wellness
+                </button>
+                <button 
+                  onClick={() => scrollToSection('education')}
+                  className="px-4 py-2 bg-chittoor-blue/10 text-chittoor-blue rounded-full text-sm hover:bg-chittoor-blue/20 transition-all"
+                >
+                  Education
+                </button>
+                <button 
+                  onClick={() => scrollToSection('innovation')}
+                  className="px-4 py-2 bg-chittoor-green-dark/10 text-chittoor-green-dark rounded-full text-sm hover:bg-chittoor-green-dark/20 transition-all"
+                >
+                  Innovation
+                </button>
+              </div>
             </motion.div>
 
             {/* Renewable Energy Section */}
             <motion.div 
+              id="renewable-energy"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -88,6 +130,7 @@ const PillarsPage = () => {
 
             {/* Agro-Wellness Tourism Section */}
             <motion.div 
+              id="agro-wellness"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -138,6 +181,7 @@ const PillarsPage = () => {
 
             {/* Transformative Education Section */}
             <motion.div 
+              id="education"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -188,6 +232,7 @@ const PillarsPage = () => {
 
             {/* Test Bed for Innovation */}
             <motion.div 
+              id="innovation"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -237,6 +282,7 @@ const PillarsPage = () => {
 
             {/* Impact Section */}
             <motion.div 
+              id="impact"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

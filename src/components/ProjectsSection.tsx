@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Battery, Leaf, School, TestTube, Factory } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ProjectsSection = () => {
+  const isMobile = useIsMobile();
+
   const projects = [
     {
       title: "Sustainable Agriculture",
@@ -207,26 +210,31 @@ const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {projects.map((project, index) => (
             <Card key={index} className="project-card overflow-hidden border-none shadow-lg">
-              <div className="bg-white h-48 flex items-center justify-center">
+              <div className={`bg-white ${isMobile ? 'h-32' : 'h-48'} flex items-center justify-center`}>
                 <div className="w-full h-full flex items-center justify-center bg-gray-50">
                   {project.icon}
                 </div>
               </div>
-              <CardHeader className="pb-2">
-                <div className="flex justify-between items-center">
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <span className={`text-xs px-2 py-1 rounded ${project.status === 'active' ? 'bg-green-100 text-chittoor-green' : 'bg-blue-100 text-chittoor-blue'}`}>
+              <CardHeader className={`${isMobile ? 'py-3' : 'pb-2'}`}>
+                <div className="flex justify-between items-start">
+                  <CardTitle className={`${isMobile ? 'text-lg' : 'text-xl'}`}>{project.title}</CardTitle>
+                  <span className={`text-xs px-2 py-1 rounded ml-2 ${project.status === 'active' ? 'bg-green-100 text-chittoor-green' : 'bg-blue-100 text-chittoor-blue'}`}>
                     {project.status === 'active' ? 'Active' : 'Planning'}
                   </span>
                 </div>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm">{project.description}</p>
+              <CardContent className={isMobile ? 'py-2' : ''}>
+                <p className={`text-gray-600 ${isMobile ? 'text-xs line-clamp-3' : 'text-sm'}`}>
+                  {project.description}
+                </p>
               </CardContent>
-              <CardFooter className="pt-0">
+              <CardFooter className={`pt-0 ${isMobile ? 'pb-4' : ''}`}>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="ghost" className="text-chittoor-blue hover:text-chittoor-blue-dark hover:bg-chittoor-blue/10 p-0">
+                    <Button 
+                      variant="ghost" 
+                      className={`text-chittoor-blue hover:text-chittoor-blue-dark hover:bg-chittoor-blue/10 p-0 ${isMobile ? 'text-sm' : ''}`}
+                    >
                       Learn more →
                     </Button>
                   </DialogTrigger>

@@ -24,7 +24,10 @@ const Footer = () => {
               <div className="p-2 bg-gradient-to-br from-chittoor-green to-chittoor-green-dark rounded-full shadow-md">
                 <Flower className="w-6 h-6 text-white" />
               </div>
-              <span className="font-semibold text-xl">Chittoor Project</span>
+              <div className="flex flex-col">
+                <span className="font-semibold text-xl">Chittoor Project</span>
+                <span className="text-xs text-gray-500">Rural Revitalization Initiative</span>
+              </div>
             </Link>
             <p className="text-gray-600 mb-6">
               Reshaping rural development in Andhra Pradesh through sustainable practices, empowering farmers, and fostering community-driven initiatives.
@@ -61,8 +64,8 @@ const Footer = () => {
                 { title: "Home", link: "/", isRoute: true },
                 { title: "About Us", link: "/#about", isRoute: false },
                 { title: "Projects", link: "/#projects", isRoute: false },
-                { title: "News", link: "/#news", isRoute: false },
-                { title: "Contact", link: "/#contact", isRoute: false }
+                { title: "Contact", link: "/#contact", isRoute: false },
+                { title: "Pillars", link: "/pillars", isRoute: true }
               ].map((item, i) => (
                 <motion.li 
                   key={item.title}
@@ -97,10 +100,10 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4 text-gray-800">Project Pillars</h4>
             <ul className="space-y-3">
               {[
-                { title: "Renewable Energy", link: "/pillars", isRoute: true },
-                { title: "Agro-Wellness Tourism", link: "/pillars", isRoute: true },
-                { title: "Transformative Education", link: "/pillars", isRoute: true },
-                { title: "Test Bed for Innovation", link: "/pillars", isRoute: true }
+                { title: "Renewable Energy", link: "/pillars#renewable-energy", isRoute: true },
+                { title: "Agro-Wellness Tourism", link: "/pillars#agro-wellness", isRoute: true },
+                { title: "Transformative Education", link: "/pillars#education", isRoute: true },
+                { title: "Test Bed for Innovation", link: "/pillars#innovation", isRoute: true }
               ].map((item, i) => (
                 <motion.li 
                   key={item.title}
@@ -139,25 +142,23 @@ const Footer = () => {
             className="md:col-span-3"
           >
             <h4 className="font-semibold text-lg mb-4 text-gray-800">Initiative Impact</h4>
-            <ul className="space-y-3">
-              <motion.li
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.7 }}
-                className="mb-4"
-              >
-                <p className="text-gray-600 text-sm">
-                  Starting with 600 acres in Chittoor district, we are expanding to 6,000 acres by December and 60,000 acres within 24 months, creating a template for integrated rural development nationwide.
-                </p>
-              </motion.li>
-            </ul>
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.7 }}
+              className="mb-4"
+            >
+              <p className="text-gray-600 text-sm">
+                Starting with 600 acres in Chittoor district, we are expanding to 6,000 acres by December and 60,000 acres within 24 months, creating a template for integrated rural development nationwide.
+              </p>
+            </motion.div>
             
             <form className="mt-6">
               <p className="text-gray-600 mb-4">Subscribe to our newsletter for updates on our projects and events.</p>
-              <div className="flex gap-2">
-                <Input placeholder="Your email" className="flex-1 rounded-l-full rounded-r-none border-r-0" />
-                <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 rounded-l-none rounded-r-full">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Input placeholder="Your email" className="flex-1 sm:rounded-l-full sm:rounded-r-none sm:border-r-0" />
+                <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-90 sm:rounded-l-none sm:rounded-r-full w-full sm:w-auto">
                   Subscribe
                 </Button>
               </div>
