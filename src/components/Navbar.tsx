@@ -11,7 +11,6 @@ const Navbar = () => {
     { title: "Home", href: "/" },
     { title: "About Us", href: "/#about" },
     { title: "Projects", href: "/#projects" },
-    { title: "News", href: "/#news" },
     { title: "Contact", href: "/#contact" },
     { title: "Pillars", href: "/pillars" },
   ];
@@ -29,7 +28,10 @@ const Navbar = () => {
             <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full shadow-md">
               <Flower className="w-6 h-6 text-white" />
             </div>
-            <span className="font-semibold text-xl">Chittoor Project</span>
+            <div className="flex flex-col">
+              <span className="font-semibold text-xl tracking-tight">Chittoor Project</span>
+              <span className="text-xs text-gray-500 -mt-1">Rural Revitalization Initiative</span>
+            </div>
           </Link>
         </motion.div>
         
