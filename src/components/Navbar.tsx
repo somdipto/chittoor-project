@@ -37,7 +37,7 @@ const Navbar = () => {
               <Flower className="w-6 h-6 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-xl tracking-tight">Project Chittor</span>
+              <span className="font-semibold text-xl tracking-tight">Chittoor Project</span>
               <span className="text-xs text-gray-500 -mt-1">Rural Revitalization Initiative</span>
             </div>
           </Link>
