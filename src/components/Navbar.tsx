@@ -38,7 +38,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-semibold text-xl tracking-tight">Chittoor Project</span>
-              <span className="text-xs text-gray-500 -mt-1">Rural Revitalization Initiative</span>
+              
             </div>
           </Link>
         </motion.div>
