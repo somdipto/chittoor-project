@@ -108,20 +108,21 @@ html {
 .kolam-decoration::before {
   content: "";
   position: absolute;
-  height: 40px;
-  width: 90%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30' width='200' height='30'%3E%3Cpath d='M10,15 A5,5 0 1,0 20,15 A5,5 0 1,0 10,15 Z M30,15 A5,5 0 1,0 40,15 A5,5 0 1,0 30,15 Z M50,15 A5,5 0 1,0 60,15 A5,5 0 1,0 50,15 Z M70,15 A5,5 0 1,0 80,15 A5,5 0 1,0 70,15 Z M90,15 A5,5 0 1,0 100,15 A5,5 0 1,0 90,15 Z M110,15 A5,5 0 1,0 120,15 A5,5 0 1,0 110,15 Z M130,15 A5,5 0 1,0 140,15 A5,5 0 1,0 130,15 Z M150,15 A5,5 0 1,0 160,15 A5,5 0 1,0 150,15 Z M170,15 A5,5 0 1,0 180,15 A5,5 0 1,0 170,15 Z M190,15 A5,5 0 1,0 200,15 A5,5 0 1,0 190,15 Z' fill='%232E7D32' fill-opacity='0.15'/%3E%3C/svg%3E");
+  height: 50px;
+  width: 95%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' width='400' height='60'%3E%3Cpath d='M20,30 A10,10 0 1,0 40,30 A10,10 0 1,0 20,30 Z M60,30 A10,10 0 1,0 80,30 A10,10 0 1,0 60,30 Z M100,30 A10,10 0 1,0 120,30 A10,10 0 1,0 100,30 Z M140,30 A10,10 0 1,0 160,30 A10,10 0 1,0 140,30 Z M180,30 A10,10 0 1,0 200,30 A10,10 0 1,0 180,30 Z M220,30 A10,10 0 1,0 240,30 A10,10 0 1,0 220,30 Z M260,30 A10,10 0 1,0 280,30 A10,10 0 1,0 260,30 Z M300,30 A10,10 0 1,0 320,30 A10,10 0 1,0 300,30 Z M340,30 A10,10 0 1,0 360,30 A10,10 0 1,0 340,30 Z M380,30 A10,10 0 1,0 400,30 A10,10 0 1,0 380,30 Z' fill='%232E7D32' fill-opacity='0.25'/%3E%3Cpath d='M0,15 Q50,5 100,15 T200,15 T300,15 T400,15' stroke='%231976D2' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M0,45 Q50,55 100,45 T200,45 T300,45 T400,45' stroke='%23D84315' stroke-width='2' fill='none' opacity='0.3'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  bottom: -15px;
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0.6;
 }
 
 @media (max-width: 640px) {
   .kolam-decoration::before {
-    height: 30px;
-    width: 95%;
-    bottom: -10px;
+    height: 40px;
+    width: 98%;
+    bottom: -20px;
   }
 }
 
@@ -129,22 +130,53 @@ html {
   transition: all 0.4s ease;
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(46, 125, 50, 0.03) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15), 
+    0 0 0 1px rgba(46, 125, 50, 0.1),
+    0 0 30px rgba(46, 125, 50, 0.1);
 }
 
 .news-card {
   transition: all 0.4s ease;
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
+}
+
+.news-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(25, 118, 210, 0.03) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.15), 
+    0 0 0 1px rgba(25, 118, 210, 0.1);
 }
 
 @keyframes float {
@@ -159,46 +191,111 @@ html {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Subtle leaf pattern for background sections */
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Enhanced leaf pattern for background sections */
 .leaf-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20,0 Q30,10 20,20 Q10,30 20,40 Q30,30 40,20 Q30,10 20,0 Z' stroke='%232E7D32' fill='none' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E");
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30,5 Q45,15 30,30 Q15,45 30,55 Q45,45 60,30 Q45,15 30,5 Z' stroke='%232E7D32' fill='none' stroke-width='1' opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='20' stroke='%231976D2' fill='none' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20,0 Q30,10 20,20 Q10,30 20,40 Q30,30 40,20 Q30,10 20,0 Z' stroke='%23D84315' fill='none' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 60px 60px, 40px 40px;
+  background-position: 0 0, 30px 30px;
 }
 
-/* Green gradient buttons */
+/* Enhanced gradient buttons */
 .btn-green-gradient {
-  @apply bg-gradient-to-r from-chittoor-green-light to-chittoor-green hover:from-chittoor-green hover:to-chittoor-green-dark transition-all duration-300 text-white shadow-md shadow-chittoor-green/20;
+  @apply bg-gradient-to-r from-chittoor-green-light to-chittoor-green hover:from-chittoor-green hover:to-chittoor-green-dark transition-all duration-300 text-white shadow-lg shadow-chittoor-green/30 hover:shadow-xl hover:shadow-chittoor-green/40 transform hover:scale-105;
 }
 
-/* Xcelerator page specific styles */
-.xcelerator-gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600;
+/* Textured backgrounds */
+.textured-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(46, 125, 50, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(25, 118, 210, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(216, 67, 21, 0.05) 0%, transparent 50%);
 }
 
-.xcelerator-card {
-  @apply bg-white/80 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+/* Glass morphism effects */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-xl;
+}
+
+.glass-card:hover {
+  @apply bg-white/80 shadow-2xl transform -translate-y-1;
 }
 
 /* Enhanced animations */
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
     opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
 .animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
 }
 
 @keyframes slide-up-fade {
   0% {
-    transform: translateY(20px);
+    transform: translateY(30px);
     opacity: 0;
   }
   100% {
@@ -208,17 +305,12 @@ html {
 }
 
 .animate-slide-up-fade {
-  animation: slide-up-fade 0.7s ease-out forwards;
-}
-
-/* Smooth scrolling for anchor links */
-a[href^="#"] {
-  scroll-behavior: smooth;
+  animation: slide-up-fade 0.8s ease-out forwards;
 }
 
 /* Improved focus styles for accessibility */
 button:focus, a:focus, input:focus, textarea:focus {
-  @apply outline-none ring-2 ring-chittoor-green ring-opacity-50;
+  @apply outline-none ring-4 ring-chittoor-green ring-opacity-50 ring-offset-2;
 }
 
 /* Mobile optimizations */
@@ -234,4 +326,21 @@ button:focus, a:focus, input:focus, textarea:focus {
   h2 {
     @apply text-2xl;
   }
+  
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-sm;
+  }
+}
+
+/* Decorative elements */
+.decorative-dots {
+  background-image: radial-gradient(circle, rgba(46, 125, 50, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.decorative-lines {
+  background-image: 
+    linear-gradient(90deg, rgba(46, 125, 50, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(25, 118, 210, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
