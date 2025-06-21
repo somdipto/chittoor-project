@@ -8,6 +8,7 @@ import { pillarsData } from '@/data/pillarData';
 import PillarCard from './PillarCard';
 import MissionSection from './MissionSection';
 import ImpactSection from './ImpactSection';
+import PillarsDropdown from './PillarsDropdown';
 
 const AboutProjectsSection = () => {
   const container = {
@@ -36,7 +37,8 @@ const AboutProjectsSection = () => {
             It aims to reverse rural-to-urban migration and empower farmers to thrive on their own land.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
+            <PillarsDropdown />
             <button 
               onClick={() => document.getElementById('renewable-energy')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-4 py-2 bg-chittoor-green/10 text-chittoor-green rounded-full text-sm hover:bg-chittoor-green/20 transition-all"
