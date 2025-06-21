@@ -1,8 +1,14 @@
-
-import React from 'react';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import React from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Pillar } from '@/data/pillarData';
+import { Pillar } from "@/data/pillarData";
 
 interface PillarDialogProps {
   pillar: Pillar;
@@ -12,31 +18,35 @@ interface PillarDialogProps {
 const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[900px] max-h-[85vh] overflow-y-auto p-0 border-0 bg-gradient-to-br from-white via-gray-50 to-chittoor-green/5">
         <div className="relative">
           {/* Colorful header with gradient background */}
-          <div className={`bg-gradient-to-r ${pillar.bg.replace('bg-', 'from-')} to-chittoor-green/20 p-8 rounded-t-lg relative overflow-hidden`}>
+          <div
+            className={`bg-gradient-to-r ${pillar.bg.replace("bg-", "from-")} to-chittoor-green/20 p-8 rounded-t-lg relative overflow-hidden`}
+          >
             {/* Decorative pattern overlay */}
             <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,0 L60,30 L30,60 L0,30 Z' fill='%23ffffff'/%3E%3C/svg%3E')] bg-repeat"></div>
-            
+
             <DialogHeader className="relative z-10">
               <DialogTitle className="text-3xl flex items-center gap-4 text-white drop-shadow-lg">
-                <div className={`p-4 rounded-2xl bg-white/20 backdrop-blur-sm shadow-xl border border-white/30 group-hover:scale-110 transition-all duration-300`}>
-                  <div className="text-white text-2xl">
-                    {pillar.icon}
-                  </div>
+                <div
+                  className={`p-4 rounded-2xl bg-white/20 backdrop-blur-sm shadow-xl border border-white/30 group-hover:scale-110 transition-all duration-300`}
+                >
+                  <div className="text-white text-2xl">{pillar.icon}</div>
                 </div>
                 <div>
                   <span className="block">{pillar.title}</span>
-                  <span className={`inline-block text-sm px-3 py-1 rounded-full mt-2 font-medium ${
-                    pillar.status === 'active' 
-                      ? 'bg-green-500/20 text-green-100 border border-green-300/30' 
-                      : 'bg-blue-500/20 text-blue-100 border border-blue-300/30'
-                  }`}>
-                    {pillar.status === 'active' ? '🟢 Active Project' : '🔵 In Planning'}
+                  <span
+                    className={`inline-block text-sm px-3 py-1 rounded-full mt-2 font-medium ${
+                      pillar.status === "active"
+                        ? "bg-green-500/20 text-green-100 border border-green-300/30"
+                        : "bg-blue-500/20 text-blue-100 border border-blue-300/30"
+                    }`}
+                  >
+                    {pillar.status === "active"
+                      ? "🟢 Active Project"
+                      : "🔵 In Planning"}
                   </span>
                 </div>
               </DialogTitle>
@@ -69,13 +79,21 @@ const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
             </div>
 
             {/* Colorful call-to-action section */}
-            <div className={`bg-gradient-to-r ${pillar.bg.replace('bg-', 'from-')}/10 to-chittoor-green/5 p-6 rounded-xl border border-gray-200/50`}>
+            <div
+              className={`bg-gradient-to-r ${pillar.bg.replace("bg-", "from-")}/10 to-chittoor-green/5 p-6 rounded-xl border border-gray-200/50`}
+            >
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Get Involved</h4>
-                  <p className="text-sm text-gray-600">Learn more about how you can contribute to this initiative</p>
+                  <h4 className="font-semibold text-gray-800 mb-1">
+                    Get Involved
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Learn more about how you can contribute to this initiative
+                  </p>
                 </div>
-                <Button className={`bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 rounded-full`}>
+                <Button
+                  className={`bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 rounded-full`}
+                >
                   Contact Us
                 </Button>
               </div>
@@ -83,7 +101,9 @@ const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
           </div>
 
           {/* Decorative bottom accent */}
-          <div className={`h-2 bg-gradient-to-r ${pillar.bg.replace('bg-', 'from-')} to-chittoor-green rounded-b-lg`}></div>
+          <div
+            className={`h-2 bg-gradient-to-r ${pillar.bg.replace("bg-", "from-")} to-chittoor-green rounded-b-lg`}
+          ></div>
         </div>
       </DialogContent>
     </Dialog>

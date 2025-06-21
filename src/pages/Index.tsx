@@ -1,10 +1,9 @@
-
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import AboutProjectsSection from '@/components/AboutProjectsSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
+import React from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import AboutProjectsSection from "@/components/AboutProjectsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
