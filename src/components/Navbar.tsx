@@ -1,10 +1,15 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Flower, Menu } from "lucide-react";
+import { Flower, Menu, ArrowLeft } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 const Navbar = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  
   const navItems = [
     {
       title: "Home",
@@ -36,27 +41,45 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2"
-        >
-          <Link
-            to="/"
+        <div className="flex items-center gap-4">
+          {/* Back Button for non-home pages */}
+          {!isHomePage && (
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Link
+                to="/"
+                className="flex items-center text-chittoor-green hover:text-chittoor-green-dark transition-colors p-2 rounded-full hover:bg-gray-100"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </Link>
+            </motion.div>
+          )}
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
             className="flex items-center gap-2"
-            onClick={() => setIsOpen(false)}
           >
-            <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full">
-              <Flower className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-semibold text-lg sm:text-xl tracking-tight">
-                Chittoor Project
-              </span>
-            </div>
-          </Link>
-        </motion.div>
+            <Link
+              to="/"
+              className="flex items-center gap-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full">
+                <Flower className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-lg sm:text-xl tracking-tight">
+                  Chittoor Project
+                </span>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-4 lg:gap-6">
@@ -91,12 +114,11 @@ const Navbar = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <Button
-              className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark shadow-md rounded-full px-4 sm:px-6 text-sm sm:text-base"
-              onClick={() => (window.location.href = "#donate")}
-            >
-              Donate
-            </Button>
+            <Link to="/donate">
+              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark shadow-md rounded-full px-4 sm:px-6 text-sm sm:text-base">
+                Donate
+              </Button>
+            </Link>
           </motion.div>
         </nav>
 
@@ -139,15 +161,14 @@ const Navbar = () => {
                   ))}
                 </div>
                 <div className="pt-4 border-t mt-auto">
-                  <Button
-                    className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark rounded-full py-6 text-base"
-                    onClick={() => {
-                      setIsOpen(false);
-                      window.location.href = "#donate";
-                    }}
-                  >
-                    Donate Now
-                  </Button>
+                  <Link to="/donate">
+                    <Button
+                      className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:bg-chittoor-green-dark rounded-full py-6 text-base"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Donate Now
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>

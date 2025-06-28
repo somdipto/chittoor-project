@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -111,19 +112,35 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#about-projects"
+                  href="/#about"
+                  className="text-gray-600 hover:text-chittoor-green"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#projects"
                   className="text-gray-600 hover:text-chittoor-green"
                 >
                   About Project
                 </a>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/donate"
+                  className="text-gray-600 hover:text-chittoor-green"
+                >
+                  Donate
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
                   className="text-gray-600 hover:text-chittoor-green"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
