@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -16,20 +17,44 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 type CollaborationType = "individual" | "organization" | "volunteer" | "other";
 
 const CollaboratePage = () => {
   const [activeTab, setActiveTab] = useState<CollaborationType>("individual");
   const [formData, setFormData] = useState({
+    // Personal Details
     name: "",
     email: "",
     phone: "",
+    address: "",
+    
+    // Organization Details
     organization: "",
-    role: "",
-    message: "",
+    designation: "",
+    organizationType: "",
+    
+    // Professional Details
+    qualification: "",
+    experience: "",
+    currentWork: "",
+    skills: "",
+    expertise: "",
+    
+    // Collaboration Details
     interests: [] as string[],
+    availability: "",
+    contribution: "",
+    motivation: "",
+    previousExperience: "",
+    
+    // Additional
+    message: "",
+    linkedIn: "",
+    portfolio: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,18 +64,21 @@ const CollaboratePage = () => {
       id: "individual",
       title: "Individual",
       icon: <Users className="w-5 h-5" />,
+      description: "Professionals & Experts"
     },
     {
       id: "organization",
       title: "Organization",
       icon: <Handshake className="w-5 h-5" />,
+      description: "Companies & NGOs"
     },
     {
       id: "volunteer",
       title: "Volunteer",
       icon: <Target className="w-5 h-5" />,
+      description: "Students & Activists"
     },
-    { id: "other", title: "Other", icon: <Lightbulb className="w-5 h-5" /> },
+    { id: "other", title: "Other", icon: <Lightbulb className="w-5 h-5" />, description: "Custom Collaboration" },
   ];
 
   const interestOptions = [
@@ -62,6 +90,8 @@ const CollaboratePage = () => {
     "Technology & Innovation",
     "Infrastructure Development",
     "Environmental Conservation",
+    "Community Development",
+    "Research & Development"
   ];
 
   const handleChange = (
@@ -71,6 +101,13 @@ const CollaboratePage = () => {
     setFormData((prev) => ({
       ...prev,
       [id]: value,
+    }));
+  };
+
+  const handleSelectChange = (field: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
     }));
   };
 
@@ -93,21 +130,29 @@ const CollaboratePage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Prepare data for email
+    const emailData = {
+      collaborationType: activeTab,
+      submissionDate: new Date().toISOString(),
+      ...formData,
+      interests: formData.interests.join(", ")
+    };
+
+    console.log("Collaboration form submitted:", emailData);
+    
+    // Here you would typically send this data to your backend
+    // For now, we'll just simulate the submission
     setTimeout(() => {
-      console.log("Form submitted:", { ...formData, type: activeTab });
       setIsSubmitting(false);
       setIsSubmitted(true);
-
-      // Reset form after submission
+      
+      // Reset form
       setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        organization: "",
-        role: "",
-        message: "",
-        interests: [],
+        name: "", email: "", phone: "", address: "", organization: "",
+        designation: "", organizationType: "", qualification: "", experience: "",
+        currentWork: "", skills: "", expertise: "", interests: [],
+        availability: "", contribution: "", motivation: "", previousExperience: "",
+        message: "", linkedIn: "", portfolio: ""
       });
     }, 1500);
   };
@@ -122,133 +167,77 @@ const CollaboratePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30 pt-24 pb-16">
-      <div className="container px-4 sm:px-6 mx-auto">
-        {/* Hero Section */}
-        <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
-            Let's Collaborate
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Join hands with us to create sustainable impact in Chittoor.
-            Together, we can build a better future.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
+      <Navbar />
+      <div className="pt-24 pb-16">
+        <div className="container px-4 sm:px-6 mx-auto">
+          {/* Hero Section */}
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
+              Join Our Mission
+            </h1>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Be part of transforming Chittoor district. Your skills, expertise, and passion can make a real difference.
+            </p>
+          </motion.div>
 
-        {/* Collaboration Types */}
-        <motion.div className="mb-16" variants={fadeIn}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {collaborationTypes.map((type) => (
-              <button
-                key={type.id}
-                onClick={() => setActiveTab(type.id as CollaborationType)}
-                className={`flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 ${
-                  activeTab === type.id
-                    ? "bg-chittoor-green/10 border-2 border-chittoor-green text-chittoor-green shadow-md"
-                    : "bg-white border border-gray-200 hover:border-chittoor-green/30 hover:shadow-md"
-                }`}
-              >
-                <div className="p-3 rounded-full bg-chittoor-green/10 text-chittoor-green mb-3">
-                  {type.icon}
+          {/* Collaboration Types */}
+          <motion.div className="mb-16" variants={fadeIn}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {collaborationTypes.map((type) => (
+                <button
+                  key={type.id}
+                  onClick={() => setActiveTab(type.id as CollaborationType)}
+                  className={`flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 ${
+                    activeTab === type.id
+                      ? "bg-chittoor-green/10 border-2 border-chittoor-green text-chittoor-green shadow-md"
+                      : "bg-white border border-gray-200 hover:border-chittoor-green/30 hover:shadow-md"
+                  }`}
+                >
+                  <div className="p-3 rounded-full bg-chittoor-green/10 text-chittoor-green mb-3">
+                    {type.icon}
+                  </div>
+                  <h3 className="font-semibold text-sm">{type.title}</h3>
+                  <p className="text-xs text-gray-500 mt-1 text-center">{type.description}</p>
+                </button>
+              ))}
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gray-100">
+              {isSubmitted ? (
+                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 rounded-xl">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle2 className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Thank You for Your Interest!
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    We've received your collaboration request. Our team will review your profile and get back to you within 2-3 business days.
+                  </p>
+                  <Button
+                    onClick={() => setIsSubmitted(false)}
+                    className="bg-chittoor-green hover:bg-chittoor-green-dark"
+                  >
+                    Submit Another Request
+                  </Button>
                 </div>
-                <h3 className="font-semibold">{type.title}</h3>
-              </button>
-            ))}
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gray-100">
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="md:w-1/2">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">
-                  {activeTab === "individual" && "Individual Partnership"}
-                  {activeTab === "organization" && "Organizational Partnership"}
-                  {activeTab === "volunteer" && "Volunteer With Us"}
-                  {activeTab === "other" && "Other Collaboration"}
-                </h2>
-
-                {activeTab === "individual" && (
-                  <p className="text-gray-600 mb-6">
-                    Your skills and expertise can make a real difference. Join
-                    us as an individual contributor and be part of our mission
-                    to transform Chittoor.
-                  </p>
-                )}
-
-                {activeTab === "organization" && (
-                  <p className="text-gray-600 mb-6">
-                    Partner with us to create lasting impact. Let's combine our
-                    strengths to drive sustainable development in Chittoor.
-                  </p>
-                )}
-
-                {activeTab === "volunteer" && (
-                  <p className="text-gray-600 mb-6">
-                    Join our team of dedicated volunteers and contribute your
-                    time and skills to meaningful projects that transform lives.
-                  </p>
-                )}
-
-                {activeTab === "other" && (
-                  <p className="text-gray-600 mb-6">
-                    Have a unique idea or proposal? We're open to innovative
-                    collaborations that align with our mission.
-                  </p>
-                )}
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-chittoor-green mt-0.5 flex-shrink-0" />
-                    <span>Make a meaningful impact in Chittoor district</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-chittoor-green mt-0.5 flex-shrink-0" />
-                    <span>
-                      Access to a network of like-minded individuals and
-                      organizations
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-chittoor-green mt-0.5 flex-shrink-0" />
-                    <span>
-                      Opportunities for personal and professional growth
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="md:w-1/2">
-                {isSubmitted ? (
-                  <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 rounded-xl">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                      <CheckCircle2 className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Thank You!
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Personal Information */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                      Personal Information
                     </h3>
-                    <p className="text-gray-600 mb-6">
-                      We've received your collaboration request. Our team will
-                      get back to you soon.
-                    </p>
-                    <Button
-                      onClick={() => setIsSubmitted(false)}
-                      className="bg-chittoor-green hover:bg-chittoor-green-dark"
-                    >
-                      Submit Another Request
-                    </Button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 gap-4">
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-gray-700 mb-1"
-                        >
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                           Full Name *
                         </label>
                         <Input
@@ -257,222 +246,377 @@ const CollaboratePage = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="h-11"
+                          placeholder="Enter your full name"
                         />
                       </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label
-                            htmlFor="email"
-                            className="block text-sm font-medium text-gray-700 mb-1"
-                          >
-                            Email *
-                          </label>
-                          <Input
-                            id="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="h-11"
-                          />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="phone"
-                            className="block text-sm font-medium text-gray-700 mb-1"
-                          >
-                            Phone
-                          </label>
-                          <Input
-                            id="phone"
-                            type="tel"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="h-11"
-                          />
-                        </div>
+                      
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                          Email Address *
+                        </label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="your.email@example.com"
+                        />
                       </div>
+                    </div>
 
-                      {(activeTab === "organization" ||
-                        activeTab === "volunteer") && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                          Phone Number *
+                        </label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                          placeholder="+91 9876543210"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                          Current Location
+                        </label>
+                        <Input
+                          id="address"
+                          type="text"
+                          value={formData.address}
+                          onChange={handleChange}
+                          placeholder="City, State"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Organization Details (for Organization type) */}
+                  {activeTab === "organization" && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                        Organization Details
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label
-                            htmlFor="organization"
-                            className="block text-sm font-medium text-gray-700 mb-1"
-                          >
-                            {activeTab === "organization"
-                              ? "Organization Name"
-                              : "Current Organization/Institution"}
+                          <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-1">
+                            Organization Name *
                           </label>
                           <Input
                             id="organization"
                             type="text"
                             value={formData.organization}
                             onChange={handleChange}
-                            className="h-11"
+                            required
+                            placeholder="Your organization name"
                           />
                         </div>
-                      )}
-
-                      <div>
-                        <label
-                          htmlFor="role"
-                          className="block text-sm font-medium text-gray-700 mb-1"
-                        >
-                          {activeTab === "organization"
-                            ? "Your Role"
-                            : "How would you like to contribute?"}{" "}
-                          *
-                        </label>
-                        <Input
-                          id="role"
-                          type="text"
-                          value={formData.role}
-                          onChange={handleChange}
-                          required
-                          className="h-11"
-                          placeholder={
-                            activeTab === "organization"
-                              ? "E.g., CEO, Project Manager"
-                              : "E.g., Web Development, Teaching, Fundraising"
-                          }
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Areas of Interest
-                        </label>
-                        <div className="flex flex-wrap gap-2">
-                          {interestOptions.map((interest) => (
-                            <button
-                              key={interest}
-                              type="button"
-                              onClick={() => handleInterestToggle(interest)}
-                              className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
-                                formData.interests.includes(interest)
-                                  ? "bg-chittoor-green/10 text-chittoor-green border border-chittoor-green/20"
-                                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
-                              }`}
-                            >
-                              {interest}
-                            </button>
-                          ))}
+                        
+                        <div>
+                          <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-1">
+                            Your Designation *
+                          </label>
+                          <Input
+                            id="designation"
+                            type="text"
+                            value={formData.designation}
+                            onChange={handleChange}
+                            required
+                            placeholder="CEO, Manager, Director, etc."
+                          />
                         </div>
                       </div>
 
                       <div>
-                        <label
-                          htmlFor="message"
-                          className="block text-sm font-medium text-gray-700 mb-1"
-                        >
-                          {activeTab === "organization"
-                            ? "Tell us about your organization and how you'd like to collaborate"
-                            : "Tell us more about yourself and how you'd like to get involved"}
-                          *
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Organization Type *
                         </label>
-                        <Textarea
-                          id="message"
-                          value={formData.message}
+                        <Select onValueChange={(value) => handleSelectChange('organizationType', value)}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select organization type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="corporate">Corporate/Private Company</SelectItem>
+                            <SelectItem value="ngo">NGO/Non-Profit</SelectItem>
+                            <SelectItem value="government">Government Agency</SelectItem>
+                            <SelectItem value="educational">Educational Institution</SelectItem>
+                            <SelectItem value="healthcare">Healthcare Organization</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Professional Background */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                      Professional Background
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="qualification" className="block text-sm font-medium text-gray-700 mb-1">
+                          Highest Qualification *
+                        </label>
+                        <Input
+                          id="qualification"
+                          type="text"
+                          value={formData.qualification}
                           onChange={handleChange}
                           required
-                          rows={4}
-                          className="min-h-[120px]"
+                          placeholder="B.Tech, MBA, M.Sc, etc."
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+                          Years of Experience *
+                        </label>
+                        <Select onValueChange={(value) => handleSelectChange('experience', value)}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select experience" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-1">0-1 years</SelectItem>
+                            <SelectItem value="2-5">2-5 years</SelectItem>
+                            <SelectItem value="6-10">6-10 years</SelectItem>
+                            <SelectItem value="11-15">11-15 years</SelectItem>
+                            <SelectItem value="15+">15+ years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="currentWork" className="block text-sm font-medium text-gray-700 mb-1">
+                        Current Work/Position *
+                      </label>
+                      <Input
+                        id="currentWork"
+                        type="text"
+                        value={formData.currentWork}
+                        onChange={handleChange}
+                        required
+                        placeholder="Your current job title and company"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
+                        Key Skills & Competencies *
+                      </label>
+                      <Textarea
+                        id="skills"
+                        value={formData.skills}
+                        onChange={handleChange}
+                        required
+                        rows={3}
+                        placeholder="List your key skills, technologies, and competencies"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="expertise" className="block text-sm font-medium text-gray-700 mb-1">
+                        Area of Expertise *
+                      </label>
+                      <Textarea
+                        id="expertise"
+                        value={formData.expertise}
+                        onChange={handleChange}
+                        required
+                        rows={3}
+                        placeholder="Describe your specific area of expertise and domain knowledge"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Areas of Interest */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                      Areas of Interest
+                    </h3>
+                    <p className="text-sm text-gray-600">Select the pillars you're interested in contributing to:</p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                      {interestOptions.map((interest) => (
+                        <button
+                          key={interest}
+                          type="button"
+                          onClick={() => handleInterestToggle(interest)}
+                          className={`px-3 py-2 text-sm rounded-lg transition-colors text-left ${
+                            formData.interests.includes(interest)
+                              ? "bg-chittoor-green/10 text-chittoor-green border border-chittoor-green/20"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+                          }`}
+                        >
+                          {interest}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Collaboration Details */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                      Collaboration Details
+                    </h3>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Time Availability *
+                      </label>
+                      <Select onValueChange={(value) => handleSelectChange('availability', value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your availability" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="full-time">Full-time commitment</SelectItem>
+                          <SelectItem value="part-time">Part-time (10-20 hours/week)</SelectItem>
+                          <SelectItem value="weekends">Weekends only</SelectItem>
+                          <SelectItem value="occasional">Occasional/Project-based</SelectItem>
+                          <SelectItem value="consulting">Consulting/Advisory role</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="contribution" className="block text-sm font-medium text-gray-700 mb-1">
+                        How would you like to contribute? *
+                      </label>
+                      <Textarea
+                        id="contribution"
+                        value={formData.contribution}
+                        onChange={handleChange}
+                        required
+                        rows={3}
+                        placeholder="Describe specifically how you'd like to contribute to our mission"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="motivation" className="block text-sm font-medium text-gray-700 mb-1">
+                        What motivates you to work with us? *
+                      </label>
+                      <Textarea
+                        id="motivation"
+                        value={formData.motivation}
+                        onChange={handleChange}
+                        required
+                        rows={3}
+                        placeholder="Share your motivation and passion for rural development"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="previousExperience" className="block text-sm font-medium text-gray-700 mb-1">
+                        Previous Experience in Social/Rural Development
+                      </label>
+                      <Textarea
+                        id="previousExperience"
+                        value={formData.previousExperience}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Describe any previous experience in social work, NGO, or rural development projects"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Additional Information */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                      Additional Information
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-1">
+                          LinkedIn Profile
+                        </label>
+                        <Input
+                          id="linkedIn"
+                          type="url"
+                          value={formData.linkedIn}
+                          onChange={handleChange}
+                          placeholder="https://linkedin.com/in/yourprofile"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="portfolio" className="block text-sm font-medium text-gray-700 mb-1">
+                          Portfolio/Website
+                        </label>
+                        <Input
+                          id="portfolio"
+                          type="url"
+                          value={formData.portfolio}
+                          onChange={handleChange}
+                          placeholder="https://yourportfolio.com"
                         />
                       </div>
                     </div>
 
-                    <Button
-                      type="submit"
-                      className="w-full h-11 bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90 text-white mt-4"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg
-                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Submit Request
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </motion.div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Additional Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={4}
+                        placeholder="Any additional information you'd like to share with us"
+                      />
+                    </div>
+                  </div>
 
-        {/* Contact Info */}
-        <motion.div
-          className="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gray-100"
-          variants={fadeIn}
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Have Questions?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Reach out to our team for more information about collaboration
-              opportunities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-12 h-12 rounded-full bg-chittoor-green/10 flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-chittoor-green" />
-              </div>
-              <h3 className="font-medium text-gray-900 mb-1">Email Us</h3>
-              <p className="text-gray-600 text-sm">projectchittor@atria.edu</p>
+                  <Button
+                    type="submit"
+                    className="w-full h-12 bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90 text-white text-lg"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Submitting Application...
+                      </>
+                    ) : (
+                      <>
+                        Submit Application
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )}
             </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-12 h-12 rounded-full bg-chittoor-blue/10 flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-chittoor-blue" />
-              </div>
-              <h3 className="font-medium text-gray-900 mb-1">Call Us</h3>
-              <p className="text-gray-600 text-sm">+91 91779 12670</p>
-              <p className="text-gray-600 text-sm">+91 91410 83323</p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-amber-500" />
-              </div>
-              <h3 className="font-medium text-gray-900 mb-1">Visit Us</h3>
-              <p className="text-gray-600 text-sm">
-                A S Chinnaswamy Community Development Trust, Chittoor, AP, India
-                - 517001
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

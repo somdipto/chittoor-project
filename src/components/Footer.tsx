@@ -103,6 +103,14 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <a
+                  href="/#about"
+                  className="text-gray-600 hover:text-chittoor-green"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
                 <Link
                   to="/pillars"
                   className="text-gray-600 hover:text-chittoor-green"
@@ -112,26 +120,18 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/#about"
-                  className="text-gray-600 hover:text-chittoor-green"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
                   href="/#projects"
                   className="text-gray-600 hover:text-chittoor-green"
                 >
-                  About Project
+                  Projects
                 </a>
               </li>
               <li>
                 <Link
-                  to="/donate"
+                  to="/collaborate"
                   className="text-gray-600 hover:text-chittoor-green"
                 >
-                  Donate
+                  Collaborate
                 </Link>
               </li>
               <li>

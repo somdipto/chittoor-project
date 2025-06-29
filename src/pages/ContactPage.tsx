@@ -1,201 +1,168 @@
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Users, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const ContactPage = () => {
-  const contacts = [
-    {
-      name: "Lt. Col. Abhishek G C (retd.)",
-      role: "Project Lead",
-      phone: "+91 91779 12670",
-      email: "Abhishek.gc.atria@edu",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
-    },
-    {
-      name: "Pratham",
-      role: "Project Coordinator",
-      phone: "+91 91410 83323",
-      email: "projectchittor@atria.edu",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
-    },
-  ];
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const stagger = {
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Contact form submitted");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30 pt-24 pb-16">
-      <div className="container px-4 sm:px-6 mx-auto">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
-            Get In Touch
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We'd love to hear from you. Reach out to our team members or visit
-            our office.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
+      <Navbar />
+      <div className="pt-24 pb-16">
+        <div className="container px-4 sm:px-6 mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
+              Contact Us
+            </h1>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Get in touch with us to learn more about our initiatives or to get involved.
+            </p>
+          </motion.div>
 
-        {/* Trust Info */}
-        <motion.div className="mb-12 text-center" variants={fadeIn}>
-          <div className="inline-flex items-center gap-2 bg-chittoor-green/10 text-chittoor-green px-6 py-3 rounded-full mb-4">
-            <Users className="w-5 h-5" />
-            <span className="font-medium">
-              A S Chinnaswamy Community Development Trust
-            </span>
-          </div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Driving sustainable development and community empowerment in
-            Chittoor district through innovative initiatives and collaborative
-            efforts.
-          </p>
-        </motion.div>
-
-        {/* Contact Cards */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-        >
-          {contacts.map((contact, index) => (
-            <motion.div key={index} variants={fadeIn}>
-              <Card className="h-full p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-chittoor-green/20">
-                    <img
-                      src={contact.image}
-                      alt={contact.name}
-                      className="w-full h-full object-cover"
-                    />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-2xl font-bold mb-8 text-gray-900">Get in Touch</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-chittoor-green/10 flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-chittoor-green" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {contact.name}
-                    </h3>
-                    <p className="text-chittoor-green font-medium mb-3">
-                      {contact.role}
-                    </p>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <p className="text-gray-600">projectchittor@atria.edu</p>
+                  </div>
+                </div>
 
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Phone className="w-4 h-4 text-chittoor-green" />
-                        <a
-                          href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                          className="hover:text-chittoor-green transition-colors"
-                        >
-                          {contact.phone}
-                        </a>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-chittoor-blue/10 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-chittoor-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <p className="text-gray-600">+91 91779 12670</p>
+                    <p className="text-gray-600">+91 91410 83323</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
+                    <p className="text-gray-600">
+                      A S Chinnaswamy Community Development Trust<br />
+                      Chittoor, AP, India - 517001
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-purple-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Office Hours</h3>
+                    <p className="text-gray-600">
+                      Monday - Friday: 9:00 AM - 6:00 PM<br />
+                      Saturday: 9:00 AM - 2:00 PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Send us a Message
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                          First Name *
+                        </label>
+                        <Input id="firstName" type="text" required />
                       </div>
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Mail className="w-4 h-4 text-chittoor-green" />
-                        <a
-                          href={`mailto:${contact.email}`}
-                          className="hover:text-chittoor-green transition-colors break-all"
-                        >
-                          {contact.email}
-                        </a>
+                      <div>
+                        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                          Last Name *
+                        </label>
+                        <Input id="lastName" type="text" required />
                       </div>
                     </div>
-                  </div>
-                </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email *
+                      </label>
+                      <Input id="email" type="email" required />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number
+                      </label>
+                      <Input id="phone" type="tel" />
+                    </div>
+
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                        Subject *
+                      </label>
+                      <Input id="subject" type="text" required />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Message *
+                      </label>
+                      <Textarea id="message" rows={5} required />
+                    </div>
+
+                    <Button type="submit" className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90">
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
               </Card>
             </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Office Info */}
-        <motion.div
-          className="max-w-4xl mx-auto bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100"
-          variants={fadeIn}
-        >
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Our Office</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="bg-chittoor-green/10 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-chittoor-green" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Address</h3>
-                  <p className="text-gray-600">
-                    A S Chinnaswamy Community Development Trust
-                    <br />
-                    Chittoor District
-                    <br />
-                    Andhra Pradesh, India - 517001
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-chittoor-blue/10 p-3 rounded-lg">
-                  <Clock className="w-6 h-6 text-chittoor-blue" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Working Hours</h3>
-                  <p className="text-gray-600">
-                    Monday - Friday: 9:00 AM - 6:00 PM
-                    <br />
-                    Saturday: 9:00 AM - 1:00 PM
-                    <br />
-                    Sunday: Closed
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg overflow-hidden h-64 md:h-auto">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.009353711451!2d78.9622!3d13.0825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA0JzU3LjAiTiA3OMKwNTcnNDQuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Office Location"
-              ></iframe>
-            </div>
           </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div className="mt-16 text-center" variants={fadeIn}>
-          <h3 className="text-2xl font-bold mb-4">
-            Have a question or want to collaborate?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            We're always looking for passionate individuals and organizations to
-            partner with. Let's work together to make a difference in Chittoor.
-          </p>
-          <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90 text-white">
-            <Send className="mr-2 h-4 w-4" />
-            Send us a Message
-          </Button>
-        </motion.div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
