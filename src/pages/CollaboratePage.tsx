@@ -1,27 +1,21 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Users,
   Handshake,
-  Lightbulb,
   Target,
   CheckCircle2,
   Send,
-  MapPin,
-  Mail,
-  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-type CollaborationType = "individual" | "organization" | "volunteer" | "other";
+type CollaborationType = "individual" | "organization" | "volunteer";
 
 const CollaboratePage = () => {
   const [activeTab, setActiveTab] = useState<CollaborationType>("individual");
@@ -36,8 +30,14 @@ const CollaboratePage = () => {
     organization: "",
     designation: "",
     organizationType: "",
+    companySize: "",
+    industry: "",
+    csr: "",
+    budget: "",
+    timeline: "",
+    partnershipType: "",
     
-    // Professional Details
+    // Professional Details (for individuals)
     qualification: "",
     experience: "",
     currentWork: "",
@@ -77,8 +77,7 @@ const CollaboratePage = () => {
       title: "Volunteer",
       icon: <Target className="w-5 h-5" />,
       description: "Students & Activists"
-    },
-    { id: "other", title: "Other", icon: <Lightbulb className="w-5 h-5" />, description: "Custom Collaboration" },
+    }
   ];
 
   const interestOptions = [
@@ -149,10 +148,11 @@ const CollaboratePage = () => {
       // Reset form
       setFormData({
         name: "", email: "", phone: "", address: "", organization: "",
-        designation: "", organizationType: "", qualification: "", experience: "",
-        currentWork: "", skills: "", expertise: "", interests: [],
-        availability: "", contribution: "", motivation: "", previousExperience: "",
-        message: "", linkedIn: "", portfolio: ""
+        designation: "", organizationType: "", companySize: "", industry: "",
+        csr: "", budget: "", timeline: "", partnershipType: "",
+        qualification: "", experience: "", currentWork: "", skills: "", 
+        expertise: "", interests: [], availability: "", contribution: "", 
+        motivation: "", previousExperience: "", message: "", linkedIn: "", portfolio: ""
       });
     }, 1500);
   };
@@ -188,7 +188,7 @@ const CollaboratePage = () => {
 
           {/* Collaboration Types */}
           <motion.div className="mb-16" variants={fadeIn}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               {collaborationTypes.map((type) => (
                 <button
                   key={type.id}
@@ -332,109 +332,215 @@ const CollaboratePage = () => {
                         </div>
                       </div>
 
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Organization Type *
+                          </label>
+                          <Select onValueChange={(value) => handleSelectChange('organizationType', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select organization type" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="corporate">Corporate/Private Company</SelectItem>
+                              <SelectItem value="ngo">NGO/Non-Profit</SelectItem>
+                              <SelectItem value="government">Government Agency</SelectItem>
+                              <SelectItem value="educational">Educational Institution</SelectItem>
+                              <SelectItem value="healthcare">Healthcare Organization</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Company Size *
+                          </label>
+                          <Select onValueChange={(value) => handleSelectChange('companySize', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select company size" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="startup">Startup (1-10 employees)</SelectItem>
+                              <SelectItem value="small">Small (11-50 employees)</SelectItem>
+                              <SelectItem value="medium">Medium (51-200 employees)</SelectItem>
+                              <SelectItem value="large">Large (201-1000 employees)</SelectItem>
+                              <SelectItem value="enterprise">Enterprise (1000+ employees)</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-1">
+                          Industry/Sector *
+                        </label>
+                        <Input
+                          id="industry"
+                          type="text"
+                          value={formData.industry}
+                          onChange={handleChange}
+                          required
+                          placeholder="Technology, Healthcare, Finance, Manufacturing, etc."
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="csr" className="block text-sm font-medium text-gray-700 mb-1">
+                          Current CSR Activities *
+                        </label>
+                        <Textarea
+                          id="csr"
+                          value={formData.csr}
+                          onChange={handleChange}
+                          required
+                          rows={3}
+                          placeholder="Describe your organization's current Corporate Social Responsibility initiatives"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Partnership Budget Range *
+                          </label>
+                          <Select onValueChange={(value) => handleSelectChange('budget', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select budget range" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="under-1l">Under ₹1 Lakh</SelectItem>
+                              <SelectItem value="1l-5l">₹1-5 Lakhs</SelectItem>
+                              <SelectItem value="5l-25l">₹5-25 Lakhs</SelectItem>
+                              <SelectItem value="25l-1cr">₹25 Lakhs - 1 Crore</SelectItem>
+                              <SelectItem value="above-1cr">Above ₹1 Crore</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Partnership Timeline *
+                          </label>
+                          <Select onValueChange={(value) => handleSelectChange('timeline', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select timeline" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="immediate">Immediate (Within 1 month)</SelectItem>
+                              <SelectItem value="short">Short-term (1-6 months)</SelectItem>
+                              <SelectItem value="medium">Medium-term (6-12 months)</SelectItem>
+                              <SelectItem value="long">Long-term (1+ years)</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Organization Type *
+                          Type of Partnership Interest *
                         </label>
-                        <Select onValueChange={(value) => handleSelectChange('organizationType', value)}>
+                        <Select onValueChange={(value) => handleSelectChange('partnershipType', value)}>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select organization type" />
+                            <SelectValue placeholder="Select partnership type" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="corporate">Corporate/Private Company</SelectItem>
-                            <SelectItem value="ngo">NGO/Non-Profit</SelectItem>
-                            <SelectItem value="government">Government Agency</SelectItem>
-                            <SelectItem value="educational">Educational Institution</SelectItem>
-                            <SelectItem value="healthcare">Healthcare Organization</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            <SelectItem value="funding">Financial Funding</SelectItem>
+                            <SelectItem value="expertise">Technical Expertise</SelectItem>
+                            <SelectItem value="resources">Resource Sharing</SelectItem>
+                            <SelectItem value="implementation">Project Implementation</SelectItem>
+                            <SelectItem value="mentorship">Mentorship & Guidance</SelectItem>
+                            <SelectItem value="comprehensive">Comprehensive Partnership</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
                   )}
 
-                  {/* Professional Background */}
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
-                      Professional Background
-                    </h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Professional Background (for individuals only) */}
+                  {activeTab === "individual" && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                        Professional Background
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="qualification" className="block text-sm font-medium text-gray-700 mb-1">
+                            Highest Qualification *
+                          </label>
+                          <Input
+                            id="qualification"
+                            type="text"
+                            value={formData.qualification}
+                            onChange={handleChange}
+                            required
+                            placeholder="B.Tech, MBA, M.Sc, etc."
+                          />
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+                            Years of Experience *
+                          </label>
+                          <Select onValueChange={(value) => handleSelectChange('experience', value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select experience" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="0-1">0-1 years</SelectItem>
+                              <SelectItem value="2-5">2-5 years</SelectItem>
+                              <SelectItem value="6-10">6-10 years</SelectItem>
+                              <SelectItem value="11-15">11-15 years</SelectItem>
+                              <SelectItem value="15+">15+ years</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+
                       <div>
-                        <label htmlFor="qualification" className="block text-sm font-medium text-gray-700 mb-1">
-                          Highest Qualification *
+                        <label htmlFor="currentWork" className="block text-sm font-medium text-gray-700 mb-1">
+                          Current Work/Position *
                         </label>
                         <Input
-                          id="qualification"
+                          id="currentWork"
                           type="text"
-                          value={formData.qualification}
+                          value={formData.currentWork}
                           onChange={handleChange}
                           required
-                          placeholder="B.Tech, MBA, M.Sc, etc."
+                          placeholder="Your current job title and company"
                         />
                       </div>
-                      
+
                       <div>
-                        <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
-                          Years of Experience *
+                        <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
+                          Key Skills & Competencies *
                         </label>
-                        <Select onValueChange={(value) => handleSelectChange('experience', value)}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select experience" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="0-1">0-1 years</SelectItem>
-                            <SelectItem value="2-5">2-5 years</SelectItem>
-                            <SelectItem value="6-10">6-10 years</SelectItem>
-                            <SelectItem value="11-15">11-15 years</SelectItem>
-                            <SelectItem value="15+">15+ years</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <Textarea
+                          id="skills"
+                          value={formData.skills}
+                          onChange={handleChange}
+                          required
+                          rows={3}
+                          placeholder="List your key skills, technologies, and competencies"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="expertise" className="block text-sm font-medium text-gray-700 mb-1">
+                          Area of Expertise *
+                        </label>
+                        <Textarea
+                          id="expertise"
+                          value={formData.expertise}
+                          onChange={handleChange}
+                          required
+                          rows={3}
+                          placeholder="Describe your specific area of expertise and domain knowledge"
+                        />
                       </div>
                     </div>
-
-                    <div>
-                      <label htmlFor="currentWork" className="block text-sm font-medium text-gray-700 mb-1">
-                        Current Work/Position *
-                      </label>
-                      <Input
-                        id="currentWork"
-                        type="text"
-                        value={formData.currentWork}
-                        onChange={handleChange}
-                        required
-                        placeholder="Your current job title and company"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
-                        Key Skills & Competencies *
-                      </label>
-                      <Textarea
-                        id="skills"
-                        value={formData.skills}
-                        onChange={handleChange}
-                        required
-                        rows={3}
-                        placeholder="List your key skills, technologies, and competencies"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="expertise" className="block text-sm font-medium text-gray-700 mb-1">
-                        Area of Expertise *
-                      </label>
-                      <Textarea
-                        id="expertise"
-                        value={formData.expertise}
-                        onChange={handleChange}
-                        required
-                        rows={3}
-                        placeholder="Describe your specific area of expertise and domain knowledge"
-                      />
-                    </div>
-                  </div>
+                  )}
 
                   {/* Areas of Interest */}
                   <div className="space-y-4">
