@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,13 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { pillarData } from "@/data/pillarData";
+import { pillarsData } from "@/data/pillarData";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const PillarDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const pillar = pillarData.find(p => p.slug === slug);
+  const pillar = pillarsData.find(p => p.slug === slug);
 
   if (!pillar) {
     return <div>Pillar not found</div>;
