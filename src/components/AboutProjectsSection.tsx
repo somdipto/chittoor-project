@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -23,19 +24,33 @@ const AboutProjectsSection = () => {
       id="about-projects"
       className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-chittoor-offwhite/50 to-white"
     >
-      {/* Animated gradient background */}
+      {/* Enhanced background with village imagery */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/4 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-chittoor-blue/5 via-transparent to-transparent animate-[spin_35s_linear_infinite] opacity-50"></div>
-        <div className="absolute -bottom-1/2 -left-1/4 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-chittoor-green/5 via-transparent to-transparent animate-[spin_30s_linear_infinite_reverse] opacity-50"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <img
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            alt="Indian village landscape"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/85"></div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%2010%20A10%2010%200%200%201%2010%200%20A10%2010%200%200%201%200%2010%22%20fill%3D%22%232E7D32%22%20fill-opacity%3D%220.03%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')] bg-repeat opacity-30"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-br from-chittoor-green/5 to-chittoor-blue/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-chittoor-blue/5 to-chittoor-green/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-      
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/40 backdrop-blur-sm"></div>
+      {/* Visual elements inspired by Indian village life */}
+      <div className="absolute top-1/4 left-0 w-64 h-64 opacity-10">
+        <img
+          src="https://images.unsplash.com/photo-1571116026972-e533f8ee7b24?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Indian village element"
+          className="w-full h-full object-cover rounded-full blur-sm"
+        />
+      </div>
+      <div className="absolute bottom-1/4 right-0 w-48 h-48 opacity-10">
+        <img
+          src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Indian agriculture"
+          className="w-full h-full object-cover rounded-full blur-sm"
+        />
+      </div>
 
       <div className="container relative z-10">
         <motion.div
@@ -43,20 +58,78 @@ const AboutProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-12 text-center"
+          className="mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue inline-block">
-            About The Chittoor Project
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue inline-block">
+            Transforming Rural India
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-chittoor-green to-chittoor-blue rounded-full mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Project Chittoor is a rural revitalization initiative focusing on
-            sustainable development and community living. It aims to reverse
-            rural-to-urban migration and empower farmers to thrive on their own
-            land.
+          <div className="w-32 h-1 bg-gradient-to-r from-chittoor-green to-chittoor-blue rounded-full mx-auto mb-8"></div>
+          
+          {/* Hero Image Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
+            <motion.div
+              className="relative h-64 rounded-2xl overflow-hidden shadow-2xl group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Indian village landscape"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold">Rural Heritage</h3>
+                <p className="text-sm opacity-90">Preserving traditions</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative h-64 rounded-2xl overflow-hidden shadow-2xl group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Sustainable farming in India"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold">Sustainable Future</h3>
+                <p className="text-sm opacity-90">Modern solutions</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative h-64 rounded-2xl overflow-hidden shadow-2xl group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1571116026972-e533f8ee7b24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Indian village community"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-bold">Community Growth</h3>
+                <p className="text-sm opacity-90">Together we thrive</p>
+              </div>
+            </motion.div>
+          </div>
+
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            Reversing rural-to-urban migration through sustainable development
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
             <PillarsDropdown />
             <button
               onClick={() =>
@@ -116,7 +189,7 @@ const AboutProjectsSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {pillarsData.map((pillar, index) => (
             <PillarCard key={index} pillar={pillar} index={index} />
@@ -131,8 +204,8 @@ const AboutProjectsSection = () => {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             <Link to="/pillars">
-              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-95 group px-6 py-6 rounded-xl">
-                <span className="mr-2">Learn more about our pillars</span>
+              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:opacity-95 group px-8 py-6 rounded-xl text-lg">
+                <span className="mr-3">Explore Our Pillars</span>
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

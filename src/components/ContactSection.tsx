@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,201 +50,190 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-chittoor-offwhite/50 overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-b from-white to-chittoor-offwhite/30 overflow-hidden"
     >
-      {/* Animated gradient background */}
+      {/* Enhanced background with Indian village imagery */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 left-1/4 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-chittoor-green/5 via-transparent to-transparent animate-[spin_30s_linear_infinite] opacity-40"></div>
-        <div className="absolute -bottom-1/2 right-1/4 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-chittoor-blue/5 via-transparent to-transparent animate-[spin_35s_linear_infinite_reverse] opacity-40"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <img
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            alt="Indian village background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/85"></div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-chittoor-green/10 to-chittoor-blue/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-1/4 -left-1/4 w-[800px] h-[800px] bg-gradient-to-tr from-chittoor-blue/10 to-chittoor-green/10 rounded-full blur-3xl"></div>
-      
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/40 backdrop-blur-sm"></div>
-      <div className="container px-4 sm:px-6">
+      <div className="container px-4 sm:px-6 relative z-10">
         <motion.div
-          className="mb-10 sm:mb-12 text-center"
+          className="mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
-            Contact Us
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
+            Let's Connect
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Have questions or want to get involved? Reach out to us and we'll be
-            happy to help.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Join us in transforming rural India
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Contact Info Cards */}
+            <motion.div
+              className="lg:col-span-1 space-y-6"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-chittoor-green to-chittoor-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
+                  <p className="text-gray-600 text-sm">
+                    Chittoor District<br />
+                    India - 517001
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-chittoor-blue to-chittoor-green rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+                  <p className="text-gray-600 text-sm">
+                    +91 98765 43210<br />
+                    +91 87654 32109
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-chittoor-green to-chittoor-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Mail className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+                  <p className="text-gray-600 text-sm">
+                    info@chittoorproject.org<br />
+                    support@chittoorproject.org
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              className="lg:col-span-2"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <Card className="h-full p-8 bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+                <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
+                  Send us a Message
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Input
+                        id="name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Input
+                      id="subject"
+                      placeholder="Subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Textarea
+                      id="message"
+                      placeholder="Your Message"
+                      rows={6}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green resize-none"
+                      required
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full h-14 text-lg bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:from-chittoor-green-dark hover:to-chittoor-blue-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-3 h-5 w-5 animate-spin" />
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-3 h-5 w-5" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Embedded Map */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <Card className="h-full p-6 sm:p-8 md:p-10 border border-gray-100/50 shadow-sm hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white/60 to-white/30 backdrop-blur-lg relative overflow-hidden group">
-              {/* Decorative gradient corner */}
-              <div className="absolute -top-8 -left-8 w-40 h-40 bg-chittoor-blue/5 rounded-full blur-2xl"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-chittoor-blue/5 to-chittoor-green/10 rounded-tl-full"></div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-800">
-                Get in Touch
+            <Card className="p-8 bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
+              <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
+                Find Us Here
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label
-                      className="block text-sm font-medium text-gray-700"
-                      htmlFor="name"
-                    >
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="h-11 sm:h-12"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label
-                      className="block text-sm font-medium text-gray-700"
-                      htmlFor="email"
-                    >
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="h-11 sm:h-12"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-1.5">
-                  <label
-                    className="block text-sm font-medium text-gray-700"
-                    htmlFor="subject"
-                  >
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    placeholder="What is this regarding?"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="h-11 sm:h-12"
-                    required
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label
-                    className="block text-sm font-medium text-gray-700"
-                    htmlFor="message"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message here..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="min-h-[120px]"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full sm:w-auto bg-gradient-to-r from-chittoor-green via-chittoor-blue to-chittoor-green bg-200% hover:bg-right transition-all duration-1000 shadow-lg hover:shadow-xl hover:scale-[1.02] transform"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
+              <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124416.84815207968!2d79.0961!3d13.2172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b0b0b0b0b0b%3A0x0!2sChittoor%2C%20Andhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Chittoor Location"
+                ></iframe>
+              </div>
             </Card>
-          </motion.div>
-
-          <motion.div
-            className="space-y-6 sm:space-y-8"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-800">
-                Our Information
-              </h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-chittoor-green/10 p-3 rounded-full">
-                    <MapPin className="w-6 h-6 text-chittoor-green" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-lg">Address</h4>
-                    <p className="text-gray-600">
-                      123 Rural Development Center
-                      <br />
-                      Chittoor District
-                      <br />
-                      Andhra Pradesh, India - 517001
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-chittoor-green/10 p-3 rounded-full">
-                    <Phone className="w-6 h-6 text-chittoor-green" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-lg">Phone</h4>
-                    <p className="text-gray-600">+91 98765 43210</p>
-                    <p className="text-gray-600">+91 87654 32109</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-chittoor-green/10 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-chittoor-green" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-lg">Email</h4>
-                    <p className="text-gray-600">info@chittoorproject.org</p>
-                    <p className="text-gray-600">support@chittoorproject.org</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Working Hours</h3>
-              <div className="space-y-2 text-gray-600">
-                <p>Monday - Friday: 9:00 AM to 6:00 PM</p>
-                <p>Saturday: 9:00 AM to 1:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

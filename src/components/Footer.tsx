@@ -15,7 +15,7 @@ const Footer = () => {
             </h3>
             <p className="text-gray-600 mb-4">
               Project Chittoor is a rural revitalization initiative focusing on
-              sustainable development and community living in Andhra Pradesh.
+              sustainable development and community living.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-500 hover:text-chittoor-green">
