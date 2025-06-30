@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Factory, Leaf, School, TreeDeciduous } from "lucide-react";
 
@@ -38,15 +37,15 @@ export interface Pillar {
 export const pillarsData: Pillar[] = [
   {
     slug: 'sustainable-agriculture',
-    icon: <TreeDeciduous className="h-8 w-8 text-white" />,
+    icon: <TreeDeciduous className="h-12 w-12 text-white" />,
     title: "Sustainable Agriculture",
-    description: "Food 'forest farms' with seven layers to renew soil, build water reservoirs naturally, and enhance biodiversity.",
+    description: "Food 'forest farms' with seven layers to renew soil and enhance biodiversity.",
     fullDescription: "Farmer collectives will run food 'forest farms' with seven layers to renew the soil, build water reservoirs naturally, and enhance biodiversity. The project is modeled on a successful implementation of a vertical forest farm in Chittoor District, where 70 acres of once-barren land have been converted to a vertical farm providing monthly revenue in excess of ₹1 lakh per acre.",
     bg: "bg-gradient-to-br from-chittoor-green to-chittoor-green-dark",
     color: "from-chittoor-green to-chittoor-green-dark",
     status: "active",
-    image: "https://images.unsplash.com/photo-1602600203968-7a1c67c12fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Sustainable agriculture in India",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Indian farmers working in sustainable agriculture fields",
     stats: {
       beneficiaries: "800+",
       projects: 12,
@@ -145,15 +144,15 @@ export const pillarsData: Pillar[] = [
   },
   {
     slug: 'renewable-energy',
-    icon: <Factory className="h-8 w-8 text-white" />,
+    icon: <Factory className="h-12 w-12 text-white" />,
     title: "Renewable Energy",
-    description: "Distributed solar infrastructure where farmers become energy producers, creating reliable supply and additional revenue streams.",
+    description: "Distributed solar infrastructure where farmers become energy producers.",
     fullDescription: "Project Chittoor will establish a distributed solar infrastructure where the energy is collectively sold. This collectivization of energy will ensure reliability of supply and better contracts for the sale of energy. Third-party financing will reduce the upfront cost to farmers.",
     bg: "bg-gradient-to-br from-yellow-500 to-orange-600",
     color: "from-yellow-500 to-orange-600",
     status: "active",
-    image: "https://images.unsplash.com/photo-1623060693724-1e59e90a5d74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Solar panels in agricultural setting",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Solar panels installed in rural Indian villages",
     stats: {
       beneficiaries: "600+",
       projects: 10,
@@ -248,15 +247,15 @@ export const pillarsData: Pillar[] = [
   },
   {
     slug: 'transformative-education',
-    icon: <School className="h-8 w-8 text-white" />,
+    icon: <School className="h-12 w-12 text-white" />,
     title: "Transformative Education",
-    description: "Digital learning hub bridging traditional and future-ready education, bringing rural schools on par with metro cities.",
+    description: "Digital learning hub bridging traditional and future-ready education.",
     fullDescription: "The education component of Project Chittoor focuses on creating a state-of-the-art digital learning hub that provides high-quality education both on-site and remotely. This approach leverages advanced technologies to extend the reach of educational resources beyond the physical boundaries of the village.",
     bg: "bg-gradient-to-br from-chittoor-blue to-chittoor-blue-dark",
     color: "from-chittoor-blue to-chittoor-blue-dark",
     status: "active",
-    image: "https://images.unsplash.com/photo-1551984427-05d5dd9f0f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Rural education in India",
+    image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Rural Indian children learning with digital technology",
     stats: {
       beneficiaries: "1,200+",
       projects: 8,
@@ -355,15 +354,15 @@ export const pillarsData: Pillar[] = [
   },
   {
     slug: 'agrotourism-wellness',
-    icon: <Leaf className="h-8 w-8 text-white" />,
+    icon: <Leaf className="h-12 w-12 text-white" />,
     title: "Agrotourism and Wellness",
-    description: "Farm tours, hands-on experiences, and wellness retreats focusing on Ayurveda and natural healing in rural settings.",
+    description: "Farm tours and wellness retreats focusing on Ayurveda and natural healing.",
     fullDescription: "A 'return to roots' approach targeting city dwellers will be adopted. Potential tourists will be attracted by the improved microclimate, access to fresh food, and the quietude of rural life. Tourism will become a supplemental income for farmers, who will manage and work in these tourist initiatives.",
     bg: "bg-gradient-to-br from-chittoor-earth to-chittoor-earth-light",
     color: "from-chittoor-earth to-chittoor-earth-light",
     status: "planning",
-    image: "https://images.unsplash.com/photo-1552071379-5999089b2c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Rural wellness retreat in India",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Peaceful rural wellness retreat with yoga and natural healing",
     stats: {
       beneficiaries: "300+",
       projects: 4,
