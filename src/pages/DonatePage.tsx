@@ -94,33 +94,8 @@ const DonatePage = () => {
       }} transition={{
         delay: 0.2
       }} className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-            Your Impact in Action
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {impactImages.map((image, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.1 * index
-          }} className="group">
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-chittoor-green">
-                      {image.title}
-                    </h3>
-                    <p className="text-gray-600">{image.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
+          
+          
         </motion.div>
 
         {/* Donation Form */}
