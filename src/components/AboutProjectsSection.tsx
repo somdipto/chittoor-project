@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -23,20 +24,20 @@ const AboutProjectsSection = () => {
   };
 
   return (
-    <section id="about-projects" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-chittoor-offwhite/50 to-white">
+    <section id="about-projects" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-chittoor-offwhite/30 to-white">
       {/* Enhanced background with village imagery */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full opacity-3">
           <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Indian village landscape" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/98 via-white/95 to-white/90"></div>
       </div>
       
       {/* Visual elements inspired by Indian village life */}
-      <div className="absolute top-1/4 left-0 w-64 h-64 opacity-10">
+      <div className="absolute top-1/4 left-0 w-64 h-64 opacity-5">
         <img src="https://images.unsplash.com/photo-1571116026972-e533f8ee7b24?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Indian village element" className="w-full h-full object-cover rounded-full blur-sm" />
       </div>
-      <div className="absolute bottom-1/4 right-0 w-48 h-48 opacity-10">
+      <div className="absolute bottom-1/4 right-0 w-48 h-48 opacity-5">
         <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Indian agriculture" className="w-full h-full object-cover rounded-full blur-sm" />
       </div>
 
@@ -46,7 +47,7 @@ const AboutProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true }} 
           transition={{ duration: 0.7 }} 
-          className="mb-20 text-center"
+          className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue inline-block">
             Our Four Pillars of Change
@@ -74,13 +75,13 @@ const AboutProjectsSection = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Pillars Grid */}
+        {/* Enhanced Pillars Grid with Consistent Design */}
         <motion.div 
           variants={container} 
           initial="hidden" 
           whileInView="show" 
           viewport={{ once: true }} 
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 lg:gap-12 mb-20 max-w-7xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 max-w-6xl mx-auto"
         >
           {pillarsData.map((pillar, index) => (
             <div key={pillar.slug} id={pillar.slug}>
