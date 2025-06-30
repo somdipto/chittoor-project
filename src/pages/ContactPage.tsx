@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, Loader2 } from "lucide-react";
@@ -9,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -17,38 +15,38 @@ const ContactPage = () => {
     email: "",
     phone: "",
     subject: "",
-    message: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
+    const {
+      id,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
-      [id]: value,
+      [id]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       console.log("Submitting contact form:", formData);
-      
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
+      const {
+        data,
+        error
+      } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
       });
-
       if (error) {
         console.error("Error sending email:", error);
         throw error;
       }
-
       console.log("Email sent successfully:", data);
       setIsSubmitted(true);
-      
+
       // Reset form
       setFormData({
         firstName: "",
@@ -56,7 +54,7 @@ const ContactPage = () => {
         email: "",
         phone: "",
         subject: "",
-        message: "",
+        message: ""
       });
     } catch (error) {
       console.error("Failed to send message:", error);
@@ -65,19 +63,20 @@ const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
-
   if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
+    return <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
         <Navbar />
         <div className="pt-24 pb-16">
           <div className="container px-4 sm:px-6 mx-auto">
-            <motion.div
-              className="text-center max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div className="text-center max-w-2xl mx-auto" initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6
+          }}>
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-8 h-8 text-green-600" />
               </div>
@@ -87,31 +86,28 @@ const ContactPage = () => {
               <p className="text-lg text-gray-600 mb-6">
                 Your message has been sent successfully. We'll get back to you as soon as possible.
               </p>
-              <Button
-                onClick={() => setIsSubmitted(false)}
-                className="bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90"
-              >
+              <Button onClick={() => setIsSubmitted(false)} className="bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90">
                 Send Another Message
               </Button>
             </motion.div>
           </div>
         </div>
         <Footer />
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
+  return <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
       <Navbar />
       <div className="pt-24 pb-16">
         <div className="container px-4 sm:px-6 mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div className="text-center mb-16" initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue">
               Contact Us
             </h1>
@@ -122,11 +118,16 @@ const ContactPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }}>
               <h2 className="text-2xl font-bold mb-8 text-gray-900">Get in Touch</h2>
               
               <div className="space-y-6">
@@ -164,27 +165,21 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-purple-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Office Hours</h3>
-                    <p className="text-gray-600">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday: 9:00 AM - 2:00 PM
-                    </p>
-                  </div>
-                </div>
+                
               </div>
             </motion.div>
 
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.4
+          }}>
               <Card className="shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-gray-900">
@@ -198,25 +193,13 @@ const ContactPage = () => {
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                           First Name *
                         </label>
-                        <Input 
-                          id="firstName" 
-                          type="text" 
-                          value={formData.firstName}
-                          onChange={handleChange}
-                          required 
-                        />
+                        <Input id="firstName" type="text" value={formData.firstName} onChange={handleChange} required />
                       </div>
                       <div>
                         <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
                           Last Name *
                         </label>
-                        <Input 
-                          id="lastName" 
-                          type="text" 
-                          value={formData.lastName}
-                          onChange={handleChange}
-                          required 
-                        />
+                        <Input id="lastName" type="text" value={formData.lastName} onChange={handleChange} required />
                       </div>
                     </div>
 
@@ -224,69 +207,38 @@ const ContactPage = () => {
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                         Email *
                       </label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        value={formData.email}
-                        onChange={handleChange}
-                        required 
-                      />
+                      <Input id="email" type="email" value={formData.email} onChange={handleChange} required />
                     </div>
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                         Phone Number
                       </label>
-                      <Input 
-                        id="phone" 
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
+                      <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} />
                     </div>
 
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                         Subject *
                       </label>
-                      <Input 
-                        id="subject" 
-                        type="text" 
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required 
-                      />
+                      <Input id="subject" type="text" value={formData.subject} onChange={handleChange} required />
                     </div>
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                         Message *
                       </label>
-                      <Textarea 
-                        id="message" 
-                        rows={5} 
-                        value={formData.message}
-                        onChange={handleChange}
-                        required 
-                      />
+                      <Textarea id="message" rows={5} value={formData.message} onChange={handleChange} required />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
+                    <Button type="submit" className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:opacity-90" disabled={isSubmitting}>
+                      {isSubmitting ? <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                           Sending Message...
-                        </>
-                      ) : (
-                        <>
+                        </> : <>
                           <Send className="w-4 h-4 mr-2" />
                           Send Message
-                        </>
-                      )}
+                        </>}
                     </Button>
                   </form>
                 </CardContent>
@@ -296,8 +248,6 @@ const ContactPage = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
