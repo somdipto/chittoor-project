@@ -7,11 +7,13 @@ import {
   Target,
   CheckCircle2,
   Send,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -125,24 +127,31 @@ const CollaboratePage = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare data for email
-    const emailData = {
-      collaborationType: activeTab,
-      submissionDate: new Date().toISOString(),
-      ...formData,
-      interests: formData.interests.join(", ")
-    };
+    try {
+      // Prepare data for email
+      const emailData = {
+        collaborationType: activeTab,
+        submissionDate: new Date().toISOString(),
+        ...formData,
+        interests: formData.interests.join(", ")
+      };
 
-    console.log("Collaboration form submitted:", emailData);
-    
-    // Here you would typically send this data to your backend
-    // For now, we'll just simulate the submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+      console.log("Submitting collaboration form:", emailData);
+      
+      const { data, error } = await supabase.functions.invoke('send-collaboration-email', {
+        body: emailData,
+      });
+
+      if (error) {
+        console.error("Error sending email:", error);
+        throw error;
+      }
+
+      console.log("Email sent successfully:", data);
       setIsSubmitted(true);
       
       // Reset form
@@ -154,7 +163,12 @@ const CollaboratePage = () => {
         expertise: "", interests: [], availability: "", contribution: "", 
         motivation: "", previousExperience: "", message: "", linkedIn: "", portfolio: ""
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Failed to send collaboration request:", error);
+      alert("Failed to send collaboration request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fadeIn = {
@@ -687,26 +701,7 @@ const CollaboratePage = () => {
                   >
                     {isSubmitting ? (
                       <>
-                        <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
+                        <Loader2 className="w-5 h-5 mr-3 animate-spin" />
                         Submitting Application...
                       </>
                     ) : (

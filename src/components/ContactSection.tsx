@@ -4,13 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     subject: "",
     message: "",
@@ -22,29 +25,55 @@ const ContactSection = () => {
     const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [id]: value,
+      [id === "name" ? "firstName" : id]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      setIsSubmitting(false);
+    try {
+      console.log("Submitting contact form:", formData);
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          firstName: formData.firstName,
+          lastName: formData.lastName || "",
+          email: formData.email,
+          phone: "",
+          subject: formData.subject,
+          message: formData.message,
+        },
+      });
+
+      if (error) {
+        console.error("Error sending email:", error);
+        throw error;
+      }
+
+      console.log("Email sent successfully:", data);
+      setIsSubmitted(true);
+      
       // Reset form
       setFormData({
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
         subject: "",
         message: "",
       });
 
-      // Show success message (you can replace this with a toast notification)
-      alert("Thank you for your message! We will get back to you soon.");
-    }, 1500);
+      // Reset success state after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,8 +139,8 @@ const ContactSection = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Call Us</h3>
                   <p className="text-gray-600 text-sm">
-                    +91 98765 43210<br />
-                    +91 87654 32109
+                    +91 91779 12670<br />
+                    +91 91410 83323
                   </p>
                 </div>
               </Card>
@@ -123,8 +152,7 @@ const ContactSection = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Email Us</h3>
                   <p className="text-gray-600 text-sm">
-                    info@chittoorproject.org<br />
-                    support@chittoorproject.org
+                    projectchittor@atria.edu
                   </p>
                 </div>
               </Card>
@@ -139,72 +167,88 @@ const ContactSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <Card className="h-full p-8 bg-white/90 backdrop-blur-sm border-0 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
-                  Send us a Message
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Input
-                        id="name"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
-                        required
-                      />
+                {isSubmitted ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center p-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-green-600" />
                     </div>
-                    <div>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
-                        required
-                      />
-                    </div>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">
+                      Thank You!
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      Your message has been sent successfully. We'll get back to you soon.
+                    </p>
                   </div>
-                  <div>
-                    <Input
-                      id="subject"
-                      placeholder="Subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Textarea
-                      id="message"
-                      placeholder="Your Message"
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green resize-none"
-                      required
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full h-14 text-lg bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:from-chittoor-green-dark hover:to-chittoor-blue-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-3 h-5 w-5 animate-spin" />
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-3 h-5 w-5" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+                ) : (
+                  <>
+                    <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
+                      Send us a Message
+                    </h3>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <Input
+                            id="firstName"
+                            placeholder="Your Name"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="Your Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <Input
+                          id="subject"
+                          placeholder="Subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          className="h-14 text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Textarea
+                          id="message"
+                          placeholder="Your Message"
+                          rows={6}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="text-lg bg-white/50 border-gray-200 focus:border-chittoor-green focus:ring-chittoor-green resize-none"
+                          required
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        className="w-full h-14 text-lg bg-gradient-to-r from-chittoor-green to-chittoor-blue hover:from-chittoor-green-dark hover:to-chittoor-blue-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="mr-3 h-5 w-5 animate-spin" />
+                            Sending Message...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="mr-3 h-5 w-5" />
+                            Send Message
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                  </>
+                )}
               </Card>
             </motion.div>
           </div>
