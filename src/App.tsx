@@ -10,7 +10,6 @@ import AboutPage from "./pages/AboutPage";
 import PillarsPage from "./pages/PillarsPage";
 import PillarDetailPage from "./pages/PillarDetailPage";
 import ContactPage from "./pages/ContactPage";
-import AboutPage from "./pages/AboutPage";
 import CollaboratePage from "./pages/CollaboratePage";
 import DonatePage from "./pages/DonatePage";
 import NotFound from "./pages/NotFound";
@@ -32,7 +31,6 @@ function App() {
             <Route path="/pillars" element={<PillarsPage />} />
             <Route path="/pillars/:slug" element={<PillarDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/about" element={<AboutPage />} />
             <Route path="/collaborate" element={<CollaboratePage />} />
             <Route path="/donate" element={<DonatePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
