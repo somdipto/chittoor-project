@@ -77,7 +77,7 @@ const AboutSection = () => {
           transition: {
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0.0, 0.2, 1],
           },
         }}
         className="absolute top-20 left-5 hidden lg:block"
@@ -91,7 +91,7 @@ const AboutSection = () => {
           transition: {
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0.0, 0.2, 1],
           },
         }}
         className="absolute bottom-40 left-10 hidden lg:block"
@@ -105,7 +105,7 @@ const AboutSection = () => {
           transition: {
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0.0, 0.2, 1],
           },
         }}
         className="absolute top-40 right-10 hidden lg:block"
@@ -119,7 +119,7 @@ const AboutSection = () => {
           transition: {
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0.0, 0.2, 1],
           },
         }}
         className="absolute bottom-20 right-5 hidden lg:block"
@@ -130,7 +130,7 @@ const AboutSection = () => {
       <motion.div
         animate={{
           scale: [1, 1.05, 1],
-          transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+          transition: { duration: 4, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] },
         }}
         className="absolute top-1/2 right-20 hidden xl:block"
       >
