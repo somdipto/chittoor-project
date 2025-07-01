@@ -33,10 +33,10 @@ const GetInvolvedSection = () => {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <img
-          src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=1200&q=80"
-          alt="Rural development background"
+          src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?auto=format&fit=crop&w=1200&q=80"
+          alt="Rural village community working together"
           className="w-full h-full object-cover"
         />
       </div>

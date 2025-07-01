@@ -63,7 +63,7 @@ const PartnersSection = () => {
               <div className="grid md:grid-cols-4 gap-6 items-center">
                 <div className="md:col-span-1">
                   <img
-                    src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=200&q=80"
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
                     alt="Atria Group Leadership"
                     className="w-20 h-20 rounded-full object-cover mx-auto"
                   />

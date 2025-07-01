@@ -8,25 +8,25 @@ const OurStory = () => {
       year: "2022",
       title: "Idea Born",
       description: "Founding vision for India's Evergreen Revolution conceived",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=400&q=80"
     },
     {
       year: "2023",
       title: "600-Acre Pilot",
       description: "Pilot project in Thirumalarajupuram village initiated",
-      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80"
     },
     {
       year: "2024",
       title: "Infrastructure Started",
       description: "Solar, farming, and digital education infrastructure development began",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=400&q=80"
     },
     {
       year: "2025",
       title: "Scaling & R&D Lab",
       description: "Scaling to 6,000+ acres and launching R&D living lab",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1488330890490-c291ecf62571?auto=format&fit=crop&w=400&q=80"
     }
   ];
 

@@ -10,28 +10,28 @@ const ProgramsGrid = () => {
       title: "Sustainable Agriculture",
       description: "Chemical-free vertical food forests, water management, livestock, and organic food processing to restore soil, increase yield, and earn ₹1L/month per acre.",
       icon: Sprout,
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-green"
     },
     {
       title: "Renewable Energy",
       description: "Agrivoltaics, rooftop solar, cold storage & battery backup to empower farms with green energy and add income via collective power sales.",
       icon: Sun,
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-blue"
     },
     {
       title: "Transformative Education",
       description: "Digital classrooms, AR/VR labs, mentorship, and self-learning platforms to upgrade village education to metro standards.",
       icon: BookOpen,
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-earth"
     },
     {
       title: "Agrotourism & Wellness",
       description: "Eco-tourism, farm stays, Ayurveda retreats, yoga sessions, and cultural experiences to generate tourism income.",
       icon: Mountain,
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-green"
     }
   ];

@@ -9,19 +9,19 @@ const TestimonialsSection = () => {
       quote: "I used to walk 5 km to a chalkboard class. Now I learn on a tablet.",
       name: "Radha",
       role: "Student",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612e6af?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
     },
     {
       quote: "Our land was dry. Now it feeds our family and our neighbors.",
       name: "Kumar",
       role: "Farmer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=200&q=80"
     },
     {
       quote: "It's not just about teaching—it's about building the future of rural India.",
       name: "Mentor",
       role: "Volunteer",
-      image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1580894894513-541e068a3e2b?auto=format&fit=crop&w=200&q=80"
     }
   ];
 

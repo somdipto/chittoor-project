@@ -23,8 +23,8 @@ const IntroSection = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
-                alt="Villagers working together in collaborative farming"
+                src="https://images.unsplash.com/photo-1544737151-6e4b9d672269?auto=format&fit=crop&w=800&q=80"
+                alt="Rural farmers working together in agricultural fields"
                 className="rounded-2xl shadow-lg w-full h-64 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
