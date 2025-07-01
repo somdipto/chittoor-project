@@ -12,13 +12,12 @@ const Navbar = () => {
   
   const navItems = [
     { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
+    { title: "About Us", href: "/about" },
     { title: "Projects", href: "/#projects" },
     { title: "Pillars", href: "/pillars" },
     { title: "Collaborate", href: "/collaborate" },
     { title: "Contact", href: "/contact" }
   ];
-  
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
