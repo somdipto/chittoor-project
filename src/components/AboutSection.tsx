@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,24 +62,6 @@ const AboutSection = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
   };
 
-  const floatingAnimation = {
-    y: [-5, 5, -5],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  };
-
-  const swayAnimation = {
-    rotate: [-2, 2, -2],
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  };
-
   return (
     <section
       id="about"
@@ -89,28 +72,56 @@ const AboutSection = () => {
 
       {/* Decorative plant elements */}
       <motion.div
-        animate={floatingAnimation}
+        animate={{
+          y: [-5, 5, -5],
+          transition: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
         className="absolute top-20 left-5 hidden lg:block"
       >
         <TreeDeciduous className="h-16 w-16 text-chittoor-green-light/30" />
       </motion.div>
 
       <motion.div
-        animate={swayAnimation}
+        animate={{
+          rotate: [-2, 2, -2],
+          transition: {
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
         className="absolute bottom-40 left-10 hidden lg:block"
       >
         <Leaf className="h-12 w-12 text-chittoor-green/40" />
       </motion.div>
 
       <motion.div
-        animate={floatingAnimation}
+        animate={{
+          y: [-5, 5, -5],
+          transition: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
         className="absolute top-40 right-10 hidden lg:block"
       >
         <Sprout className="h-14 w-14 text-chittoor-green-dark/30" />
       </motion.div>
 
       <motion.div
-        animate={swayAnimation}
+        animate={{
+          rotate: [-2, 2, -2],
+          transition: {
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
         className="absolute bottom-20 right-5 hidden lg:block"
       >
         <Wheat className="h-16 w-16 text-chittoor-earth/30" />
@@ -213,7 +224,14 @@ const AboutSection = () => {
             className="relative"
           >
             <motion.div
-              animate={swayAnimation}
+              animate={{
+                rotate: [-2, 2, -2],
+                transition: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
               className="absolute -left-10 -bottom-10 hidden lg:block"
             >
               <Sprout className="h-12 w-12 text-chittoor-green-light/40" />
@@ -241,7 +259,14 @@ const AboutSection = () => {
             className="relative"
           >
             <motion.div
-              animate={floatingAnimation}
+              animate={{
+                y: [-5, 5, -5],
+                transition: {
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
               className="absolute -right-8 -top-8 hidden lg:block"
             >
               <Wheat className="h-12 w-12 text-chittoor-earth-light/40" />
