@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Chittoor Project
 
-## Project info
+**Project Name**: Chittoor Project - Rural Development Initiative
 
-**URL**: https://lovable.dev/projects/da2b8441-0e70-426a-b5e4-a5e8f69d83e4
+## Project Overview
 
-## How can I edit this code?
+The Chittoor Project is a community-driven initiative focused on empowering rural communities in Chittoor, Andhra Pradesh, through education, healthcare, and sustainable development programs.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- Responsive design that works on all devices
+- Interactive components built with React and TypeScript
+- Modern UI with Tailwind CSS and Framer Motion animations
+- Performance optimized with Vite
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/da2b8441-0e70-426a-b5e4-a5e8f69d83e4) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 16+ and npm/yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/somdipto/aviron-ml.git
+   cd aviron-ml
+   ```
 
-Follow these steps:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Available Scripts
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- `npm run dev` - Start the development server
+- `npm run build` - Build the project for production
+- `npm run preview` - Preview the production build
+- `npm run lint` - Run ESLint
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `/src` - Source code
+  - `/components` - Reusable UI components
+  - `/pages` - Page components
+  - `/styles` - Global styles and Tailwind configuration
+  - `/utils` - Utility functions and helpers
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is set up to be deployed to Vercel, Netlify, or any other static site hosting service.
 
-## What technologies are used for this project?
+### Vercel Deployment
 
-This project is built with:
+1. Push your code to a GitHub repository
+2. Import the project on Vercel (https://vercel.com/import)
+3. Vercel will automatically detect the Vite configuration and deploy your site
+4. Configure your custom domain in the Vercel project settings
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Netlify Deployment
 
-## How can I deploy this project?
+1. Push your code to a GitHub repository
+2. Import the project on Netlify (https://app.netlify.com/start)
+3. Configure the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. Deploy the site and configure your custom domain
 
-Simply open [Lovable](https://lovable.dev/projects/da2b8441-0e70-426a-b5e4-a5e8f69d83e4) and click on Share -> Publish.
+## Built With
 
-## Can I connect a custom domain to my Lovable project?
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Production-ready animation library for React
+- [shadcn/ui](https://ui.shadcn.com/) - Beautifully designed components
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
