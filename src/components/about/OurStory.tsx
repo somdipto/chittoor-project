@@ -6,26 +6,26 @@ const OurStory = () => {
   const milestones = [
     {
       year: "2022",
-      title: "Founding",
-      description: "Project Chittoor was founded with a vision to transform rural education",
+      title: "Idea Born",
+      description: "Founding vision for India's Evergreen Revolution conceived",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=200&q=80"
     },
     {
       year: "2023",
-      title: "First Mentorship Batch",
-      description: "Launched our first mentorship program with 25 students",
+      title: "600-Acre Pilot",
+      description: "Pilot project in Thirumalarajupuram village initiated",
       image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=200&q=80"
     },
     {
       year: "2024",
-      title: "Scholarship Launch",
-      description: "Established scholarship fund supporting 50+ students",
+      title: "Infrastructure Started",
+      description: "Solar, farming, and digital education infrastructure development began",
       image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80"
     },
     {
       year: "2025",
-      title: "Impact Expansion",
-      description: "Scaling our programs to reach 5 more villages",
+      title: "Scaling & R&D Lab",
+      description: "Scaling to 6,000+ acres and launching R&D living lab",
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=200&q=80"
     }
   ];
@@ -42,7 +42,7 @@ const OurStory = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Story</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A journey of growth, impact, and community transformation
+            A journey towards India's Evergreen Revolution
           </p>
         </motion.div>
 

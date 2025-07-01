@@ -1,54 +1,68 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Users, Award, Handshake, CheckCircle } from "lucide-react";
+import { Sprout, DollarSign, BookOpen, Sun, Users } from "lucide-react";
 
 const ImpactMetrics = () => {
   const [counters, setCounters] = useState({
+    acres: 0,
+    income: 0,
     students: 0,
-    scholarships: 0,
-    volunteers: 0,
-    projects: 0
+    solar: 0,
+    volunteers: 0
   });
 
   const targets = {
-    students: 150,
-    scholarships: 50,
-    volunteers: 75,
-    projects: 12
+    acres: 600,
+    income: 100000,
+    students: 1000,
+    solar: 6,
+    volunteers: 75
   };
 
   const metrics = [
     {
-      key: 'students',
-      label: 'Students Reached',
-      icon: Users,
-      color: 'chittoor-green'
+      key: 'acres',
+      label: 'Acres Reclaimed',
+      icon: Sprout,
+      color: 'chittoor-green',
+      suffix: '+'
     },
     {
-      key: 'scholarships',
-      label: 'Scholarships Awarded',
-      icon: Award,
-      color: 'chittoor-blue'
+      key: 'income',
+      label: 'Income per Acre/Month',
+      icon: DollarSign,
+      color: 'chittoor-blue',
+      prefix: '₹',
+      suffix: ''
+    },
+    {
+      key: 'students',
+      label: 'Students Impacted',
+      icon: BookOpen,
+      color: 'chittoor-earth',
+      suffix: '+'
+    },
+    {
+      key: 'solar',
+      label: 'MW Solar Capacity',
+      icon: Sun,
+      color: 'chittoor-green',
+      suffix: ' MW'
     },
     {
       key: 'volunteers',
       label: 'Volunteers Engaged',
-      icon: Handshake,
-      color: 'chittoor-earth'
-    },
-    {
-      key: 'projects',
-      label: 'Projects Completed',
-      icon: CheckCircle,
-      color: 'chittoor-green'
+      icon: Users,
+      color: 'chittoor-blue',
+      suffix: '+'
     }
   ];
 
   useEffect(() => {
     const animateCounters = () => {
-      const duration = 2000; // 2 seconds
-      const steps = 60; // 60 steps for smooth animation
+      const duration = 2000;
+      const steps = 60;
       const stepDuration = duration / steps;
 
       let step = 0;
@@ -57,10 +71,11 @@ const ImpactMetrics = () => {
         const progress = step / steps;
         
         setCounters({
+          acres: Math.floor(targets.acres * progress),
+          income: Math.floor(targets.income * progress),
           students: Math.floor(targets.students * progress),
-          scholarships: Math.floor(targets.scholarships * progress),
-          volunteers: Math.floor(targets.volunteers * progress),
-          projects: Math.floor(targets.projects * progress)
+          solar: Math.floor(targets.solar * progress),
+          volunteers: Math.floor(targets.volunteers * progress)
         });
 
         if (step >= steps) {
@@ -90,6 +105,13 @@ const ImpactMetrics = () => {
     return () => observer.disconnect();
   }, []);
 
+  const formatNumber = (num: number, key: string) => {
+    if (key === 'income') {
+      return (num / 1000).toFixed(0) + 'K';
+    }
+    return num.toString();
+  };
+
   return (
     <section id="impact-metrics" className="py-16 bg-gradient-to-br from-chittoor-green/5 to-chittoor-blue/5">
       <div className="container">
@@ -102,11 +124,11 @@ const ImpactMetrics = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Impact</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Measurable change in our community through dedicated efforts
+            Measurable progress towards India's Evergreen Revolution
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {metrics.map((metric, index) => (
             <motion.div
               key={metric.key}
@@ -120,10 +142,10 @@ const ImpactMetrics = () => {
                 <metric.icon className={`w-8 h-8 text-${metric.color}`} />
               </div>
               <div>
-                <div className={`text-4xl md:text-5xl font-bold text-${metric.color} mb-2`}>
-                  {counters[metric.key as keyof typeof counters]}+
+                <div className={`text-3xl md:text-4xl font-bold text-${metric.color} mb-2`}>
+                  {metric.prefix || ''}{formatNumber(counters[metric.key as keyof typeof counters], metric.key)}{metric.suffix || ''}
                 </div>
-                <p className="text-gray-600 font-medium">{metric.label}</p>
+                <p className="text-gray-600 font-medium text-sm">{metric.label}</p>
               </div>
             </motion.div>
           ))}

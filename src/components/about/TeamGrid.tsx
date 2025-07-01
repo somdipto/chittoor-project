@@ -7,40 +7,28 @@ const TeamGrid = () => {
 
   const teamMembers = [
     {
-      name: "Priya Sharma",
-      role: "Founder & Director",
-      funFact: "Loves traditional dance and speaks 4 languages",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612e6af?auto=format&fit=crop&w=300&q=80"
-    },
-    {
-      name: "Raj Kumar",
-      role: "Education Coordinator",
-      funFact: "Former village teacher who climbed Mount Everest",
+      name: "Sunder Raju Sir",
+      role: "Founder",
+      funFact: "Founder of Atria Group with vision for rural transformation",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
     },
     {
-      name: "Anita Reddy",
-      role: "Community Outreach",
-      funFact: "Champion chess player and pottery enthusiast",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-    },
-    {
-      name: "Vikram Singh",
-      role: "Program Manager",
-      funFact: "Marathon runner who grows organic vegetables",
+      name: "Abhishek Sir",
+      role: "Project Lead",
+      funFact: "Passionate about rural upliftment and regenerative farming",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80"
     },
     {
-      name: "Meera Patel",
-      role: "Volunteer Coordinator",
-      funFact: "Street photographer and traditional cook",
-      image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=300&q=80"
+      name: "Prassana Sir",
+      role: "Project Manager",
+      funFact: "Passionate about rural upliftment and regenerative farming",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
     },
     {
-      name: "Arjun Nair",
-      role: "Technology Lead",
-      funFact: "Builds robots in spare time and loves astronomy",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+      name: "Pratham",
+      role: "Project Coordinator",
+      funFact: "Managing coordination throughout the team",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=300&q=80"
     }
   ];
 
@@ -56,11 +44,11 @@ const TeamGrid = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Passionate individuals working together to create lasting change
+            Dedicated leaders driving India's Evergreen Revolution
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}

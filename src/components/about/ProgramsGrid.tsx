@@ -2,30 +2,37 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Book } from "lucide-react";
+import { Sprout, Sun, BookOpen, Mountain } from "lucide-react";
 
 const ProgramsGrid = () => {
   const programs = [
     {
-      title: "Scholarship Fund",
-      description: "Financial support for deserving students to pursue higher education and break barriers to learning.",
-      icon: Award,
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80",
+      title: "Sustainable Agriculture",
+      description: "Chemical-free vertical food forests, water management, livestock, and organic food processing to restore soil, increase yield, and earn ₹1L/month per acre.",
+      icon: Sprout,
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-green"
     },
     {
-      title: "Mentorship Program",
-      description: "One-on-one guidance connecting students with professionals and experienced mentors for career guidance.",
-      icon: Book,
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=80",
+      title: "Renewable Energy",
+      description: "Agrivoltaics, rooftop solar, cold storage & battery backup to empower farms with green energy and add income via collective power sales.",
+      icon: Sun,
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-blue"
     },
     {
-      title: "Community Engagement",
-      description: "Village-wide events, workshops, and initiatives that strengthen community bonds and shared learning.",
-      icon: Users,
-      image: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?auto=format&fit=crop&w=400&q=80",
+      title: "Transformative Education",
+      description: "Digital classrooms, AR/VR labs, mentorship, and self-learning platforms to upgrade village education to metro standards.",
+      icon: BookOpen,
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-earth"
+    },
+    {
+      title: "Agrotourism & Wellness",
+      description: "Eco-tourism, farm stays, Ayurveda retreats, yoga sessions, and cultural experiences to generate tourism income.",
+      icon: Mountain,
+      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80",
+      color: "chittoor-green"
     }
   ];
 
@@ -39,13 +46,13 @@ const ProgramsGrid = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What We Do</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What We Do - Core Pillars</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our three core programs work together to create lasting impact in rural communities
+            Four integrated pillars working together to create India's Evergreen Revolution
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {programs.map((program, index) => (
             <motion.div
               key={program.title}

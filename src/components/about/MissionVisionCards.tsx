@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Handshake, Sunrise } from "lucide-react";
+import { Leaf, Sunrise } from "lucide-react";
 
 const MissionVisionCards = () => {
   return (
@@ -18,11 +18,11 @@ const MissionVisionCards = () => {
             <Card className="h-full bg-gradient-to-br from-chittoor-green-light/10 to-chittoor-green/10 border-chittoor-green/20">
               <CardContent className="p-8 text-center space-y-4">
                 <div className="bg-chittoor-green/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                  <Handshake className="w-8 h-8 text-chittoor-green" />
+                  <Leaf className="w-8 h-8 text-chittoor-green" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To provide quality education, mentorship, and community support that empowers rural students and families to break the cycle of poverty through sustainable development initiatives.
+                  To foster self-sustaining rural ecosystems through sustainable agriculture, renewable energy, transformative education, and wellness—ensuring farmers and their families thrive in their own villages.
                 </p>
               </CardContent>
             </Card>
@@ -41,7 +41,7 @@ const MissionVisionCards = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  A thriving Chittoor where every child has access to quality education and every family has the opportunity to build a sustainable, prosperous future rooted in their cultural heritage.
+                  To lead India's Evergreen Revolution by turning 600+ acres of dry land into a national model for rural development that reverses migration, creates wealth, and rebuilds community.
                 </p>
               </CardContent>
             </Card>

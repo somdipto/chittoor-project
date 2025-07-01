@@ -6,17 +6,17 @@ const PressSection = () => {
   const pressFeatures = [
     {
       publication: "The Hindu",
-      headline: "Rural Education Initiative Shows Promise in Chittoor District",
+      headline: "Reversing Migration Through Innovation",
       logo: "/placeholder.svg"
     },
     {
       publication: "Times of India",
-      headline: "Young Entrepreneurs Bridge Urban-Rural Education Gap",
+      headline: "600-Acre Rural Innovation Hub Takes Root in Andhra",
       logo: "/placeholder.svg"
     },
     {
       publication: "Deccan Chronicle",
-      headline: "Community-Driven Development Model Gains Recognition",
+      headline: "Atria's New Model for Rural Sustainability",
       logo: "/placeholder.svg"
     }
   ];
@@ -33,7 +33,7 @@ const PressSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Press & Recognition</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our work has been featured in leading publications
+            Media coverage of our rural transformation initiatives
           </p>
         </motion.div>
 

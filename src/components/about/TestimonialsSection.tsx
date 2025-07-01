@@ -6,21 +6,21 @@ import { Card, CardContent } from "@/components/ui/card";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "The scholarship changed my life completely. Now I'm studying engineering and dream of helping my village develop.",
-      name: "Ravi Kumar",
-      role: "Scholarship Recipient",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
-    },
-    {
-      quote: "Mentoring these bright students gives me more joy than any corporate achievement. They inspire me every day.",
-      name: "Priya Mehta",
-      role: "Volunteer Mentor",
+      quote: "I used to walk 5 km to a chalkboard class. Now I learn on a tablet.",
+      name: "Radha",
+      role: "Student",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612e6af?auto=format&fit=crop&w=200&q=80"
     },
     {
-      quote: "Project Chittoor brought our community together. My daughter now has hope for a brighter future.",
-      name: "Lakshmi Devi",
-      role: "Parent & Community Member",
+      quote: "Our land was dry. Now it feeds our family and our neighbors.",
+      name: "Kumar",
+      role: "Farmer",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+    },
+    {
+      quote: "It's not just about teaching—it's about building the future of rural India.",
+      name: "Mentor",
+      role: "Volunteer",
       image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=200&q=80"
     }
   ];
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Success Stories</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Hear from the people whose lives have been touched by our work
+            Real faces, emotional moments, and community pride
           </p>
         </motion.div>
 

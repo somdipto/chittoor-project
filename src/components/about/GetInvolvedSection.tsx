@@ -9,21 +9,21 @@ const GetInvolvedSection = () => {
   const ctaButtons = [
     {
       title: "Donate",
-      description: "Support our mission with financial contributions",
+      description: "Fuel village innovation and rural transformation",
       icon: Heart,
       link: "/donate",
       color: "bg-gradient-to-r from-chittoor-green to-chittoor-green-dark"
     },
     {
       title: "Volunteer",
-      description: "Share your skills and time with our community",
+      description: "Mentor students or assist in farms and development",
       icon: Users,
       link: "/collaborate",
       color: "bg-gradient-to-r from-chittoor-blue to-chittoor-blue-dark"
     },
     {
       title: "Partner With Us",
-      description: "Join forces for greater community impact",
+      description: "Collaborate in scaling rural development initiatives",
       icon: Handshake,
       link: "/collaborate",
       color: "bg-gradient-to-r from-chittoor-earth to-chittoor-earth-light"
@@ -36,7 +36,7 @@ const GetInvolvedSection = () => {
       <div className="absolute inset-0 opacity-5">
         <img
           src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=1200&q=80"
-          alt="Background"
+          alt="Rural development background"
           className="w-full h-full object-cover"
         />
       </div>
@@ -51,7 +51,7 @@ const GetInvolvedSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get Involved</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join us in creating lasting change in rural communities
+            Join us in creating India's Evergreen Revolution
           </p>
         </motion.div>
 
