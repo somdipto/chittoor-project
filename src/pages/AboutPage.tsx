@@ -3,16 +3,13 @@ import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import IntroSection from '@/components/about/IntroSection';
+import ProblemSection from '@/components/about/ProblemSection';
+import AtriaBackgroundSection from '@/components/about/AtriaBackgroundSection';
 import MissionVisionCards from '@/components/about/MissionVisionCards';
 import ProgramsGrid from '@/components/about/ProgramsGrid';
-import OurStory from '@/components/about/OurStory';
 import ImpactMetrics from '@/components/about/ImpactMetrics';
-import TeamGrid from '@/components/about/TeamGrid';
-import PartnersSection from '@/components/about/PartnersSection';
-import TestimonialsSection from '@/components/about/TestimonialsSection';
-import PressSection from '@/components/about/PressSection';
+import LivingLabSection from '@/components/about/LivingLabSection';
 import GetInvolvedSection from '@/components/about/GetInvolvedSection';
-import TransparencySection from '@/components/about/TransparencySection';
 
 const AboutPage: React.FC = () => {
   return (
@@ -20,16 +17,13 @@ const AboutPage: React.FC = () => {
       <Navbar />
       <main className="flex-1">
         <IntroSection />
+        <ProblemSection />
+        <AtriaBackgroundSection />
         <MissionVisionCards />
         <ProgramsGrid />
-        <OurStory />
         <ImpactMetrics />
-        <TeamGrid />
-        <PartnersSection />
-        <TestimonialsSection />
-        <PressSection />
+        <LivingLabSection />
         <GetInvolvedSection />
-        <TransparencySection />
       </main>
       <Footer />
     </div>

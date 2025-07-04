@@ -22,7 +22,7 @@ const MissionVisionCards = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To foster self-sustaining rural ecosystems through sustainable agriculture, renewable energy, transformative education, and wellness—ensuring farmers and their families thrive in their own villages.
+                  Address India's agricultural crisis and reverse urban migration through sustainable farming, renewable energy, education, and wellness tourism.
                 </p>
               </CardContent>
             </Card>
@@ -41,7 +41,7 @@ const MissionVisionCards = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To lead India's Evergreen Revolution by turning 600+ acres of dry land into a national model for rural development that reverses migration, creates wealth, and rebuilds community.
+                  Create a replicable model for 44 crore farming families, positioning India as the "food capital of the world" through sustainable development.
                 </p>
               </CardContent>
             </Card>

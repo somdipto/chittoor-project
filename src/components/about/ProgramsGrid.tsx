@@ -5,31 +5,31 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Sprout, Sun, BookOpen, Mountain } from "lucide-react";
 
 const ProgramsGrid = () => {
-  const programs = [
+const programs = [
     {
       title: "Sustainable Agriculture",
-      description: "Chemical-free vertical food forests, water management, livestock, and organic food processing to restore soil, increase yield, and earn ₹1L/month per acre.",
+      description: "Chemical-free vertical farming, livestock integration (210 sheep, 20 cows, 500 chickens), and premium food processing.",
       icon: Sprout,
       image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-green"
     },
     {
       title: "Renewable Energy",
-      description: "Agrivoltaics, rooftop solar, cold storage & battery backup to empower farms with green energy and add income via collective power sales.",
+      description: "6 MW solar capacity with agrivoltaics for 'double income' plus cold storage and battery backup systems.",
       icon: Sun,
       image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-blue"
     },
     {
       title: "Transformative Education",
-      description: "Digital classrooms, AR/VR labs, mentorship, and self-learning platforms to upgrade village education to metro standards.",
+      description: "Digital infrastructure, VR/AR labs, IoT-enabled remote learning, and AI-powered adaptive education.",
       icon: BookOpen,
       image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-earth"
     },
     {
       title: "Agrotourism & Wellness",
-      description: "Eco-tourism, farm stays, Ayurveda retreats, yoga sessions, and cultural experiences to generate tourism income.",
+      description: "Farm stays, wellness retreats, Ayurveda healing, and corporate facilities for sustainable tourism revenue.",
       icon: Mountain,
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80",
       color: "chittoor-green"
@@ -46,9 +46,9 @@ const ProgramsGrid = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What We Do - Core Pillars</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Four Integrated Pillars</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Four integrated pillars working together to create India's Evergreen Revolution
+            Comprehensive approach to sustainable rural development
           </p>
         </motion.div>
 

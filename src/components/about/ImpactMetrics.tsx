@@ -7,52 +7,52 @@ const ImpactMetrics = () => {
   const [counters, setCounters] = useState({
     acres: 0,
     income: 0,
-    students: 0,
+    farmers: 0,
     solar: 0,
-    volunteers: 0
+    livestock: 0
   });
 
   const targets = {
     acres: 600,
     income: 100000,
-    students: 1000,
+    farmers: 44,
     solar: 6,
-    volunteers: 75
+    livestock: 730
   };
 
   const metrics = [
     {
       key: 'acres',
-      label: 'Acres Reclaimed',
+      label: 'Project Area',
       icon: Sprout,
       color: 'chittoor-green',
-      suffix: '+'
+      suffix: ' acres'
     },
     {
       key: 'income',
-      label: 'Income per Acre/Month',
+      label: 'Target Income/Acre',
       icon: DollarSign,
       color: 'chittoor-blue',
       prefix: '₹',
-      suffix: ''
+      suffix: '/month'
     },
     {
-      key: 'students',
-      label: 'Students Impacted',
-      icon: BookOpen,
+      key: 'farmers',
+      label: 'Crore Families Served',
+      icon: Users,
       color: 'chittoor-earth',
-      suffix: '+'
+      suffix: ' cr'
     },
     {
       key: 'solar',
-      label: 'MW Solar Capacity',
+      label: 'Solar Capacity',
       icon: Sun,
       color: 'chittoor-green',
       suffix: ' MW'
     },
     {
-      key: 'volunteers',
-      label: 'Volunteers Engaged',
+      key: 'livestock',
+      label: 'Livestock Count',
       icon: Users,
       color: 'chittoor-blue',
       suffix: '+'
@@ -73,9 +73,9 @@ const ImpactMetrics = () => {
         setCounters({
           acres: Math.floor(targets.acres * progress),
           income: Math.floor(targets.income * progress),
-          students: Math.floor(targets.students * progress),
+          farmers: Math.floor(targets.farmers * progress),
           solar: Math.floor(targets.solar * progress),
-          volunteers: Math.floor(targets.volunteers * progress)
+          livestock: Math.floor(targets.livestock * progress)
         });
 
         if (step >= steps) {
