@@ -2,13 +2,16 @@
 import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import IntroSection from '@/components/about/IntroSection';
-import ProblemSection from '@/components/about/ProblemSection';
+import ProjectStory from '@/components/about/ProjectStory';
+import ProjectAim from '@/components/about/ProjectAim';
+import ProjectVision from '@/components/about/ProjectVision';
+import ProjectGoals from '@/components/about/ProjectGoals';
+import ProjectObjectives from '@/components/about/ProjectObjectives';
+import ProjectPillars from '@/components/about/ProjectPillars';
+import ProjectTimeline from '@/components/about/ProjectTimeline';
+import ProjectAllies from '@/components/about/ProjectAllies';
 import AtriaBackgroundSection from '@/components/about/AtriaBackgroundSection';
-import MissionVisionCards from '@/components/about/MissionVisionCards';
-import ProgramsGrid from '@/components/about/ProgramsGrid';
-import ImpactMetrics from '@/components/about/ImpactMetrics';
-import LivingLabSection from '@/components/about/LivingLabSection';
+import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import GetInvolvedSection from '@/components/about/GetInvolvedSection';
 
 const AboutPage: React.FC = () => {
@@ -16,13 +19,16 @@ const AboutPage: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800">
       <Navbar />
       <main className="flex-1">
-        <IntroSection />
-        <ProblemSection />
+        <ProjectStory />
+        <ProjectAim />
+        <ProjectVision />
+        <ProjectGoals />
+        <ProjectObjectives />
+        <ProjectPillars />
+        <ProjectTimeline />
+        <ProjectAllies />
         <AtriaBackgroundSection />
-        <MissionVisionCards />
-        <ProgramsGrid />
-        <ImpactMetrics />
-        <LivingLabSection />
+        <ExecutiveTeam />
         <GetInvolvedSection />
       </main>
       <Footer />

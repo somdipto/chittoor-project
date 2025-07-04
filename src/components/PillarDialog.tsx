@@ -20,23 +20,28 @@ const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[900px] max-h-[85vh] overflow-y-auto p-0 border-0 bg-gradient-to-br from-white via-gray-50 to-chittoor-green/5">
+        <DialogHeader className="sr-only">
+          <DialogTitle>{pillar.title} - Chittoor's Initiative</DialogTitle>
+          <DialogDescription>Details about {pillar.title} initiative</DialogDescription>
+        </DialogHeader>
         <div className="relative">
           {/* Colorful header with gradient background */}
           <div
             className={`bg-gradient-to-r ${pillar.bg.replace("bg-", "from-")} to-chittoor-green/20 p-8 rounded-t-lg relative overflow-hidden`}
+            aria-hidden="true"
           >
             {/* Decorative pattern overlay */}
             <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,0 L60,30 L30,60 L0,30 Z' fill='%23ffffff'/%3E%3C/svg%3E')] bg-repeat"></div>
 
-            <DialogHeader className="relative z-10">
-              <DialogTitle className="text-3xl flex items-center gap-4 text-white drop-shadow-lg">
+            <div className="relative z-10">
+              <div className="text-3xl flex items-center gap-4 text-white drop-shadow-lg">
                 <div
                   className={`p-4 rounded-2xl bg-white/20 backdrop-blur-sm shadow-xl border border-white/30 group-hover:scale-110 transition-all duration-300`}
                 >
                   <div className="text-white text-2xl">{pillar.icon}</div>
                 </div>
                 <div>
-                  <span className="block">{pillar.title}</span>
+                  <h2 className="block text-2xl font-bold">{pillar.title}</h2>
                   <span
                     className={`inline-block text-sm px-3 py-1 rounded-full mt-2 font-medium ${
                       pillar.status === "active"
@@ -49,11 +54,11 @@ const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
                       : "🔵 In Planning"}
                   </span>
                 </div>
-              </DialogTitle>
+              </div>
               <DialogDescription className="text-white/90 text-lg mt-4 font-medium">
-                Project Chittoor Initiative • Sustainable Development
+                Chittoor's Initiative • Sustainable Development
               </DialogDescription>
-            </DialogHeader>
+            </div>
           </div>
 
           {/* Main content with colorful styling */}
