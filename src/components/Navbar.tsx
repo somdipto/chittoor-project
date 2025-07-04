@@ -1,10 +1,11 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Flower, Menu, ArrowLeft, X } from "lucide-react";
+import { Flower, Menu, ArrowLeft, X, ChevronDown } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { Book, Target, Users, BarChart3, Handshake, MessageSquare } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -12,16 +13,30 @@ const Navbar = () => {
   
   const navItems = [
     { title: "Home", href: "/" },
-    { title: "About Us", href: "/about" },
+    { 
+      title: "About Us", 
+      type: "dropdown",
+      items: [
+        { title: "Our Story", href: "/about/story", icon: <Book className="h-4 w-4" /> },
+        { title: "Our Mission", href: "/about/mission", icon: <Target className="h-4 w-4" /> },
+        { title: "Our Team", href: "/about/team", icon: <Users className="h-4 w-4" /> },
+        { title: "Objectives", href: "/about/objectives", icon: <BarChart3 className="h-4 w-4" /> },
+        { title: "Our Approach", href: "/about/approach", icon: <Handshake className="h-4 w-4" /> },
+        { title: "Contact", href: "/contact", icon: <MessageSquare className="h-4 w-4" /> }
+      ]
+    },
     { title: "Projects", href: "/#projects" },
     { title: "Pillars", href: "/pillars" },
-    { title: "Collaborate", href: "/collaborate" },
-    { title: "Contact", href: "/contact" }
+    { title: "Collaborate", href: "/collaborate" }
   ];
   const [isOpen, setIsOpen] = React.useState(false);
 
+  // Filter out the About Us item since we'll render it separately with dropdown
+  const mainNavItems = navItems.filter(item => item.title !== 'About Us');
+  const aboutUsItem = navItems.find(item => item.title === 'About Us');
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80 shadow-sm">
+    <div className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80 shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-4">
           {/* Back Button for non-home pages */}
@@ -68,60 +83,75 @@ const Navbar = () => {
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-2 lg:gap-4">
-          {navItems.map((item, i) => (
+          {mainNavItems.map((item, i) => (
             <motion.div
-              key={item.title}
+              key={i}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: i * 0.1 }}
             >
-              {item.href.startsWith("/") && !item.href.includes("#") ? (
-                <Link
-                  to={item.href}
-                  className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
-                    location.pathname === item.href 
-                      ? "text-chittoor-green bg-chittoor-green/10" 
-                      : "text-gray-700 hover:text-chittoor-green"
-                  }`}
-                >
-                  {item.title}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
-                </Link>
-              ) : (
-                <a
-                  href={item.href}
-                  className="text-sm font-medium transition-all text-gray-700 hover:text-chittoor-green relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10"
-                >
-                  {item.title}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
-                </a>
-              )}
+              <Link
+                to={item.href}
+                className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
+                  location.pathname === item.href 
+                    ? "text-chittoor-green bg-chittoor-green/10" 
+                    : "text-gray-700 hover:text-chittoor-green"
+                }`}
+              >
+                {item.title}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+              </Link>
             </motion.div>
           ))}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Link to="/donate">
-              <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 sm:px-6 text-sm sm:text-base font-semibold">
-                Donate Now
-              </Button>
-            </Link>
-          </motion.div>
+          
+          {/* About Us Dropdown */}
+          {aboutUsItem && aboutUsItem.type === 'dropdown' && (
+            <div className="relative group">
+              <button
+                className="flex items-center text-sm font-medium px-3 py-2 rounded-lg hover:bg-chittoor-green/10 text-gray-700 hover:text-chittoor-green transition-colors"
+              >
+                About Us
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+              </button>
+              
+              <div className="absolute left-0 mt-2 w-56 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-1">
+                  {aboutUsItem.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                    >
+                      {item.icon && <span className="mr-3 text-gray-400">{item.icon}</span>}
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          <Link to="/donate">
+            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 sm:px-6 text-sm sm:text-base font-semibold">
+              Donate Now
+            </Button>
+          </Link>
         </nav>
+    </div>
 
-        {/* Mobile navigation */}
-        <div className="md:hidden">
+    {/* Mobile menu button */}
+    <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button
-                variant="outline"
+                variant="ghost"
                 size="icon"
-                className="rounded-full border-chittoor-green/20 hover:bg-chittoor-green/10"
-                aria-label="Toggle menu"
+                className="text-gray-700 hover:bg-chittoor-green/10 hover:text-chittoor-green focus:outline-none"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
@@ -140,36 +170,50 @@ const Navbar = () => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex-1 pt-6 px-6 flex flex-col gap-2">
+                <div className="flex-1 pt-6 px-6 flex flex-col gap-2 overflow-y-auto">
                   {navItems.map((item, index) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      {item.href.startsWith("/") && !item.href.includes("#") ? (
+                    <React.Fragment key={item.title}>
+                      {item.type === 'dropdown' ? (
+                        <div className="space-y-2">
+                          <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-2">
+                            {item.title}
+                          </h4>
+                          <div className="space-y-1">
+                            {item.items.map((subItem) => (
+                              <Link
+                                key={subItem.href}
+                                to={subItem.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium ${
+                                  location.pathname === subItem.href
+                                    ? 'text-chittoor-green bg-chittoor-green/10'
+                                    : 'text-gray-700 hover:bg-chittoor-green/5 hover:text-chittoor-green'
+                                }`}
+                              >
+                                {subItem.icon && (
+                                  <span className="text-chittoor-green/70">
+                                    {subItem.icon}
+                                  </span>
+                                )}
+                                {subItem.title}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
                         <Link
                           to={item.href}
-                          className={`text-lg font-medium transition-all py-3 px-4 rounded-xl block ${
-                            location.pathname === item.href
-                              ? "text-chittoor-green bg-chittoor-green/10 border-l-4 border-chittoor-green"
-                              : "text-gray-700 hover:text-chittoor-green hover:bg-chittoor-green/5"
-                          }`}
                           onClick={() => setIsOpen(false)}
+                          className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            location.pathname === item.href
+                              ? 'text-chittoor-green bg-chittoor-green/10'
+                              : 'text-gray-700 hover:bg-chittoor-green/5 hover:text-chittoor-green'
+                          }`}
                         >
                           {item.title}
                         </Link>
-                      ) : (
-                        <a
-                          href={item.href}
-                          className="text-lg font-medium transition-all text-gray-700 hover:text-chittoor-green py-3 px-4 rounded-xl block hover:bg-chittoor-green/5"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.title}
-                        </a>
                       )}
-                    </motion.div>
+                    </React.Fragment>
                   ))}
                 </div>
 
@@ -189,7 +233,6 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
-    </header>
   );
 };
 
