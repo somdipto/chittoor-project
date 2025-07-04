@@ -26,36 +26,36 @@ const IntroSection = () => {
 
       {/* Main Hero Section */}
       <div className="relative bg-gradient-to-r from-green-50 to-white">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-6">
+        <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="h-12 w-1 bg-green-600 rounded-full"></div>
                 <span className="text-green-700 font-semibold text-lg">SUSTAINABLE DEVELOPMENT INITIATIVE</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Chittoor's Initiative
-                <span className="block text-green-800 text-2xl md:text-3xl mt-2 font-normal">
+                <span className="block text-green-800 text-xl sm:text-2xl md:text-3xl mt-2 font-normal">
                   Empowering Communities Through Sustainable Development
                 </span>
               </h1>
               
-              <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r">
-                <p className="text-gray-700 font-medium">
+              <div className="bg-green-50 border-l-4 border-green-600 p-3 sm:p-4 rounded-r">
+                <p className="text-sm sm:text-base text-gray-700 font-medium">
                   A comprehensive initiative focused on sustainable agriculture, education, and community development in the Chittoor region
                 </p>
               </div>
 
               {/* Quick Stats */}
-              <div className="flex flex-wrap gap-4 mt-8">
+              <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-8">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 * index }}
-                    className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                    className="flex items-center space-x-2 sm:space-x-3 bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
                   >
                     <div className="p-2 bg-green-50 rounded-lg">
                       {stat.icon}

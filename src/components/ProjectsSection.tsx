@@ -392,7 +392,7 @@ const ProjectsSection = () => {
                       Learn more →
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[800px] max-h-[80vh] overflow-y-auto">
+                  <DialogContent className="sm:max-w-[600px] md:max-w-[800px] max-h-[80vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle className="text-2xl flex items-center gap-2">
                         {project.icon}

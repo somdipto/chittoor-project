@@ -154,7 +154,7 @@ const Navbar = () => {
                 )}
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
+            <SheetContent side="right" className="w-full max-w-sm p-0">
               <div className="flex flex-col h-full bg-gradient-to-b from-white to-chittoor-offwhite">
                 {/* Header */}
                 <div className="p-6 border-b border-chittoor-green/10">

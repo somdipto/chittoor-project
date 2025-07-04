@@ -4,12 +4,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gradient-to-b from-chittoor-offwhite to-white pt-16 border-t border-gray-100">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-800">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-800">
               About Us
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-sm sm:text-base text-gray-600 mb-4">
               Project Chittoor is a rural revitalization initiative focusing on
               sustainable development and community living.
             </p>
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-800">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-800">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -84,9 +84,9 @@ const Footer = () => {
           
         </div>
 
-        <div className="border-t border-gray-200 py-6">
+        <div className="border-t border-gray-200 py-4 sm:py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-center md:text-left">
+            <p className="text-sm sm:text-base text-gray-600 text-center md:text-left">
               &copy; {currentYear} Project Chittoor. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">

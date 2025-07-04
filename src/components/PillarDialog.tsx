@@ -19,7 +19,7 @@ const PillarDialog = ({ pillar, children }: PillarDialogProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[900px] max-h-[85vh] overflow-y-auto p-0 border-0 bg-gradient-to-br from-white via-gray-50 to-chittoor-green/5">
+      <DialogContent className="sm:max-w-[800px] lg:max-w-[900px] max-h-[85vh] overflow-y-auto p-0 border-0 bg-gradient-to-br from-white via-gray-50 to-chittoor-green/5">
         <DialogHeader className="sr-only">
           <DialogTitle>{pillar.title} - Chittoor's Initiative</DialogTitle>
           <DialogDescription>Details about {pillar.title} initiative</DialogDescription>

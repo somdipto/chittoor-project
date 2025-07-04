@@ -27,7 +27,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green via-chittoor-blue to-chittoor-green animate-gradient bg-300% bg-right">
                 Empowering Communities in Chittoor
@@ -37,7 +37,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0"
             >
               Promoting sustainable development and cultural preservation in
               rural Andhra Pradesh through education, agriculture, and
@@ -69,10 +69,10 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 sm:mt-12 lg:mt-0"
+            className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-8 md:mt-12 lg:mt-0"
           >
             <div className="space-y-3 sm:space-y-4">
-              <div className="rounded-xl overflow-hidden shadow-lg h-40 sm:h-48 md:h-56 lg:h-64 bg-gray-100 relative group">
+              <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 bg-gray-100 relative group">
                 <img
                   src="https://images.unsplash.com/photo-1602600203968-7a1c67c12fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Indian farmers in field"
@@ -80,11 +80,11 @@ const Hero = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <p className="absolute bottom-3 left-4 text-white text-sm sm:text-base font-medium">
+                <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
                   Sustainable Farming
                 </p>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-lg h-32 sm:h-36 md:h-40 bg-gray-100 relative group">
+              <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-24 sm:h-32 md:h-36 lg:h-40 bg-gray-100 relative group">
                 <img
                   src="https://images.unsplash.com/photo-1623060693724-1e59e90a5d74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Solar panels in rural village"
@@ -92,13 +92,13 @@ const Hero = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <p className="absolute bottom-3 left-4 text-white text-sm sm:text-base font-medium">
+                <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
                   Renewable Energy
                 </p>
               </div>
             </div>
-            <div className="space-y-3 sm:space-y-4 mt-8 sm:mt-12">
-              <div className="rounded-xl overflow-hidden shadow-lg h-32 sm:h-36 md:h-40 bg-gray-100 relative group">
+            <div className="space-y-2 sm:space-y-3 md:space-y-4 mt-6 sm:mt-8 md:mt-12">
+              <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-24 sm:h-32 md:h-36 lg:h-40 bg-gray-100 relative group">
                 <img
                   src="https://images.unsplash.com/photo-1551984427-05d5dd9f0f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Rural education in India"
@@ -106,11 +106,11 @@ const Hero = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <p className="absolute bottom-3 left-4 text-white text-sm sm:text-base font-medium">
+                <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
                   Rural Education
                 </p>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-lg h-40 sm:h-48 md:h-56 lg:h-64 bg-gray-100 relative group">
+              <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 bg-gray-100 relative group">
                 <img
                   src="https://images.unsplash.com/photo-1594708053019-5336680de090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Indian village landscape"
@@ -118,7 +118,7 @@ const Hero = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <p className="absolute bottom-3 left-4 text-white text-sm sm:text-base font-medium">
+                <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
                   Village Development
                 </p>
               </div>

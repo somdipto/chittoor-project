@@ -24,7 +24,7 @@ const PillarsDropdown = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-96 max-h-[32rem] overflow-y-auto bg-white/95 backdrop-blur-lg shadow-2xl border-0 rounded-2xl p-2"
+        className="w-80 sm:w-96 max-h-[28rem] sm:max-h-[32rem] overflow-y-auto bg-white/95 backdrop-blur-lg shadow-2xl border-0 rounded-2xl p-2"
         sideOffset={8}
       >
         <div className="p-3 border-b border-gray-100 mb-2">
