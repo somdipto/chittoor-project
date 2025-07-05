@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
@@ -14,6 +15,7 @@ import ProjectAllies from '@/components/about/ProjectAllies';
 import AtriaBackgroundSection from '@/components/about/AtriaBackgroundSection';
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import MissionSection from '@/components/about/MissionSection';
+import ProjectApproach from '@/components/about/ProjectApproach';
 
 // Wrapper component to include Navbar, Footer, and main content
 const PageLayout = ({ children, showMissionSection = false }: { children: React.ReactNode, showMissionSection?: boolean }) => (
@@ -34,15 +36,17 @@ const AboutPage = () => {
         <Route path="/" element={<AboutLayout />}>
           <Route index element={<Navigate to="story" replace />} />
           <Route path="story" element={<ProjectStory />} />
+          <Route path="mission" element={<MissionSection />} />
+          <Route path="objectives" element={<ProjectObjectives />} />
+          <Route path="approach" element={<ProjectApproach />} />
+          <Route path="team" element={<ExecutiveTeam />} />
           <Route path="aim" element={<ProjectAim />} />
           <Route path="vision" element={<ProjectVision />} />
           <Route path="goals" element={<ProjectGoals />} />
-          <Route path="objectives" element={<ProjectObjectives />} />
           <Route path="pillars" element={<ProjectPillars />} />
           <Route path="timeline" element={<ProjectTimeline />} />
           <Route path="allies" element={<ProjectAllies />} />
           <Route path="atria-legacy" element={<AtriaBackgroundSection />} />
-          <Route path="team" element={<ExecutiveTeam />} />
         </Route>
       </Routes>
     </PageLayout>

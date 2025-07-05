@@ -5,6 +5,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Book, Target, Users, BarChart3, Handshake, MessageSquare } from "lucide-react";
+import NavbarDropdown from "./NavbarDropdown";
+
 const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -23,7 +25,7 @@ const Navbar = () => {
       href: "/about/mission",
       icon: <Target className="h-4 w-4" />
     }, {
-      title: "Objective",
+      title: "Objectives",
       href: "/about/objectives",
       icon: <BarChart3 className="h-4 w-4" />
     }, {
@@ -34,10 +36,6 @@ const Navbar = () => {
       title: "Our Team",
       href: "/about/team",
       icon: <Users className="h-4 w-4" />
-    }, {
-      title: "Contact Us",
-      href: "/contact",
-      icon: <MessageSquare className="h-4 w-4" />
     }]
   }, {
     title: "Projects",
@@ -49,6 +47,7 @@ const Navbar = () => {
     title: "Collaborate",
     href: "/collaborate"
   }];
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
@@ -70,6 +69,8 @@ const Navbar = () => {
     setIsOpen(false);
     setMobileDropdown(null);
   }, [location.pathname]);
+
+  
   return <div className={`fixed top-0 left-0 right-0 z-50 w-full border-b bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-sm transition-all duration-300 ${
     isScrolled ? 'py-1' : 'py-2'
   }`} style={{ height: isScrolled ? '70px' : '76px' }}>
