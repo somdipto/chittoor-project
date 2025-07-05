@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Book, Target, Users, BarChart3, Handshake, MessageSquare } from "lucide-react";
+import NavbarDropdown from "./NavbarDropdown";
 
 const Navbar = () => {
   const location = useLocation();
@@ -173,32 +174,10 @@ const Navbar = () => {
                   {navItems.map((item, index) => (
                     <React.Fragment key={item.title}>
                       {item.type === 'dropdown' ? (
-                        <div className="space-y-2">
-                          <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-2">
-                            {item.title}
-                          </h4>
-                          <div className="space-y-1">
-                            {item.items.map((subItem) => (
-                              <Link
-                                key={subItem.href}
-                                to={subItem.href}
-                                onClick={() => setIsOpen(false)}
-                                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium ${
-                                  location.pathname === subItem.href
-                                    ? 'text-chittoor-green bg-chittoor-green/10'
-                                    : 'text-gray-700 hover:bg-chittoor-green/5 hover:text-chittoor-green'
-                                }`}
-                              >
-                                {subItem.icon && (
-                                  <span className="text-chittoor-green/70">
-                                    {subItem.icon}
-                                  </span>
-                                )}
-                                {subItem.title}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
+                        <NavbarDropdown 
+                          title={item.title} 
+                          items={item.items} 
+                        />
                       ) : (
                         <Link
                           to={item.href}
