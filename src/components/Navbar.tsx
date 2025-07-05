@@ -136,10 +136,9 @@ const Navbar = () => {
             </Button>
           </Link>
         </nav>
-    </div>
 
-    {/* Mobile menu button */}
-    <div className="md:hidden">
+        {/* Mobile menu button */}
+        <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button
@@ -233,6 +232,7 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
+    </div>
   );
 };
 
