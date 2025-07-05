@@ -131,6 +131,18 @@ const Navbar = () => {
               </div>
             </div>
           )}
+          
+          {/* Volunteer Button */}
+          <Link to="/collaborate">
+            <Button 
+              variant="outline"
+              className="border-chittoor-green text-chittoor-green hover:bg-chittoor-green hover:text-white transition-all duration-300 rounded-full px-4 sm:px-6 text-sm sm:text-base font-semibold"
+            >
+              Volunteer
+            </Button>
+          </Link>
+          
+          {/* Donate Button */}
           <Link to="/donate">
             <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 sm:px-6 text-sm sm:text-base font-semibold">
               Donate Now
@@ -195,8 +207,17 @@ const Navbar = () => {
                   ))}
                 </div>
 
-                {/* Footer */}
-                <div className="p-6 border-t border-chittoor-green/10">
+                {/* Footer with buttons */}
+                <div className="p-6 border-t border-chittoor-green/10 space-y-3">
+                  <Link to="/collaborate">
+                    <Button
+                      variant="outline"
+                      className="w-full border-chittoor-green text-chittoor-green hover:bg-chittoor-green hover:text-white transition-all duration-300 rounded-full py-6 text-base font-semibold"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Volunteer
+                    </Button>
+                  </Link>
                   <Link to="/donate">
                     <Button
                       className="w-full bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-lg hover:shadow-xl transition-all duration-300 rounded-full py-6 text-base font-semibold"
