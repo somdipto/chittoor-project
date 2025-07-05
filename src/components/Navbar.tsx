@@ -32,8 +32,7 @@ const Navbar = () => {
   ];
   const [isOpen, setIsOpen] = React.useState(false);
 
-  // Filter out the About Us item since we'll render it separately with dropdown
-  const mainNavItems = navItems.filter(item => item.title !== 'About Us');
+  // Get About Us item for desktop dropdown
   const aboutUsItem = navItems.find(item => item.title === 'About Us');
 
   return (
@@ -84,30 +83,33 @@ const Navbar = () => {
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-2 lg:gap-4">
-          {mainNavItems.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.1 }}
+          {/* Home Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0 * 0.1 }}
+          >
+            <Link
+              to="/"
+              className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
+                location.pathname === "/" 
+                  ? "text-chittoor-green bg-chittoor-green/10" 
+                  : "text-gray-700 hover:text-chittoor-green"
+              }`}
             >
-              <Link
-                to={item.href}
-                className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
-                  location.pathname === item.href 
-                    ? "text-chittoor-green bg-chittoor-green/10" 
-                    : "text-gray-700 hover:text-chittoor-green"
-                }`}
-              >
-                {item.title}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
-              </Link>
-            </motion.div>
-          ))}
+              Home
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </motion.div>
           
           {/* About Us Dropdown */}
           {aboutUsItem && aboutUsItem.type === 'dropdown' && (
-            <div className="relative group">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 1 * 0.1 }}
+              className="relative group"
+            >
               <button
                 className="flex items-center text-sm font-medium px-3 py-2 rounded-lg hover:bg-chittoor-green/10 text-gray-700 hover:text-chittoor-green transition-colors"
               >
@@ -129,8 +131,65 @@ const Navbar = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
+
+          {/* Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 2 * 0.1 }}
+          >
+            <Link
+              to="/#projects"
+              className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
+                location.pathname === "/#projects" 
+                  ? "text-chittoor-green bg-chittoor-green/10" 
+                  : "text-gray-700 hover:text-chittoor-green"
+              }`}
+            >
+              Projects
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </motion.div>
+
+          {/* Pillars Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 3 * 0.1 }}
+          >
+            <Link
+              to="/pillars"
+              className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
+                location.pathname === "/pillars" 
+                  ? "text-chittoor-green bg-chittoor-green/10" 
+                  : "text-gray-700 hover:text-chittoor-green"
+              }`}
+            >
+              Pillars
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </motion.div>
+
+          {/* Collaborate Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 4 * 0.1 }}
+          >
+            <Link
+              to="/collaborate"
+              className={`text-sm font-medium transition-all relative group px-3 py-2 rounded-lg hover:bg-chittoor-green/10 ${
+                location.pathname === "/collaborate" 
+                  ? "text-chittoor-green bg-chittoor-green/10" 
+                  : "text-gray-700 hover:text-chittoor-green"
+              }`}
+            >
+              Collaborate
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-chittoor-green to-chittoor-blue group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </motion.div>
           
           {/* Volunteer Button */}
           <Link to="/collaborate">
