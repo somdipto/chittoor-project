@@ -13,15 +13,15 @@ import ProjectTimeline from '@/components/about/ProjectTimeline';
 import ProjectAllies from '@/components/about/ProjectAllies';
 import AtriaBackgroundSection from '@/components/about/AtriaBackgroundSection';
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
-import GetInvolvedSection from '@/components/about/GetInvolvedSection';
+import MissionSection from '@/components/about/MissionSection';
 
 // Wrapper component to include Navbar, Footer, and main content
-const PageLayout = ({ children }: { children: React.ReactNode }) => (
+const PageLayout = ({ children, showMissionSection = false }: { children: React.ReactNode, showMissionSection?: boolean }) => (
   <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800">
     <Navbar />
     <main className="flex-grow">
+      {showMissionSection && <MissionSection />}
       {children}
-      <GetInvolvedSection />
     </main>
     <Footer />
   </div>
@@ -29,7 +29,7 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => (
 
 const AboutPage = () => {
   return (
-    <PageLayout>
+    <PageLayout showMissionSection>
       <Routes>
         <Route path="/" element={<AboutLayout />}>
           <Route index element={<Navigate to="story" replace />} />

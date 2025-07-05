@@ -64,34 +64,6 @@ const PillarsPage = () => {
     status: "Active",
     impact: "50+ medical camps",
     projects: 6
-  }, {
-    id: 5,
-    title: "Women Empowerment",
-    slug: "women-empowerment",
-    description: "Supporting women entrepreneurs and leaders",
-    fullDescription: "Self-help groups, microfinance programs, and skill development workshops to enhance women's economic participation and leadership.",
-    icon: <Users className="w-8 h-8" />,
-    color: "from-purple-500 to-violet-500",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200",
-    textColor: "text-purple-700",
-    status: "Active",
-    impact: "200+ women empowered",
-    projects: 10
-  }, {
-    id: 6,
-    title: "Innovation Hub",
-    slug: "innovation-hub",
-    description: "Technology-driven solutions for rural challenges",
-    fullDescription: "Research and development center focusing on appropriate technology solutions for rural development challenges.",
-    icon: <Target className="w-8 h-8" />,
-    color: "from-teal-500 to-cyan-500",
-    bgColor: "bg-teal-50",
-    borderColor: "border-teal-200",
-    textColor: "text-teal-700",
-    status: "Planning",
-    impact: "5+ innovations developed",
-    projects: 3
   }];
   const fadeIn = {
     hidden: {
@@ -120,7 +92,7 @@ const PillarsPage = () => {
           </motion.div>
 
           {/* Pillars Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {pillars.map((pillar, index) => <motion.div key={pillar.id} initial="hidden" animate="visible" variants={fadeIn} custom={index}>
                 <Card className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-105 ${pillar.bgColor} ${pillar.borderColor} border-2`}>
                   <CardHeader className="pb-4">

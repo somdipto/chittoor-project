@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -20,7 +21,23 @@ import Footer from "@/components/Footer";
 type CollaborationType = "individual" | "organization" | "volunteer";
 
 const CollaboratePage = () => {
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState<CollaborationType>("individual");
+
+  // Check for query parameter on component mount and location change
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const type = searchParams.get('type');
+    
+    if (type === 'volunteer') {
+      setActiveTab('volunteer');
+      // Optional: Scroll to the form section
+      const formSection = document.getElementById('collaboration-form');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
   const [formData, setFormData] = useState({
     // Personal Details
     name: "",
@@ -184,7 +201,7 @@ const CollaboratePage = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
       <Navbar />
       <div className="pt-24 pb-16">
-        <div className="container px-4 sm:px-6 mx-auto">
+        <div id="collaboration-form" className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
           {/* Hero Section */}
           <motion.div
             className="text-center mb-16"

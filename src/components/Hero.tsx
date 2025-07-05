@@ -30,7 +30,7 @@ const Hero = () => {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green via-chittoor-blue to-chittoor-green animate-gradient bg-300% bg-right">
-                Empowering Communities in Chittoor
+                where farmers are the future
               </span>
             </motion.h1>
             <motion.p
@@ -74,14 +74,14 @@ const Hero = () => {
             <div className="space-y-3 sm:space-y-4">
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 bg-gray-100 relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1602600203968-7a1c67c12fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Indian farmers in field"
+                  src="/images/farmer-field.jpg"
+                  alt="Farmer working in a field with a bright future ahead"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
-                  Sustainable Farming
+                  Farmers Leading the Future
                 </p>
               </div>
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-24 sm:h-32 md:h-36 lg:h-40 bg-gray-100 relative group">
