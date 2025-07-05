@@ -335,6 +335,8 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Navbar;

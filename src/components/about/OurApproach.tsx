@@ -1,81 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Leaf, Sun, BookOpen, Users, Zap, Droplets, Activity, 
-  Target, Lightbulb, Handshake, Clock, BarChart2, 
-  Sprout, Droplet, CloudRain, TrendingUp, ShieldCheck, Heart, MapPin
+  Ear, Lightbulb, Users, Zap, 
+  TrendingUp, MessageSquare, BarChart2
 } from 'lucide-react';
 
-const approachItems = [
+const implementationJourney = [
   {
-    icon: <Sprout className="h-6 w-6 text-white" />,
-    title: "Regenerative Farming",
-    description: "Implementing organic practices to restore soil health and increase yields",
-    color: "from-green-500 to-emerald-600"
-  },
-  {
-    icon: <Droplet className="h-6 w-6 text-white" />,
-    title: "Water Conservation",
-    description: "Harvesting rainwater and optimizing irrigation for sustainability",
-    color: "from-blue-500 to-cyan-600"
-  },
-  {
-    icon: <Users className="h-6 w-6 text-white" />,
-    title: "Community First",
-    description: "Empowering local farmers through education and collaboration",
-    color: "from-purple-500 to-indigo-600"
-  },
-  {
-    icon: <CloudRain className="h-6 w-6 text-white" />,
-    title: "Climate Resilience",
-    description: "Developing solutions to adapt to changing climate conditions",
-    color: "from-sky-500 to-blue-600"
-  },
-  {
-    icon: <TrendingUp className="h-6 w-6 text-white" />,
-    title: "Economic Growth",
-    description: "Creating sustainable livelihoods and market opportunities",
-    color: "from-amber-500 to-orange-600"
-  }
-];
-
-const approachStages = [
-  {
-    title: "Community Assessment",
-    description: "Engaging with local farmers to understand needs and resources",
-    icon: <MapPin className="h-5 w-5 text-green-600" />,
+    title: "Listen",
+    description: "Understand community needs",
+    icon: <Ear className="h-5 w-5 text-green-600" />,
     color: "bg-green-50 border-l-4 border-green-500"
   },
   {
-    title: "Solution Design",
-    description: "Developing tailored agricultural and water solutions",
+    title: "Co-create Solutions",
+    description: "Develop integrated agriculture, energy, and education solutions",
     icon: <Lightbulb className="h-5 w-5 text-blue-600" />,
     color: "bg-blue-50 border-l-4 border-blue-500"
   },
   {
-    title: "Implementation",
-    description: "Deploying sustainable farming and energy solutions",
-    icon: <Zap className="h-5 w-5 text-amber-600" />,
+    title: "Implement with Locals",
+    description: "Deploy technology and training with community involvement",
+    icon: <Users className="h-5 w-5 text-amber-600" />,
     color: "bg-amber-50 border-l-4 border-amber-500"
   },
   {
-    title: "Training & Support",
-    description: "Educating farmers on sustainable practices",
-    icon: <BookOpen className="h-5 w-5 text-purple-600" />,
+    title: "Monitor & Iterate",
+    description: "Track impact and continuously improve for better results",
+    icon: <BarChart2 className="h-5 w-5 text-purple-600" />,
     color: "bg-purple-50 border-l-4 border-purple-500"
-  },
-  {
-    title: "Growth & Scale",
-    description: "Expanding successful initiatives to more communities",
-    icon: <TrendingUp className="h-5 w-5 text-teal-600" />,
-    color: "bg-teal-50 border-l-4 border-teal-500"
   }
 ];
 
 const OurApproach = () => {
   return (
     <div className="py-16 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
@@ -85,77 +45,19 @@ const OurApproach = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-1.5 text-sm font-medium text-green-800 bg-green-100 rounded-full mb-4">
-            Our Methodology
+            How We Work
           </span>
           <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-700">
-            Sustainable Rural Transformation
+            Our Implementation Journey
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-teal-400 mx-auto mt-6 mb-8 rounded-full"></div>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
-            Our integrated approach combines traditional wisdom with modern innovation to create lasting change in rural communities.
+            A streamlined approach to creating sustainable impact through community collaboration and innovation
           </p>
         </motion.div>
 
-        {/* Key Focus Areas */}
-        <div className="mb-24">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Our <span className="text-green-600">Pillars of Impact</span>
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We address the most pressing challenges in rural development through these interconnected focus areas.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {approachItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20
-                }}
-                className={`bg-gradient-to-br ${item.color} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-5">
-                  {item.icon}
-                </div>
-                <h4 className="text-lg font-bold text-white mb-3">{item.title}</h4>
-                <p className="text-white/90 text-sm">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         {/* Implementation Process */}
-        <div className="mb-24">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Our <span className="text-green-600">Implementation Journey</span>
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              A structured approach to creating sustainable impact in rural communities
-            </p>
-          </motion.div>
+        <div className="mb-16">
 
           <div className="relative">
             {/* Timeline line */}
@@ -163,7 +65,7 @@ const OurApproach = () => {
             
             {/* Timeline items */}
             <div className="space-y-8 lg:space-y-16">
-              {approachStages.map((stage, index) => (
+              {implementationJourney.map((stage, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
