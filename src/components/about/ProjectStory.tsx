@@ -33,12 +33,33 @@ const ProjectStory = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      {/* Narrative Quote */}
+      <motion.div 
+        className="relative bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 mb-12 border border-green-100"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full -mt-16 -mr-16"></div>
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-emerald-200 rounded-full -mb-20 -ml-20"></div>
+        </div>
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 leading-tight">
+            "From humble beginnings to community transformation"
+          </h2>
+          <p className="text-lg text-gray-600 max-w-4xl">
+            Project Chittoor started when our founder saw neglected farmland and decided rural India deserved a future shaped by sustainable agriculture, smart energy, and people-centered design.
+          </p>
+        </div>
+      </motion.div>
+
       {/* Header Section */}
       <motion.div 
         className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-700">
           Our Impact Journey

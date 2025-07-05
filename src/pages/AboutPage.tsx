@@ -13,7 +13,6 @@ import ProjectAllies from '@/components/about/ProjectAllies';
 import AtriaBackgroundSection from '@/components/about/AtriaBackgroundSection';
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import OurApproach from '@/components/about/OurApproach';
-import VisionCard from '@/components/about/VisionCard';
 
 // Wrapper component to include Navbar, Footer, and main content
 const PageLayout = ({ children }: { children: React.ReactNode }) => (
@@ -39,7 +38,6 @@ const AboutPage = () => {
               <>
                 <ProjectVision />
                 <ProjectGoals />
-                <VisionCard />
               </>
             } 
           />

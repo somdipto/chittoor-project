@@ -1,11 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Mail, Users } from 'lucide-react';
+import { Linkedin, Twitter, Mail, Users, Award } from 'lucide-react';
 
 // Placeholder images - replace with actual team member photos
 const placeholderImage = (name: string) => `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=4ade80&color=fff&size=200`;
 
 const ExecutiveTeam = () => {
+  const visionaryLeader = {
+    name: "Sunder Raju",
+    role: "Visionary Behind the Project",
+    bio: "Chairman & Managing Director of Atria Group, a diversified conglomerate with interests in power, infrastructure, and agribusiness. A respected business leader with a passion for sustainable rural development and community empowerment.",
+    expertise: ["Business Leadership", "Rural Development", "Sustainable Growth"],
+    linkedin: "#",
+    twitter: "#",
+    email: "sunder.raju@atriagroup.com"
+  };
+
   const teamMembers = [
     {
       name: "Abhishek",
@@ -62,6 +72,53 @@ const ExecutiveTeam = () => {
           </p>
         </div>
 
+        {/* Visionary Leader Card - Centered at the top */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-green-50 to-white rounded-xl shadow-sm border border-green-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <div className="p-8 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="h-32 w-32 rounded-full overflow-hidden bg-gradient-to-br from-green-100 to-green-200 p-1">
+                    <img 
+                      src={placeholderImage(visionaryLeader.name)} 
+                      alt={visionaryLeader.name}
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-amber-100 text-amber-800 p-2 rounded-full">
+                    <Award className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-gray-900">{visionaryLeader.name}</h3>
+              <p className="text-green-600 font-medium mb-4">{visionaryLeader.role}</p>
+              
+              <p className="text-gray-600 mb-4">{visionaryLeader.bio}</p>
+              
+              <div className="flex justify-center space-x-4 mt-6">
+                {visionaryLeader.linkedin && (
+                  <a href={visionaryLeader.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-600 transition-colors">
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                )}
+                {visionaryLeader.email && (
+                  <a href={`mailto:${visionaryLeader.email}`} className="text-gray-500 hover:text-green-600 transition-colors">
+                    <Mail className="h-5 w-5" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Executive Team Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamMembers.map((member, index) => (
             <motion.div
