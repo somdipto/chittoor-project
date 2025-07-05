@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { pillarsData } from "@/data/pillarData";
 import PillarCard from "./PillarCard";
-import MissionSection from "./MissionSection";
 import ImpactSection from "./ImpactSection";
 import PillarsDropdown from "./PillarsDropdown";
 import VisualStoryBlock from "./VisualStoryBlock";
@@ -113,7 +112,6 @@ const AboutProjectsSection = () => {
           </motion.div>
         </div>
 
-        <MissionSection />
         <ImpactSection />
       </div>
     </section>

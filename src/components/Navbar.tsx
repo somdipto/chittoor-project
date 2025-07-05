@@ -44,18 +44,17 @@ const Navbar = () => {
     title: "Pillars",
     href: "/pillars"
   }, {
-    title: "Collaborate",
-    href: "/collaborate"
+    title: "Contact",
+    href: "/contact"
   }];
   
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // Get About Us item for desktop dropdown
-  const aboutUsItem = navItems.find(item => item.title === 'About Us');
-
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -66,42 +65,51 @@ const Navbar = () => {
 
   // Close mobile menu when route changes
   useEffect(() => {
-    setIsOpen(false);
+    setMobileMenuOpen(false);
     setMobileDropdown(null);
   }, [location.pathname]);
 
-  
-  return <div className={`fixed top-0 left-0 right-0 z-50 w-full border-b bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-sm transition-all duration-300 ${
-    isScrolled ? 'py-1' : 'py-2'
-  }`} style={{ height: isScrolled ? '70px' : '76px' }}>
+  // Get About Us item for desktop dropdown
+  const aboutUsItem = navItems.find(item => item.title === 'About Us');
+
+  return (
+    <div 
+      className={`fixed top-0 left-0 right-0 z-50 w-full border-b bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-sm transition-all duration-300 ${
+        isScrolled ? 'py-1' : 'py-2'
+      }`} 
+      style={{ height: isScrolled ? '70px' : '76px' }}
+    >
       <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center">
-
-          <motion.div initial={{
-          opacity: 0,
-          x: -20
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.5
-        }} className="flex items-center gap-2">
+          <motion.div 
+            initial={{
+              opacity: 0,
+              x: -20
+            }} 
+            animate={{
+              opacity: 1,
+              x: 0
+            }} 
+            transition={{
+              duration: 0.5
+            }} 
+            className="flex items-center gap-2"
+          >
             <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-              <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full group-hover:shadow-lg transition-shadow">
-                <Flower className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1 sm:p-1.5 rounded-full group-hover:shadow-lg transition-shadow">
+                <Flower className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-lg sm:text-xl tracking-tight text-gray-800">
+              <div className="flex flex-col ml-1 sm:ml-2">
+                <span className="font-bold text-base sm:text-lg md:text-xl tracking-tight text-gray-800 whitespace-nowrap">
                   Project Chittor
                 </span>
-                
               </div>
             </Link>
           </motion.div>
         </div>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-3">
+        <nav className="hidden md:flex items-center gap-1 lg:gap-3 xl:gap-4">
           {/* Home Button */}
           <motion.div initial={{
           opacity: 0,
@@ -214,17 +222,17 @@ const Navbar = () => {
           
           {/* Volunteer Button */}
           <Link to="/collaborate?type=volunteer" className="ml-1">
-            <Button 
-              variant="outline" 
-              className="border-chittoor-green text-chittoor-green hover:bg-chittoor-green hover:text-white transition-all duration-300 rounded-full px-4 py-1.5 text-sm font-medium whitespace-nowrap"
-            >
-              Volunteer
-            </Button>
+              <Button 
+                variant="outline" 
+                className="border-chittoor-green text-chittoor-green hover:bg-chittoor-green hover:text-white transition-all duration-300 rounded-full px-3 sm:px-4 py-1 text-xs sm:text-sm font-medium whitespace-nowrap h-9 md:h-10"
+              >
+                Volunteer
+              </Button>
           </Link>
           
           {/* Donate Button */}
           <Link to="/donate">
-            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 sm:px-6 text-sm sm:text-base font-semibold">
+            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-md hover:shadow-lg transition-all duration-300 rounded-full px-4 md:px-5 text-xs sm:text-sm font-medium h-9 md:h-10 whitespace-nowrap">
               Donate Now
             </Button>
           </Link>
@@ -234,39 +242,39 @@ const Navbar = () => {
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-10 w-10 rounded-full hover:bg-chittoor-green/10 hover:text-chittoor-green"
-                aria-label="Toggle navigation menu"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-700 hover:bg-gray-100/50"
+                onClick={() => setIsOpen(!isOpen)}
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                <span className="sr-only">Toggle menu</span>
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs sm:max-w-md p-0">
-              <div className="p-4 border-b">
+            <SheetContent side="right" className="w-full max-w-[280px] sm:max-w-xs p-0">
+              <div className="p-3 border-b">
                 <div className="flex items-center justify-between">
                   <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                    <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1.5 rounded-full">
-                      <Flower className="w-5 h-5 text-white" />
+                    <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1 sm:p-1.5 rounded-full">
+                      <Flower className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <span className="font-bold text-lg">Project Chittor</span>
+                    <span className="font-bold text-base sm:text-lg">Project Chittor</span>
                   </Link>
-                  <SheetClose className="rounded-full p-1.5 hover:bg-gray-100 transition-colors">
-                    <X className="h-5 w-5" />
+                  <SheetClose className="rounded-full p-1 hover:bg-gray-100 transition-colors">
+                    <X className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span className="sr-only">Close</span>
                   </SheetClose>
                 </div>
               </div>
-              <div className="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-100px)]">
+              <div className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)]">
                 {navItems.map((item) => (
                   <div key={item.title}>
                     {item.type === 'dropdown' ? (
                       <div className="w-full">
                         <button
                           onClick={() => setMobileDropdown(mobileDropdown === item.title ? null : item.title)}
-                          className="flex w-full items-center justify-between px-3 py-3 text-base font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                          className="flex w-full items-center justify-between px-3 py-2.5 text-sm sm:text-base font-medium rounded-lg hover:bg-gray-50 transition-colors"
                         >
                           <span>{item.title}</span>
                           <ChevronRight className={`h-4 w-4 transition-transform ${
@@ -286,7 +294,7 @@ const Navbar = () => {
                                 <Link
                                   key={subItem.href}
                                   to={subItem.href}
-                                  className="flex items-center px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-lg"
+                                  className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg"
                                   onClick={() => {
                                     setIsOpen(false);
                                     setMobileDropdown(null);
@@ -303,8 +311,10 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to={item.href}
-                        className={`block px-3 py-3 text-base font-medium rounded-lg hover:bg-gray-50 transition-colors ${
-                          location.pathname === item.href ? 'text-chittoor-green bg-chittoor-green/10' : 'text-gray-700'
+                        className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                          location.pathname === item.href 
+                            ? 'text-chittoor-green bg-chittoor-green/10' 
+                            : 'text-gray-700 hover:bg-gray-50'
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -315,7 +325,7 @@ const Navbar = () => {
                 ))}
                 <div className="pt-2 mt-2 border-t">
                   <Link to="/collaborate" className="block w-full">
-                    <Button className="w-full mt-2 bg-chittoor-green hover:bg-chittoor-green-dark text-white">
+                    <Button className="w-full mt-2 bg-chittoor-green hover:bg-chittoor-green-dark text-white h-10 sm:h-11">
                       Volunteer
                     </Button>
                   </Link>

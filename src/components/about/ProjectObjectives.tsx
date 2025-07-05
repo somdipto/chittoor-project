@@ -1,136 +1,192 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, CheckCircle, Leaf, Zap, Users, BookOpen, BarChart2, Droplets } from 'lucide-react';
+import { 
+  Target, Leaf, Zap, Users, BookOpen, BarChart2, 
+  Droplets, ArrowRight, TrendingUp, Sun, 
+  Home, Cloud, Clock, Trash2, Calendar, Briefcase
+} from 'lucide-react';
 
 const ProjectObjectives = () => {
   const keyObjectives = [
     {
       title: 'Sustainable Agriculture',
       icon: <Leaf className="h-6 w-6 text-green-600" />,
-      items: [
-        'Convert 100% of 600 acres to organic farming',
-        'Increase crop yields by 40% through sustainable practices',
-        'Train 1,000+ farmers in modern techniques'
+      color: 'from-green-50 to-emerald-50',
+      highlights: [
+        { text: '600 Acres', subtext: 'Organic Farming', icon: <Leaf className="h-4 w-4" /> },
+        { text: '40%', subtext: 'Yield Increase', icon: <TrendingUp className="h-4 w-4" /> },
+        { text: '1,000+', subtext: 'Farmers', icon: <Users className="h-4 w-4" /> }
       ]
     },
     {
-      title: 'Renewable Energy',
+      title: 'Clean Energy',
       icon: <Zap className="h-6 w-6 text-amber-500" />,
-      items: [
-        'Install 10MW solar power capacity',
-        'Develop smart microgrids for energy distribution',
-        'Reduce carbon footprint by 10,000+ tons annually'
+      color: 'from-amber-50 to-yellow-50',
+      highlights: [
+        { text: '10MW', subtext: 'Solar Power', icon: <Sun className="h-4 w-4" /> },
+        { text: '10,000+', subtext: 'Tons CO₂ Reduced', icon: <Cloud className="h-4 w-4" /> },
+        { text: '100%', subtext: 'Renewable', icon: <Zap className="h-4 w-4" /> }
       ]
     },
     {
-      title: 'Community Development',
+      title: 'Community',
       icon: <Users className="h-6 w-6 text-blue-500" />,
-      items: [
-        'Establish 5 community learning centers',
-        'Create 500+ direct employment opportunities',
-        'Improve access to clean water for all households'
+      color: 'from-blue-50 to-cyan-50',
+      highlights: [
+        { text: '5', subtext: 'Learning Centers', icon: <BookOpen className="h-4 w-4" /> },
+        { text: '500+', subtext: 'Jobs Created', icon: <Users className="h-4 w-4" /> },
+        { text: '100%', subtext: 'Water Access', icon: <Droplets className="h-4 w-4" /> }
       ]
     },
     {
-      title: 'Economic Growth',
+      title: 'Economy',
       icon: <BarChart2 className="h-6 w-6 text-green-700" />,
-      items: [
-        'Increase average farmer income by 3x',
-        'Establish 50+ farmer producer organizations',
-        'Develop direct-to-consumer sales channels'
+      color: 'from-emerald-50 to-teal-50',
+      highlights: [
+        { text: '3x', subtext: 'Income Growth', icon: <TrendingUp className="h-4 w-4" /> },
+        { text: '50+', subtext: 'Producer Orgs', icon: <Users className="h-4 w-4" /> },
+        { text: 'Direct', subtext: 'Market Access', icon: <ArrowRight className="h-4 w-4" /> }
       ]
     },
     {
-      title: 'Environmental Impact',
+      title: 'Environment',
       icon: <Droplets className="h-6 w-6 text-blue-400" />,
-      items: [
-        'Recharge 100M+ liters of groundwater annually',
-        'Increase green cover by 25%',
-        'Achieve zero waste through circular economy'
+      color: 'from-cyan-50 to-sky-50',
+      highlights: [
+        { text: '100M+', subtext: 'Liters Water', icon: <Droplets className="h-4 w-4" /> },
+        { text: '25%', subtext: 'Green Cover', icon: <Leaf className="h-4 w-4" /> },
+        { text: 'Zero', subtext: 'Waste', icon: <Trash2 className="h-4 w-4" /> }
       ]
     },
     {
-      title: 'Education & Research',
+      title: 'Education',
       icon: <BookOpen className="h-6 w-6 text-purple-500" />,
-      items: [
-        'Develop sustainable farming curriculum',
-        'Partner with 5+ academic institutions',
-        'Host annual agricultural innovation summit'
+      color: 'from-violet-50 to-purple-50',
+      highlights: [
+        { text: '5+', subtext: 'Institutions', icon: <Home className="h-4 w-4" /> },
+        { text: 'Annual', subtext: 'Summit', icon: <Calendar className="h-4 w-4" /> },
+        { text: '1,000+', subtext: 'Students', icon: <Users className="h-4 w-4" /> }
       ]
     }
   ];
 
+  const impactStats = [
+    { value: '600+', label: 'Acres', icon: <Leaf className="h-5 w-5" /> },
+    { value: '1,000+', label: 'Farmers', icon: <Users className="h-5 w-5" /> },
+    { value: '10MW', label: 'Solar', icon: <Zap className="h-5 w-5" /> },
+    { value: '500+', label: 'Jobs', icon: <Briefcase className="h-5 w-5" /> }
+  ];
+
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+    <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div 
+            className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 text-green-700 text-sm font-medium mb-4"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             <Target className="h-4 w-4 mr-2" />
             Our Objectives
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Strategic <span className="text-green-600">Goals</span>
-          </h2>
-          <div className="w-20 h-1 bg-green-500 mx-auto"></div>
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-            Our objectives are designed to create lasting impact through sustainable development, community empowerment, and environmental stewardship.
-          </p>
-        </div>
+          </motion.div>
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            Strategic <span className="text-green-600">Impact</span>
+          </motion.h2>
+          <motion.div 
+            className="w-20 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 80 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          />
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 max-w-6xl mx-auto">
           {keyObjectives.map((objective, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-white to-green-50 rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300"
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ 
+                duration: 0.3, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className={`bg-gradient-to-br ${objective.color} rounded-2xl p-6 shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 group`}
             >
-              <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-white shadow-sm mr-4 border border-gray-100">
-                  {objective.icon}
+              <div className="flex items-center mb-3 sm:mb-4">
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white shadow-sm mr-3 sm:mr-4 border border-gray-100 group-hover:scale-110 transition-transform">
+                  {React.cloneElement(objective.icon, { className: 'h-5 w-5 sm:h-6 sm:w-6' })}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">{objective.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">{objective.title}</h3>
               </div>
-              <ul className="space-y-3">
-                {objective.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
+              
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-4 sm:mt-6">
+                {objective.highlights.map((item, i) => (
+                  <div key={i} className="flex flex-col items-center justify-center min-h-[70px] p-1.5 sm:p-2 bg-white/50 rounded-md sm:rounded-lg border border-gray-100">
+                    <div className="text-sm font-bold text-gray-900 leading-tight line-clamp-1">{item.text}</div>
+                    <div className="text-[10px] xs:text-xs text-gray-600 mt-1 line-clamp-2 px-1">{item.subtext}</div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-green-50 to-amber-50 rounded-2xl p-8 md:p-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Impact by 2025</h3>
-            <p className="text-gray-700 mb-6">
-              Through these objectives, we aim to create a replicable model for sustainable rural development that can be scaled across India.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-              <div>
-                <div className="text-3xl font-bold text-green-600 mb-1">600+</div>
-                <div className="text-sm text-gray-600">Acres</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-600 mb-1">1,000+</div>
-                <div className="text-sm text-gray-600">Farmers Trained</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-600 mb-1">10MW</div>
-                <div className="text-sm text-gray-600">Solar Power</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-600 mb-1">500+</div>
-                <div className="text-sm text-gray-600">Jobs Created</div>
-              </div>
+        <motion.div 
+          className="mt-12 sm:mt-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 text-white overflow-hidden relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+          <div className="relative z-10 max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Impact by 2025</h3>
+              <p className="text-green-100 max-w-2xl mx-auto">
+                Creating sustainable change through innovative rural development
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10">
+              {impactStats.map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  className="text-center p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/10 hover:bg-white/15 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + (index * 0.1) }}
+                >
+                  <div className="flex items-center justify-center text-white mb-2 min-h-[24px]">
+                    {React.cloneElement(stat.icon, { className: 'h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 flex-shrink-0' })}
+                    <span className="text-lg sm:text-xl font-bold leading-none">{stat.value}</span>
+                  </div>
+                  <div className="text-xs sm:text-sm text-green-100 leading-tight px-1">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+          
+          <div className="hidden sm:block absolute -right-20 -bottom-20 w-40 h-40 md:w-64 md:h-64 rounded-full bg-white/5"></div>
+          <div className="hidden sm:block absolute -left-20 -top-20 w-32 h-32 md:w-48 md:h-48 rounded-full bg-white/5"></div>
+        </motion.div>
       </div>
     </section>
   );

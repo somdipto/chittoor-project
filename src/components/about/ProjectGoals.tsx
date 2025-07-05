@@ -1,156 +1,154 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Leaf, Users, Zap, Droplets, TrendingUp } from 'lucide-react';
+import { 
+  Target, Leaf, Users, Zap, Droplets, TrendingUp, 
+  ArrowRight, BarChart2, Clock, HeartPulse, Globe, 
+  BookOpen, Home, Cloud, CloudRain, Trash2 
+} from 'lucide-react';
 
 const ProjectGoals = () => {
   const goals = [
     {
-      icon: <TrendingUp className="h-6 w-6 text-green-600" />,
+      icon: <TrendingUp className="h-6 w-6" />,
       title: "Economic Growth",
-      items: [
-        "Increase farmer income by 3-4x through sustainable practices",
-        "Create 500+ direct employment opportunities",
-        "Establish 50+ rural enterprises by 2030"
+      description: "Boosting local economies through sustainable practices",
+      color: "from-blue-500 to-blue-600",
+      highlights: [
+        { value: "3-4x", label: "Income Increase", icon: <BarChart2 className="h-4 w-4" /> },
+        { value: "500+", label: "Jobs Created", icon: <Users className="h-4 w-4" /> },
+        { value: "50+", label: "Rural Enterprises", icon: <Target className="h-4 w-4" /> }
       ]
     },
     {
-      icon: <Leaf className="h-6 w-6 text-green-600" />,
-      title: "Environmental Sustainability",
-      items: [
-        "Convert 600 acres to organic and sustainable farming",
-        "Reduce water usage by 40% through efficient irrigation",
-        "Achieve carbon neutrality through renewable energy"
+      icon: <Leaf className="h-6 w-6" />,
+      title: "Environmental Impact",
+      description: "Protecting and restoring natural ecosystems",
+      color: "from-green-500 to-green-600",
+      highlights: [
+        { value: "600+", label: "Organic Acres", icon: <Leaf className="h-4 w-4" /> },
+        { value: "40%", label: "Water Saved", icon: <Droplets className="h-4 w-4" /> },
+        { value: "100%", label: "Renewable Energy", icon: <Zap className="h-4 w-4" /> }
       ]
     },
     {
-      icon: <Users className="h-6 w-6 text-green-600" />,
-      title: "Social Impact",
-      items: [
-        "Improve education access for 1,000+ children",
-        "Provide vocational training to 500+ women",
-        "Enhance healthcare access for 5,000+ villagers"
+      icon: <Users className="h-6 w-6" />,
+      title: "Community Development",
+      description: "Empowering communities through education and training",
+      color: "from-purple-500 to-purple-600",
+      highlights: [
+        { value: "1,000+", label: "Children Educated", icon: <BookOpen className="h-4 w-4" /> },
+        { value: "500+", label: "Women Trained", icon: <Users className="h-4 w-4" /> },
+        { value: "5,000+", label: "Lives Impacted", icon: <HeartPulse className="h-4 w-4" /> }
       ]
     },
     {
-      icon: <Zap className="h-6 w-6 text-green-600" />,
-      title: "Energy Independence",
-      items: [
-        "Generate 10MW of renewable energy",
-        "Power 5,000+ households with clean energy",
-        "Reduce dependency on fossil fuels by 60%"]
+      icon: <Zap className="h-6 w-6" />,
+      title: "Clean Energy",
+      description: "Transitioning to sustainable energy solutions",
+      color: "from-amber-500 to-amber-600",
+      highlights: [
+        { value: "10MW", label: "Renewable Power", icon: <Zap className="h-4 w-4" /> },
+        { value: "5,000+", label: "Households", icon: <Home className="h-4 w-4" /> },
+        { value: "60%", label: "Less Emissions", icon: <Cloud className="h-4 w-4" /> }
+      ]
     },
-    {
-      icon: <Droplets className="h-6 w-6 text-green-600" />,
-      title: "Water Conservation",
-      items: [
-        "Recharge 100 million liters of groundwater annually",
-        "Implement rainwater harvesting across all villages",
-        "Reduce agricultural water wastage by 50%"]
-    }
+
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
-            <Target className="h-4 w-4 mr-2" />
-            Our Targets
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Project <span className="text-green-600">Goals</span>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <span className="inline-block px-4 py-1.5 text-sm font-semibold text-green-600 bg-green-100 rounded-full mb-4">
+            Our Impact
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Building a <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-blue-600">Sustainable Future</span>
           </h2>
-          <div className="w-20 h-1 bg-green-500 mx-auto"></div>
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive goals encompass economic, environmental, and social dimensions to create lasting, sustainable impact.
+          <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ambitious yet achievable targets across all aspects of sustainable development
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {goals.map((goal, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-green-100 hover:shadow-sm transition-all duration-300"
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ 
+                duration: 0.3, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="group relative h-full"
             >
-              <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-green-50 mr-4">
-                  {goal.icon}
+              <div className="absolute inset-0.5 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300"></div>
+              <div className="relative h-full bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden">
+                <div className={`absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 rounded-full bg-gradient-to-br ${goal.color} opacity-10`}></div>
+                
+                <div className="relative z-10">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-6 bg-gradient-to-br ${goal.color} text-white`}>
+                    {React.cloneElement(goal.icon, { className: 'h-6 w-6' })}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{goal.title}</h3>
+                  <p className="text-gray-500 text-sm mb-6">{goal.description}</p>
+                  
+                  <div className="space-y-4 mt-6 pt-4 border-t border-gray-100">
+                    {goal.highlights.map((item, i) => (
+                      <div key={i} className="flex items-center">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-500 mr-3">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900">{item.value}</div>
+                          <div className="text-xs text-gray-500">{item.label}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">{goal.title}</h3>
               </div>
-              <ul className="space-y-3">
-                {goal.items.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="flex-shrink-0 h-5 w-5 text-green-500 mr-2 mt-0.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
-          
-          {/* Impact Summary Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-green-600 to-green-700 p-6 rounded-xl text-white md:col-span-2 lg:col-span-3"
-          >
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl font-bold mb-2">5,000+</div>
-                <p className="text-green-100">Lives Impacted</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">600+</div>
-                <p className="text-green-100">Acres Transformed</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">10MW</div>
-                <p className="text-green-100">Renewable Energy</p>
-              </div>
-            </div>
-            <div className="mt-8 pt-6 border-t border-green-500/30">
-              <p className="text-green-100 mb-4">
-                Our goals are ambitious but achievable, with clear metrics for success and a phased approach to implementation.
-              </p>
-              <a 
-                href="#impact" 
-                className="inline-flex items-center text-white font-medium hover:text-green-50 transition-colors duration-200"
-              >
-                Learn about our impact
-                <svg className="ml-2 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </motion.div>
         </div>
 
-        {/* Call to action */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-6">
-            Join us in achieving these ambitious goals and creating lasting change in rural India.
-          </p>
-          <a 
-            href="#get-involved" 
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors duration-200"
-          >
-            Support Our Mission
-            <svg className="ml-2 -mr-1 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </a>
-        </div>
+        <motion.div 
+          className="mt-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-10 text-center text-white overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="relative z-10 max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Join Our Mission for a Better Tomorrow</h3>
+            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+              Be part of our journey to create lasting, sustainable change in rural communities across India.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button className="bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+                Get Involved
+              </button>
+              <button className="bg-transparent border-2 border-white/30 hover:border-white/50 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">
+                Learn More
+              </button>
+            </div>
+          </div>
+          <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-white/5"></div>
+          <div className="absolute -left-20 -top-20 w-48 h-48 rounded-full bg-white/5"></div>
+        </motion.div>
       </div>
     </section>
   );
