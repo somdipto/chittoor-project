@@ -74,20 +74,20 @@ const Hero = () => {
             <div className="space-y-3 sm:space-y-4">
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 bg-gray-100 relative group">
                 <img
-                  src="/images/farmer-field.jpg"
-                  alt="Farmer working in a field with a bright future ahead"
+                  src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Sustainable Agriculture - Modern farming techniques with organic crops"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
-                  Farmers Leading the Future
+                  Sustainable Agriculture
                 </p>
               </div>
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-20 sm:h-28 md:h-32 lg:h-40 bg-gray-100 relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1623060693724-1e59e90a5d74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Solar panels in rural village"
+                  src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Renewable Energy - Solar panels and wind turbines in rural setting"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -100,26 +100,26 @@ const Hero = () => {
             <div className="space-y-2 sm:space-y-3 md:space-y-4 mt-2 sm:mt-4 md:mt-6">
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-20 sm:h-28 md:h-32 lg:h-40 bg-gray-100 relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1551984427-05d5dd9f0f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Rural education in India"
+                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Transformative Education - Children learning in modern classroom with technology"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
-                  Rural Education
+                  Transformative Education
                 </p>
               </div>
               <div className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 bg-gray-100 relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1594708053019-5336680de090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Indian village landscape"
+                  src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Agrotourism and Wellness - Beautiful rural landscape with wellness retreat"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 text-white text-xs sm:text-sm md:text-base font-medium">
-                  Village Development
+                  Agrotourism & Wellness
                 </p>
               </div>
             </div>
