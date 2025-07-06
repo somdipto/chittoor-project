@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Mail, Users, Award } from 'lucide-react';
@@ -66,7 +67,7 @@ const ExecutiveTeam = () => {
             Leadership
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Executive <span className="text-green-600">Team</span>
+            Our <span className="text-green-600">Team</span>
           </h2>
           <div className="w-20 h-1 bg-green-500 mx-auto"></div>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -228,3 +229,4 @@ const ExecutiveTeam = () => {
 };
 
 export default ExecutiveTeam;
+
