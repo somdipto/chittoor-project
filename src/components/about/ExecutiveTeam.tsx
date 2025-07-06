@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Mail, Users, Award } from 'lucide-react';
@@ -13,7 +14,8 @@ const ExecutiveTeam = () => {
     expertise: ["Business Leadership", "Rural Development", "Sustainable Growth"],
     linkedin: "#",
     twitter: "#",
-    email: "sunder.raju@atriagroup.com"
+    email: "sunder.raju@atriagroup.com",
+    image: "/lovable-uploads/20400ab7-3735-4ddb-8d7e-c15c0eeecdae.png"
   };
 
   const teamMembers = [
@@ -86,7 +88,7 @@ const ExecutiveTeam = () => {
                 <div className="relative">
                   <div className="h-32 w-32 rounded-full overflow-hidden bg-gradient-to-br from-green-100 to-green-200 p-1">
                     <img 
-                      src={placeholderImage(visionaryLeader.name)} 
+                      src={visionaryLeader.image} 
                       alt={visionaryLeader.name}
                       className="h-full w-full object-cover rounded-full"
                     />
