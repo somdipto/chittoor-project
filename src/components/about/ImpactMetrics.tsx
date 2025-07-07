@@ -12,13 +12,13 @@ const ImpactMetrics = () => {
     livestock: 0
   });
 
-  const targets = {
+  const targets = React.useMemo(() => ({
     acres: 600,
     income: 100000,
     farmers: 44,
     solar: 6,
     livestock: 730
-  };
+  }), []);
 
   const metrics = [
     {
@@ -103,7 +103,7 @@ const ImpactMetrics = () => {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [targets]);
 
   const formatNumber = (num: number, key: string) => {
     if (key === 'income') {

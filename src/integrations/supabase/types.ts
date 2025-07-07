@@ -9,7 +9,59 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      volunteer_applications: {
+        Row: {
+          id: string;
+          created_at: string;
+          name: string;
+          email: string;
+          phone: string;
+          address: string | null;
+          linkedin: string | null;
+          portfolio: string | null;
+          message: string | null;
+          areas_of_interest: string[];
+          availability: string;
+          contribution: string;
+          motivation: string;
+          experience: string | null;
+          submitted_at: string;
+        };
+        Insert: {
+          id?: string;
+          created_at?: string;
+          name: string;
+          email: string;
+          phone: string;
+          address?: string | null;
+          linkedin?: string | null;
+          portfolio?: string | null;
+          message?: string | null;
+          areas_of_interest: string[];
+          availability: string;
+          contribution: string;
+          motivation: string;
+          experience?: string | null;
+          submitted_at: string;
+        };
+        Update: {
+          id?: string;
+          created_at?: string;
+          name?: string;
+          email?: string;
+          phone?: string;
+          address?: string | null;
+          linkedin?: string | null;
+          portfolio?: string | null;
+          message?: string | null;
+          areas_of_interest?: string[];
+          availability?: string;
+          contribution?: string;
+          motivation?: string;
+          experience?: string | null;
+          submitted_at?: string;
+        };
+      };
     }
     Views: {
       [_ in never]: never

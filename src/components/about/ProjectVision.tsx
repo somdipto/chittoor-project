@@ -49,13 +49,18 @@ const ProjectVision = () => {
   return (
     <section className="py-12 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        {/* Vision Card at the top */}
+        <div className="mb-12">
+          <VisionCard />
+        </div>
+        
+        <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Our Vision for <span className="text-green-600">Chittoor</span>
+            Our Mission for <span className="text-green-600">Chittoor</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full mb-12"></div>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {visionHighlights.map((item, index) => (
               <motion.div
                 key={index}
@@ -72,43 +77,6 @@ const ProjectVision = () => {
                 <p className="text-gray-600 text-sm font-medium">{item.description}</p>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <motion.div 
-              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Target className="h-5 w-5 text-green-600 mr-2" />
-                Our Mission
-              </h3>
-              <p className="text-gray-700">
-                Transform 600 acres into a sustainable ecosystem combining agriculture, renewable energy, and education to create a replicable model for rural development.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                Our Impact
-              </h3>
-              <p className="text-gray-700">
-                Creating sustainable livelihoods, preserving the environment, and bridging the rural-urban divide through innovation and community empowerment.
-              </p>
-            </motion.div>
-          </div>
-          
-          {/* Vision Card */}
-          <div className="mt-16">
-            <VisionCard />
           </div>
         </div>
       </div>

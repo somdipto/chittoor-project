@@ -25,8 +25,8 @@ const ProjectGoals = () => {
       description: "Protecting and restoring natural ecosystems",
       color: "from-green-500 to-green-600",
       highlights: [
-        { value: "600+", label: "Organic Acres", icon: <Leaf className="h-4 w-4" /> },
-        { value: "40%", label: "Water Saved", icon: <Droplets className="h-4 w-4" /> },
+        { value: "600+", label: "into regenerative farming", icon: <Leaf className="h-4 w-4" /> },
+        { value: "40%", label: "reduction in water consumption", icon: <Droplets className="h-4 w-4" /> },
         { value: "100%", label: "Renewable Energy", icon: <Zap className="h-4 w-4" /> }
       ]
     },
@@ -73,7 +73,7 @@ const ProjectGoals = () => {
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ambitious yet achievable targets across all aspects of sustainable development
+            Creating sustainable livelihoods, preserving the environment, and bridging the rural-urban divide through innovation and community empowerment.
           </p>
         </motion.div>
 
@@ -125,30 +125,7 @@ const ProjectGoals = () => {
           ))}
         </div>
 
-        <motion.div 
-          className="mt-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-10 text-center text-white overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Join Our Mission for a Better Tomorrow</h3>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Be part of our journey to create lasting, sustainable change in rural communities across India.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
-                Get Involved
-              </button>
-              <button className="bg-transparent border-2 border-white/30 hover:border-white/50 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">
-                Learn More
-              </button>
-            </div>
-          </div>
-          <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-white/5"></div>
-          <div className="absolute -left-20 -top-20 w-48 h-48 rounded-full bg-white/5"></div>
-        </motion.div>
+
       </div>
     </section>
   );

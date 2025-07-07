@@ -7,46 +7,84 @@ import { Link, useLocation } from "react-router-dom";
 import { Book, Target, Users, BarChart3, Handshake, MessageSquare } from "lucide-react";
 import NavbarDropdown from "./NavbarDropdown";
 
+interface NavItemBase {
+  title: string;
+  href?: string;
+  desktopOnly?: boolean;
+  mobileOnly?: boolean;
+  icon?: React.ReactNode;
+}
+
+interface NavItem extends NavItemBase {
+  href: string;
+  type?: never;
+  items?: never;
+}
+
+interface NavItemDropdown extends Omit<NavItemBase, 'href'> {
+  type: 'dropdown';
+  items: NavItemBase[];
+  href?: never;
+}
+
+type NavigationItem = NavItem | NavItemDropdown;
+
 const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const navItems = [{
-    title: "Home",
-    href: "/"
+
+const navItems: NavigationItem[] = [{
+  title: "Home",
+  href: "/"
+}, {
+  title: "About Us",
+  type: "dropdown",
+  items: [{
+    title: "Story",
+    href: "/about/story",
+    icon: <Book className="h-4 w-4" />
   }, {
-    title: "About Us",
-    type: "dropdown",
-    items: [{
-      title: "Our Story",
-      href: "/about/story",
-      icon: <Book className="h-4 w-4" />
-    }, {
-      title: "Our Mission",
-      href: "/about/mission",
-      icon: <Target className="h-4 w-4" />
-    }, {
-      title: "Objectives",
-      href: "/about/objectives",
-      icon: <BarChart3 className="h-4 w-4" />
-    }, {
-      title: "Our Approach",
-      href: "/about/approach",
-      icon: <Handshake className="h-4 w-4" />
-    }, {
-      title: "Our Team",
-      href: "/about/team",
-      icon: <Users className="h-4 w-4" />
-    }]
+    title: "Mission & Vision",
+    href: "/about/mission",
+    icon: <Target className="h-4 w-4" />
   }, {
-    title: "Projects",
-    href: "/#projects"
+    title: "Objectives",
+    href: "/about/objectives",
+    icon: <BarChart3 className="h-4 w-4" />
   }, {
-    title: "Pillars",
-    href: "/pillars"
+    title: "Approach",
+    href: "/about/approach",
+    icon: <Handshake className="h-4 w-4" />
   }, {
-    title: "Contact",
-    href: "/contact"
-  }];
+    title: "Team",
+    href: "/about/team",
+    icon: <Users className="h-4 w-4" />
+  }, {
+    title: "Contact Us",
+    href: "/contact",
+    icon: <MessageSquare className="h-4 w-4" />,
+    mobileOnly: true
+  }]
+}, {
+  title: "Projects",
+  href: "/#projects"
+}, {
+  title: "Pillars",
+  href: "/pillars"
+}, {
+  title: "Collaborate",
+  href: "/collaborate"
+}, {
+  title: "Volunteer",
+  href: "/volunteer"
+}, {
+  title: "Donate",
+  href: "/donate"
+}, {
+  title: "Contact",
+  href: "/contact",
+  desktopOnly: true
+}];
   
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -221,7 +259,7 @@ const Navbar = () => {
           </motion.div>
           
           {/* Volunteer Button */}
-          <Link to="/collaborate?type=volunteer" className="ml-1">
+          <Link to="/volunteer" className="ml-1">
               <Button 
                 variant="outline" 
                 className="border-chittoor-green text-chittoor-green hover:bg-chittoor-green hover:text-white transition-all duration-300 rounded-full px-3 sm:px-4 py-1 text-xs sm:text-sm font-medium whitespace-nowrap h-9 md:h-10"
@@ -232,7 +270,7 @@ const Navbar = () => {
           
           {/* Donate Button */}
           <Link to="/donate">
-            <Button className="bg-gradient-to-r from-chittoor-green to-chittoor-green-dark hover:from-chittoor-green-dark hover:to-chittoor-green shadow-md hover:shadow-lg transition-all duration-300 rounded-full px-4 md:px-5 text-xs sm:text-sm font-medium h-9 md:h-10 whitespace-nowrap">
+            <Button className="bg-chittoor-green hover:bg-chittoor-green-dark text-white shadow-md hover:shadow-lg transition-all duration-300 rounded-full px-6 md:px-8 py-2 text-sm font-medium whitespace-nowrap h-10 md:h-11">
               Donate Now
             </Button>
           </Link>
@@ -290,25 +328,31 @@ const Navbar = () => {
                               transition={{ duration: 0.2 }}
                               className="overflow-hidden pl-4"
                             >
-                              {item.items.map((subItem) => (
-                                <Link
-                                  key={subItem.href}
-                                  to={subItem.href}
-                                  className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg"
-                                  onClick={() => {
-                                    setIsOpen(false);
-                                    setMobileDropdown(null);
-                                  }}
-                                >
-                                  {subItem.icon && <span className="mr-3 text-gray-400">{subItem.icon}</span>}
-                                  {subItem.title}
-                                </Link>
-                              ))}
+                              {item.items
+                          .filter((subItem): subItem is NavItemBase & { href: string } => {
+                            return !!subItem.href && !subItem.desktopOnly;
+                          })
+                          .map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              to={subItem.href}
+                              className={`flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg ${
+                                subItem.mobileOnly ? 'md:hidden' : ''
+                              }`}
+                              onClick={() => {
+                                setIsOpen(false);
+                                setMobileDropdown(null);
+                              }}
+                            >
+                              {subItem.icon && <span className="mr-3 text-gray-400">{subItem.icon}</span>}
+                              {subItem.title}
+                            </Link>
+                          ))}
                             </motion.div>
                           )}
                         </AnimatePresence>
                       </div>
-                    ) : (
+                    ) : !item.desktopOnly ? (
                       <Link
                         to={item.href}
                         className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
@@ -320,17 +364,10 @@ const Navbar = () => {
                       >
                         {item.title}
                       </Link>
-                    )}
+                    ) : null}
                   </div>
                 ))}
-                <div className="pt-2 mt-2 border-t">
-                  <Link to="/collaborate" className="block w-full">
-                    <Button className="w-full mt-2 bg-chittoor-green hover:bg-chittoor-green-dark text-white h-10 sm:h-11">
-                      Volunteer
-                    </Button>
-                  </Link>
                 </div>
-              </div>
             </SheetContent>
           </Sheet>
         </div>
