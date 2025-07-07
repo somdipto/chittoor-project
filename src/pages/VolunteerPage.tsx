@@ -125,15 +125,15 @@ const VolunteerPage = () => {
     
     try {
       const submissionData = {
-        full_name: formData.fullName,
+        name: formData.fullName,
         email: formData.email,
         phone: formData.phone,
-        location: formData.location || null,
+        address: formData.location || null,
         linkedin: formData.linkedin || null,
         portfolio: formData.portfolio || null,
         message: formData.message || null,
         areas_of_interest: formData.areasOfInterest,
-        time_availability: formData.timeAvailability,
+        availability: formData.timeAvailability,
         contribution: formData.contribution,
         motivation: formData.motivation,
         experience: formData.experience || null,

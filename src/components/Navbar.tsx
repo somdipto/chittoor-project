@@ -306,67 +306,76 @@ const navItems: NavigationItem[] = [{
                 </div>
               </div>
               <div className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)]">
-                {navItems.map((item) => (
-                  <div key={item.title}>
-                    {item.type === 'dropdown' ? (
-                      <div className="w-full">
-                        <button
-                          onClick={() => setMobileDropdown(mobileDropdown === item.title ? null : item.title)}
-                          className="flex w-full items-center justify-between px-3 py-2.5 text-sm sm:text-base font-medium rounded-lg hover:bg-gray-50 transition-colors"
-                        >
-                          <span>{item.title}</span>
-                          <ChevronRight className={`h-4 w-4 transition-transform ${
-                            mobileDropdown === item.title ? 'rotate-90' : ''
-                          }`} />
-                        </button>
-                        <AnimatePresence>
-                          {mobileDropdown === item.title && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden pl-4"
-                            >
-                              {item.items
-                          .filter((subItem): subItem is NavItemBase & { href: string } => {
-                            return !!subItem.href && !subItem.desktopOnly;
-                          })
-                          .map((subItem) => (
+                 {navItems.map((item) => {
+                   if (item.type === 'dropdown') {
+                     return (
+                       <div key={item.title} className="w-full">
+                         <button
+                           onClick={() => setMobileDropdown(mobileDropdown === item.title ? null : item.title)}
+                           className="flex w-full items-center justify-between px-3 py-2.5 text-sm sm:text-base font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                         >
+                           <span>{item.title}</span>
+                           <ChevronRight className={`h-4 w-4 transition-transform ${
+                             mobileDropdown === item.title ? 'rotate-90' : ''
+                           }`} />
+                         </button>
+                         <AnimatePresence>
+                           {mobileDropdown === item.title && (
+                             <motion.div
+                               initial={{ opacity: 0, height: 0 }}
+                               animate={{ opacity: 1, height: 'auto' }}
+                               exit={{ opacity: 0, height: 0 }}
+                               transition={{ duration: 0.2 }}
+                               className="overflow-hidden pl-4"
+                             >
+                               {item.items
+                           .filter((subItem): subItem is NavItemBase & { href: string } => {
+                             return !!subItem.href && !subItem.desktopOnly;
+                           })
+                           .map((subItem) => (
+                             <Link
+                               key={subItem.href}
+                               to={subItem.href}
+                               className={`flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg ${
+                                 subItem.mobileOnly ? 'md:hidden' : ''
+                               }`}
+                               onClick={() => {
+                                 setIsOpen(false);
+                                 setMobileDropdown(null);
+                               }}
+                             >
+                               {subItem.icon && <span className="mr-3 text-gray-400">{subItem.icon}</span>}
+                               {subItem.title}
+                             </Link>
+                           ))}
+                             </motion.div>
+                           )}
+                         </AnimatePresence>
+                       </div>
+                     );
+                    } else {
+                      // This is a NavItem (not dropdown)
+                      const navItem = item as NavItem;
+                      if (!navItem.desktopOnly) {
+                        return (
+                          <div key={navItem.title}>
                             <Link
-                              key={subItem.href}
-                              to={subItem.href}
-                              className={`flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg ${
-                                subItem.mobileOnly ? 'md:hidden' : ''
+                              to={navItem.href}
+                              className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                                location.pathname === navItem.href 
+                                  ? 'text-chittoor-green bg-chittoor-green/10' 
+                                  : 'text-gray-700 hover:bg-gray-50'
                               }`}
-                              onClick={() => {
-                                setIsOpen(false);
-                                setMobileDropdown(null);
-                              }}
+                              onClick={() => setIsOpen(false)}
                             >
-                              {subItem.icon && <span className="mr-3 text-gray-400">{subItem.icon}</span>}
-                              {subItem.title}
+                              {navItem.title}
                             </Link>
-                          ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : !item.desktopOnly ? (
-                      <Link
-                        to={item.href}
-                        className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                          location.pathname === item.href 
-                            ? 'text-chittoor-green bg-chittoor-green/10' 
-                            : 'text-gray-700 hover:bg-gray-50'
-                        }`}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.title}
-                      </Link>
-                    ) : null}
-                  </div>
-                ))}
+                          </div>
+                        );
+                      }
+                   }
+                   return null;
+                 })}
                 </div>
             </SheetContent>
           </Sheet>

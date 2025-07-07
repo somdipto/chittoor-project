@@ -288,8 +288,34 @@ const CollaboratePage: React.FC = () => {
       const { error: supabaseError } = await supabase
         .from('collaborations')
         .insert([{
-          ...formData,
           type: activeTab,
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          location: formData.location,
+          linkedin: formData.linkedin,
+          portfolio: formData.portfolio,
+          additional_message: formData.additionalMessage,
+          time_availability: formData.timeAvailability,
+          contribution: formData.contribution,
+          motivation: formData.motivation,
+          experience: formData.experience,
+          areas_of_interest: formData.areasOfInterest,
+          highest_qualification: formData.highestQualification,
+          years_of_experience: formData.yearsOfExperience,
+          current_work: formData.currentWork,
+          key_skills: formData.keySkills,
+          area_of_expertise: formData.areaOfExpertise,
+          organization_name: formData.organizationName,
+          designation: formData.designation,
+          organization_type: formData.organizationType,
+          company_size: formData.companySize,
+          industry_sector: formData.industrySector,
+          csr_activities: formData.csrActivities,
+          budget_range: formData.budgetRange,
+          partnership_timeline: formData.partnershipTimeline,
+          partnership_type: formData.partnershipType,
+          message: formData.message,
           created_at: new Date().toISOString()
         }]);
 
