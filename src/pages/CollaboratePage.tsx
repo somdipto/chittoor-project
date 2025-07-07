@@ -216,6 +216,52 @@ const CollaboratePage: React.FC = () => {
     }));
   };
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      // Common fields
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      linkedin: "",
+      portfolio: "",
+      additionalMessage: "",
+      timeAvailability: "",
+      contribution: "",
+      motivation: "",
+      experience: "",
+      areasOfInterest: [],
+      // Individual-only
+      highestQualification: "",
+      yearsOfExperience: "",
+      currentWork: "",
+      keySkills: "",
+      areaOfExpertise: "",
+      // Organization-only
+      organizationName: "",
+      designation: "",
+      organizationType: "",
+      companySize: "",
+      industrySector: "",
+      csrActivities: "",
+      budgetRange: "",
+      partnershipTimeline: "",
+      partnershipType: "",
+      // Extra
+      message: "",
+      type: "individual"
+    });
+    setIsSubmitted(false);
+  };
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setFormData(prev => ({
@@ -514,7 +560,7 @@ const CollaboratePage: React.FC = () => {
                           name="organizationType"
                           required
                           value={formData.organizationType}
-                          onChange={handleChange}
+                          onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select organization type</option>
@@ -534,7 +580,7 @@ const CollaboratePage: React.FC = () => {
                           name="companySize"
                           required
                           value={formData.companySize}
-                          onChange={handleChange}
+                          onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select company size</option>
@@ -583,7 +629,7 @@ const CollaboratePage: React.FC = () => {
                           name="budgetRange"
                           required
                           value={formData.budgetRange}
-                          onChange={handleChange}
+                          onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select budget range</option>
@@ -603,7 +649,7 @@ const CollaboratePage: React.FC = () => {
                           name="partnershipTimeline"
                           required
                           value={formData.partnershipTimeline}
-                          onChange={handleChange}
+                          onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         >
                           <option value="">Select timeline</option>

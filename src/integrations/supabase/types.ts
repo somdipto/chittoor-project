@@ -130,6 +130,108 @@ export type Database = {
           },
         ]
       }
+      collaborations: {
+        Row: {
+          additional_message: string | null
+          area_of_expertise: string | null
+          areas_of_interest: string[] | null
+          budget_range: string | null
+          company_size: string | null
+          contribution: string
+          created_at: string | null
+          csr_activities: string | null
+          current_work: string | null
+          designation: string | null
+          email: string
+          experience: string | null
+          full_name: string
+          highest_qualification: string | null
+          id: string
+          industry_sector: string | null
+          key_skills: string | null
+          linkedin: string | null
+          location: string
+          message: string
+          motivation: string
+          organization_name: string | null
+          organization_type: string | null
+          partnership_timeline: string | null
+          partnership_type: string | null
+          phone: string
+          portfolio: string | null
+          time_availability: string
+          type: string
+          updated_at: string | null
+          years_of_experience: string | null
+        }
+        Insert: {
+          additional_message?: string | null
+          area_of_expertise?: string | null
+          areas_of_interest?: string[] | null
+          budget_range?: string | null
+          company_size?: string | null
+          contribution: string
+          created_at?: string | null
+          csr_activities?: string | null
+          current_work?: string | null
+          designation?: string | null
+          email: string
+          experience?: string | null
+          full_name: string
+          highest_qualification?: string | null
+          id?: string
+          industry_sector?: string | null
+          key_skills?: string | null
+          linkedin?: string | null
+          location: string
+          message: string
+          motivation: string
+          organization_name?: string | null
+          organization_type?: string | null
+          partnership_timeline?: string | null
+          partnership_type?: string | null
+          phone: string
+          portfolio?: string | null
+          time_availability: string
+          type: string
+          updated_at?: string | null
+          years_of_experience?: string | null
+        }
+        Update: {
+          additional_message?: string | null
+          area_of_expertise?: string | null
+          areas_of_interest?: string[] | null
+          budget_range?: string | null
+          company_size?: string | null
+          contribution?: string
+          created_at?: string | null
+          csr_activities?: string | null
+          current_work?: string | null
+          designation?: string | null
+          email?: string
+          experience?: string | null
+          full_name?: string
+          highest_qualification?: string | null
+          id?: string
+          industry_sector?: string | null
+          key_skills?: string | null
+          linkedin?: string | null
+          location?: string
+          message?: string
+          motivation?: string
+          organization_name?: string | null
+          organization_type?: string | null
+          partnership_timeline?: string | null
+          partnership_type?: string | null
+          phone?: string
+          portfolio?: string | null
+          time_availability?: string
+          type?: string
+          updated_at?: string | null
+          years_of_experience?: string | null
+        }
+        Relationships: []
+      }
       courses: {
         Row: {
           created_at: string | null
