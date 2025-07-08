@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -10,7 +11,6 @@ import {
   TrendingUp, 
   Target 
 } from 'lucide-react';
-import VisionCard from './VisionCard';
 
 const ProjectVision = () => {
   const visionHighlights = [
@@ -47,18 +47,44 @@ const ProjectVision = () => {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-b from-green-50 to-white">
+    <section id="mission" className="py-12 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4">
-        {/* Vision Card at the top */}
-        <div className="mb-12">
-          <VisionCard />
+        {/* Mission Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              From Soil to Soul: <span className="text-green-600">Reclaiming Roots, Cultivating Futures</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full mb-8"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                To architect a replicable and future-ready blueprint for rural transformation—where the forgotten edges of marginal farmland are reborn as thriving eco-tech sanctuaries, harmonizing innovation with nature. These villages shall serve as crucibles for dignified livelihoods, immersive learning ecosystems, and the emergence of grassroots leadership, cultivating stewards of sustainability and agents of change.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Vision Section */}
+        <div id="vision" className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-blue-600">Cultivating Tomorrow's Villages</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mb-8"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                To initiate a transformative movement that reclaims underutilized rural landscapes and reimagines them as regenerative eco-tech communities. These living laboratories will empower local populations through sustainable livelihoods, experiential learning hubs, and inclusive leadership platforms—setting the foundation for a resilient, self-reliant rural renaissance.
+              </p>
+            </div>
+          </div>
         </div>
         
+        {/* Impact Highlights */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Our Mission for <span className="text-green-600">Chittoor</span>
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full mb-12"></div>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            Our Impact for <span className="text-green-600">Chittoor</span>
+          </h3>
+          <div className="w-20 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full mb-12"></div>
           
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {visionHighlights.map((item, index) => (
