@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Flower, Menu, ArrowLeft, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, ArrowLeft, X, ChevronDown, ChevronRight } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -134,12 +135,16 @@ const navItems: NavigationItem[] = [{
             className="flex items-center gap-2"
           >
             <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-              <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1 sm:p-1.5 rounded-full group-hover:shadow-lg transition-shadow">
-                <Flower className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+              <div className="rounded-full group-hover:shadow-lg transition-shadow">
+                <img 
+                  src="/lovable-uploads/4fb1ace5-30ea-4ec4-bbac-fb190e7bd666.png" 
+                  alt="Project Chittoor Logo" 
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+                />
               </div>
               <div className="flex flex-col ml-1 sm:ml-2">
                 <span className="font-bold text-base sm:text-lg md:text-xl tracking-tight text-gray-800 whitespace-nowrap">
-                  Project Chittor
+                  Project Chittoor
                 </span>
               </div>
             </Link>
@@ -294,10 +299,12 @@ const navItems: NavigationItem[] = [{
               <div className="p-3 border-b">
                 <div className="flex items-center justify-between">
                   <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                    <div className="bg-gradient-to-br from-chittoor-green-light to-chittoor-green p-1 sm:p-1.5 rounded-full">
-                      <Flower className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    </div>
-                    <span className="font-bold text-base sm:text-lg">Project Chittor</span>
+                    <img 
+                      src="/lovable-uploads/4fb1ace5-30ea-4ec4-bbac-fb190e7bd666.png" 
+                      alt="Project Chittoor Logo" 
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                    />
+                    <span className="font-bold text-base sm:text-lg">Project Chittoor</span>
                   </Link>
                   <SheetClose className="rounded-full p-1 hover:bg-gray-100 transition-colors">
                     <X className="h-4 w-4 sm:h-5 sm:w-5" />
