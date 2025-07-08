@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -463,9 +464,11 @@ const CollaboratePage: React.FC = () => {
                     <p className="text-sm">{error}</p>
                   </div>
                 )}
+                
                 {/* Personal Information */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 border-b pb-2 flex items-center gap-2">
+                    <User className="w-5 h-5" />
                     {activeTab === "individual" ? "Your Information" : "Primary Contact"}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -540,13 +543,111 @@ const CollaboratePage: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Individual-specific Questions */}
+                {activeTab === "individual" && (
+                  <div className="space-y-6">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2 flex items-center gap-2">
+                      <GraduationCap className="w-5 h-5" />
+                      Professional Background
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="highestQualification" className="block text-sm font-medium text-gray-700 mb-1">
+                          Highest Qualification *
+                        </Label>
+                        <select
+                          id="highestQualification"
+                          name="highestQualification"
+                          required
+                          value={formData.highestQualification}
+                          onChange={handleSelectChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
+                          <option value="">Select qualification</option>
+                          {highestQualificationOptions.map(option => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <Label htmlFor="yearsOfExperience" className="block text-sm font-medium text-gray-700 mb-1">
+                          Years of Experience *
+                        </Label>
+                        <select
+                          id="yearsOfExperience"
+                          name="yearsOfExperience"
+                          required
+                          value={formData.yearsOfExperience}
+                          onChange={handleSelectChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
+                          <option value="">Select experience</option>
+                          {yearsOfExperienceOptions.map(option => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="md:col-span-2">
+                        <Label htmlFor="currentWork" className="block text-sm font-medium text-gray-700 mb-1">
+                          Current Work/Position *
+                        </Label>
+                        <Input
+                          id="currentWork"
+                          name="currentWork"
+                          type="text"
+                          required
+                          value={formData.currentWork}
+                          onChange={handleChange}
+                          placeholder="Software Developer at Tech Company"
+                          className="w-full"
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <Label htmlFor="keySkills" className="block text-sm font-medium text-gray-700 mb-1">
+                          Key Skills *
+                        </Label>
+                        <Textarea
+                          id="keySkills"
+                          name="keySkills"
+                          required
+                          value={formData.keySkills}
+                          onChange={handleChange}
+                          placeholder="List your key skills (e.g., Programming, Project Management, Teaching, etc.)"
+                          rows={3}
+                          className="w-full"
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <Label htmlFor="areaOfExpertise" className="block text-sm font-medium text-gray-700 mb-1">
+                          Area of Expertise *
+                        </Label>
+                        <Textarea
+                          id="areaOfExpertise"
+                          name="areaOfExpertise"
+                          required
+                          value={formData.areaOfExpertise}
+                          onChange={handleChange}
+                          placeholder="Describe your primary area of expertise and how it can contribute to rural development"
+                          rows={3}
+                          className="w-full"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Organization Details */}
                 {activeTab === "organization" && (
-                  <div className="w-full mt-6">
-                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
+                  <div className="space-y-6">
+                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2 flex items-center gap-2">
+                      <Building2 className="w-5 h-5" />
                       Organization Details
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="organizationName" className="block text-sm font-medium text-gray-700 mb-1">
                           Organization Name *
@@ -648,12 +749,11 @@ const CollaboratePage: React.FC = () => {
                       </div>
                       <div>
                         <Label htmlFor="budgetRange" className="block text-sm font-medium text-gray-700 mb-1">
-                          Partnership Budget Range *
+                          Partnership Budget Range
                         </Label>
                         <select
                           id="budgetRange"
                           name="budgetRange"
-                          required
                           value={formData.budgetRange}
                           onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -668,12 +768,11 @@ const CollaboratePage: React.FC = () => {
                       </div>
                       <div>
                         <Label htmlFor="partnershipTimeline" className="block text-sm font-medium text-gray-700 mb-1">
-                          Partnership Timeline *
+                          Partnership Timeline
                         </Label>
                         <select
                           id="partnershipTimeline"
                           name="partnershipTimeline"
-                          required
                           value={formData.partnershipTimeline}
                           onChange={handleSelectChange}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -688,16 +787,15 @@ const CollaboratePage: React.FC = () => {
                       </div>
                       <div className="md:col-span-2">
                         <Label htmlFor="partnershipType" className="block text-sm font-medium text-gray-700 mb-1">
-                          Type of Partnership Interest *
+                          Type of Partnership Interest
                         </Label>
-                        <Input
+                        <Textarea
                           id="partnershipType"
                           name="partnershipType"
-                          type="text"
-                          required
                           value={formData.partnershipType}
                           onChange={handleChange}
-                          placeholder="Describe the type of partnership you're interested in"
+                          placeholder="Describe the type of partnership you're interested in (e.g., funding, expertise sharing, resource provision, etc.)"
+                          rows={2}
                           className="w-full"
                         />
                       </div>
@@ -705,109 +803,211 @@ const CollaboratePage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Additional Information */}
-                  <div className="space-y-6">
-                    <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">
-                      Additional Information
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-1">
-                          LinkedIn Profile
-                        </Label>
-                        <Input
-                          id="linkedin"
-                          name="linkedin"
-                          type="url"
-                          value={formData.linkedin}
-                          onChange={handleChange}
-                          placeholder="https://linkedin.com/in/your-profile"
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="portfolio" className="block text-sm font-medium text-gray-700 mb-1">
-                          Portfolio/Website
-                        </Label>
-                        <Input
-                          id="portfolio"
-                          name="portfolio"
-                          type="url"
-                          value={formData.portfolio}
-                          onChange={handleChange}
-                          placeholder="https://yourwebsite.com"
-                          className="w-full"
-                        />
+                {/* Collaboration Details */}
+                <div className="space-y-6">
+                  <h3 className="text-lg font-semibold text-gray-900 border-b pb-2 flex items-center gap-2">
+                    <Briefcase className="w-5 h-5" />
+                    Collaboration Details
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="timeAvailability" className="block text-sm font-medium text-gray-700 mb-1">
+                        Time Availability *
+                      </Label>
+                      <select
+                        id="timeAvailability"
+                        name="timeAvailability"
+                        required
+                        value={formData.timeAvailability}
+                        onChange={handleSelectChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      >
+                        <option value="">Select availability</option>
+                        {timeAvailabilityOptions.map(option => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="md:col-span-2">
+                      <Label className="block text-sm font-medium text-gray-700 mb-2">
+                        Areas of Interest *
+                      </Label>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {areasOfInterest.map((area) => (
+                          <label key={area} className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              name={area}
+                              checked={formData.areasOfInterest.includes(area)}
+                              onChange={handleCheckboxChange}
+                              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                            />
+                            <span className="text-sm text-gray-700">{area}</span>
+                          </label>
+                        ))}
                       </div>
                     </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 gap-4">
                     <div>
-                      <Label htmlFor="additionalMessage" className="block text-sm font-medium text-gray-700 mb-1">
-                        Additional Message
+                      <Label htmlFor="contribution" className="block text-sm font-medium text-gray-700 mb-1">
+                        How would you like to contribute? *
                       </Label>
                       <Textarea
-                        id="additionalMessage"
-                        name="additionalMessage"
-                        value={formData.additionalMessage}
+                        id="contribution"
+                        name="contribution"
+                        required
+                        value={formData.contribution}
                         onChange={handleChange}
-                        placeholder="Any additional information you'd like to share..."
-                        rows={4}
+                        placeholder="Describe how you would like to contribute to our rural development initiatives"
+                        rows={3}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="motivation" className="block text-sm font-medium text-gray-700 mb-1">
+                        What motivates you to collaborate with us? *
+                      </Label>
+                      <Textarea
+                        id="motivation"
+                        name="motivation"
+                        required
+                        value={formData.motivation}
+                        onChange={handleChange}
+                        placeholder="Share your motivation and what drives you to work in rural development"
+                        rows={3}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+                        Relevant Experience
+                      </Label>
+                      <Textarea
+                        id="experience"
+                        name="experience"
+                        value={formData.experience}
+                        onChange={handleChange}
+                        placeholder="Share any relevant experience you have in rural development, social work, or related fields"
+                        rows={3}
                         className="w-full"
                       />
                     </div>
                   </div>
+                </div>
 
-                  {/* Message */}
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                      {activeTab === "individual" 
-                        ? "How would you like to collaborate?" 
-                        : "Tell us about your organization and how you'd like to collaborate"} 
-                      *
-                    </label>
-                    <p className="text-xs text-gray-500 mb-2">
-                      Please provide details about your skills, expertise, or how you'd like to contribute.
-                    </p>
+                {/* Additional Information */}
+                <div className="space-y-6">
+                  <h3 className="text-lg font-semibold text-gray-900 border-b pb-2 flex items-center gap-2">
+                    <Globe className="w-5 h-5" />
+                    Additional Information
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                        <Linkedin className="w-4 h-4" />
+                        LinkedIn Profile
+                      </Label>
+                      <Input
+                        id="linkedin"
+                        name="linkedin"
+                        type="url"
+                        value={formData.linkedin}
+                        onChange={handleChange}
+                        placeholder="https://linkedin.com/in/your-profile"
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="portfolio" className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                        <Globe className="w-4 h-4" />
+                        Portfolio/Website
+                      </Label>
+                      <Input
+                        id="portfolio"
+                        name="portfolio"
+                        type="url"
+                        value={formData.portfolio}
+                        onChange={handleChange}
+                        placeholder="https://yourwebsite.com"
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="additionalMessage" className="block text-sm font-medium text-gray-700 mb-1">
+                      Additional Message
+                    </Label>
                     <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
+                      id="additionalMessage"
+                      name="additionalMessage"
+                      value={formData.additionalMessage}
                       onChange={handleChange}
-                      placeholder="I'm interested in collaborating because..."
-                      className="min-h-[120px]"
+                      placeholder="Any additional information you'd like to share..."
+                      rows={4}
+                      className="w-full"
                     />
                   </div>
+                </div>
 
-                  {error && (
-                    <div className="p-4 text-sm text-red-700 bg-red-50 rounded-lg">
-                      {error}
-                    </div>
-                  )}
+                {/* Final Message */}
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <FileText className="w-4 h-4" />
+                    {activeTab === "individual" 
+                      ? "Tell us more about yourself and your collaboration interests" 
+                      : "Tell us about your organization and partnership goals"} 
+                    *
+                  </Label>
+                  <p className="text-xs text-gray-500 mb-2">
+                    Please provide any additional details that you think would be helpful for us to understand your collaboration interests.
+                  </p>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={activeTab === "individual" 
+                      ? "I'm interested in collaborating because..." 
+                      : "Our organization is interested in partnering because..."}
+                    className="min-h-[120px]"
+                  />
+                </div>
 
-                  <div className="flex justify-end">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full sm:w-auto"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-4 w-4" />
-                          Submit
-                        </>
-                      )}
-                    </Button>
+                {error && (
+                  <div className="p-4 text-sm text-red-700 bg-red-50 rounded-lg">
+                    {error}
                   </div>
-                </form>
-              )}
-            </div>
-          </motion.div>
+                )}
+
+                <div className="flex justify-end">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Submit
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </div>
+        </motion.div>
         </div>
       </motion.div>
       <Footer />
