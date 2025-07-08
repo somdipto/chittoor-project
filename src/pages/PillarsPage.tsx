@@ -1,12 +1,14 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Lightbulb, Heart, Target, TreePine, Zap } from "lucide-react";
+import { ArrowRight, Users, Lightbulb, Leaf, Target, TreePine, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 const PillarsPage = () => {
   const pillars = [{
     id: 1,
@@ -20,8 +22,7 @@ const PillarsPage = () => {
     borderColor: "border-yellow-200",
     textColor: "text-yellow-700",
     status: "Active",
-    impact: "500+ households powered",
-    projects: 12
+    impact: "500+ households powered"
   }, {
     id: 2,
     title: "Sustainable Agriculture",
@@ -34,8 +35,7 @@ const PillarsPage = () => {
     borderColor: "border-green-200",
     textColor: "text-green-700",
     status: "Active",
-    impact: "300+ farmers trained",
-    projects: 8
+    impact: "300+ farmers trained"
   }, {
     id: 3,
     title: "Education & Skill Development",
@@ -48,23 +48,22 @@ const PillarsPage = () => {
     borderColor: "border-blue-200",
     textColor: "text-blue-700",
     status: "Active",
-    impact: "1000+ students reached",
-    projects: 15
+    impact: "1000+ students reached"
   }, {
     id: 4,
-    title: "Healthcare Initiatives",
-    slug: "healthcare-initiatives",
-    description: "Accessible healthcare for all",
-    fullDescription: "Mobile health units, telemedicine services, and health awareness programs to ensure quality healthcare reaches every corner of the district.",
-    icon: <Heart className="w-8 h-8" />,
-    color: "from-red-500 to-pink-500",
-    bgColor: "bg-red-50",
-    borderColor: "border-red-200",
-    textColor: "text-red-700",
+    title: "Agrotourism",
+    slug: "agrotourism-wellness",
+    description: "Farm tours and wellness retreats connecting urban visitors with rural life",
+    fullDescription: "Creating sustainable tourism experiences that showcase farming practices, offer wellness retreats, and provide additional income streams for rural communities through authentic cultural exchanges.",
+    icon: <Leaf className="w-8 h-8" />,
+    color: "from-green-600 to-teal-500",
+    bgColor: "bg-green-50",
+    borderColor: "border-green-200",
+    textColor: "text-green-700",
     status: "Active",
-    impact: "50+ medical camps",
-    projects: 6
+    impact: "50+ tourism experiences"
   }];
+
   const fadeIn = {
     hidden: {
       opacity: 0,
@@ -79,6 +78,7 @@ const PillarsPage = () => {
       }
     })
   };
+
   return <div className="min-h-screen bg-gradient-to-b from-white to-chittoor-offwhite/30">
       <Navbar />
       <div className="pt-24 pb-16">
@@ -116,9 +116,8 @@ const PillarsPage = () => {
                       {pillar.fullDescription}
                     </p>
                     
-                    <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                    <div className="flex justify-center items-center text-sm text-gray-500 mb-4">
                       <span>{pillar.impact}</span>
-                      <span>{pillar.projects} projects</span>
                     </div>
 
                     <Link to={`/pillars/${pillar.slug}`}>
@@ -136,4 +135,5 @@ const PillarsPage = () => {
       <Footer />
     </div>;
 };
+
 export default PillarsPage;
