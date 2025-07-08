@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, ArrowLeft, X, ChevronDown, ChevronRight } from "lucide-react";
@@ -132,20 +131,15 @@ const navItems: NavigationItem[] = [{
             transition={{
               duration: 0.5
             }} 
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
-            <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-              <div className="rounded-full group-hover:shadow-lg transition-shadow">
+            <Link to="/" className="flex items-center group" onClick={() => setIsOpen(false)}>
+              <div className="rounded-lg group-hover:shadow-lg transition-shadow">
                 <img 
                   src="/lovable-uploads/4fb1ace5-30ea-4ec4-bbac-fb190e7bd666.png" 
                   alt="Project Chittoor Logo" 
-                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+                  className="h-10 sm:h-12 md:h-14 w-auto object-contain"
                 />
-              </div>
-              <div className="flex flex-col ml-1 sm:ml-2">
-                <span className="font-bold text-base sm:text-lg md:text-xl tracking-tight text-gray-800 whitespace-nowrap">
-                  Project Chittoor
-                </span>
               </div>
             </Link>
           </motion.div>
@@ -298,13 +292,12 @@ const navItems: NavigationItem[] = [{
             <SheetContent side="right" className="w-full max-w-[280px] sm:max-w-xs p-0">
               <div className="p-3 border-b">
                 <div className="flex items-center justify-between">
-                  <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                  <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
                     <img 
                       src="/lovable-uploads/4fb1ace5-30ea-4ec4-bbac-fb190e7bd666.png" 
                       alt="Project Chittoor Logo" 
-                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                      className="h-8 sm:h-10 w-auto object-contain"
                     />
-                    <span className="font-bold text-base sm:text-lg">Project Chittoor</span>
                   </Link>
                   <SheetClose className="rounded-full p-1 hover:bg-gray-100 transition-colors">
                     <X className="h-4 w-4 sm:h-5 sm:w-5" />
