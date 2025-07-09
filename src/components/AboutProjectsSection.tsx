@@ -44,7 +44,7 @@ const AboutProjectsSection = () => {
           className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-chittoor-green to-chittoor-blue inline-block">
-            Our Four Pillars of Change
+            Four Pillars of Transformation
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-chittoor-green to-chittoor-blue rounded-full mx-auto mb-8"></div>
 
