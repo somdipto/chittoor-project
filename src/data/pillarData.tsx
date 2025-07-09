@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Factory, Leaf, School, TreeDeciduous } from "lucide-react";
 
@@ -18,7 +17,7 @@ export interface Pillar {
   stats: {
     beneficiaries: string;
     projects: number;
-    villages: string;
+    villages: number;
     impact: string;
   };
   objectives: string[];
@@ -50,8 +49,8 @@ export const pillarsData: Pillar[] = [
     stats: {
       beneficiaries: "800+",
       projects: 12,
-      villages: "18 acres",
-      impact: "85"
+      villages: 18,
+      impact: "85%"
     },
     objectives: [
       "Implement chemical-free farming practices",
@@ -155,10 +154,10 @@ export const pillarsData: Pillar[] = [
     image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Solar panels installed in rural Indian villages",
     stats: {
-      beneficiaries: "600 KWH",
+      beneficiaries: "600+",
       projects: 10,
-      villages: "15 acres",
-      impact: "90% revenue"
+      villages: 15,
+      impact: "90%"
     },
     objectives: [
       "Install rooftop solar on schools, community centers, and homes",
@@ -258,10 +257,10 @@ export const pillarsData: Pillar[] = [
     image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Rural Indian children learning with digital technology",
     stats: {
-      beneficiaries: "1,200 students",
+      beneficiaries: "1,200+",
       projects: 8,
-      villages: "25 subjects",
-      impact: "95 activities"
+      villages: 25,
+      impact: "95%"
     },
     objectives: [
       "Establish high-speed internet network to village schools",
@@ -367,7 +366,7 @@ export const pillarsData: Pillar[] = [
     stats: {
       beneficiaries: "300+",
       projects: 4,
-      villages: "6",
+      villages: 6,
       impact: "60%"
     },
     objectives: [
