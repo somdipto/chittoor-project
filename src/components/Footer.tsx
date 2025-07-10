@@ -58,8 +58,7 @@ const Footer = () => {
     {
       title: 'Visit Us',
       items: [
-        { icon: <MapPin className="w-5 h-5 text-chittoor-green" />, text: 'Chittoor District' },
-        { text: 'India - 517001' }
+        { icon: <MapPin className="w-5 h-5 text-chittoor-green" />, text: 'Thirumalarajupuram, Andhra Pradesh 631302, India' }
       ]
     },
     {
@@ -195,14 +194,14 @@ const Footer = () => {
           >
             <div className="w-full h-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31069.11341612392!2d79.1034545!3d13.21799345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb4bf0e123ad281%3A0x5f5c2bb95f0720a0!2sChittoor%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1719392000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.2345!2d79.1234!3d13.2172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad6018e73233d5%3A0x525a5b5f281a81e5!2sThirumalarajupuram%2C%20Andhra%20Pradesh%20631302%2C%20India!5e0!3m2!1sen!2sin!4v1626876908431!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Chittoor District Location"
+                title="48WX+X39, Thirumalarajupuram, Andhra Pradesh 631302, India"
                 className="rounded-lg"
               ></iframe>
             </div>

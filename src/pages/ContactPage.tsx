@@ -159,8 +159,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                     <p className="text-gray-600">
-                      A S Chinnaswamy Community Development Trust<br />
-                      Chittoor, AP, India - 517001
+                      Thirumalarajupuram, Andhra Pradesh 631302, India
                     </p>
                   </div>
                 </div>

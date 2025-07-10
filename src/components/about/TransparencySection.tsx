@@ -83,7 +83,7 @@ const TransparencySection = () => {
             <h3 className="text-lg font-bold text-gray-800 mb-4">Contact Information</h3>
             <div className="space-y-2 text-gray-600">
               <p>📧 Email: projectchittor@atria.edu</p>
-              <p>📍 Address: Thirumalarajupuram, Chittoor, Andhra Pradesh</p>
+              <p>📍 Address: Thirumalarajupuram, Andhra Pradesh 631302, India</p>
               <p>🌐 Atria Foundation Initiative</p>
             </div>
           </div>

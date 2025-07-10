@@ -126,8 +126,8 @@ const ContactSection = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
                   <p className="text-gray-600 text-sm">
-                    Chittoor District<br />
-                    India - 517001
+                    Thirumalarajupuram,<br />
+                    Andhra Pradesh 631302, India
                   </p>
                 </div>
               </Card>
@@ -266,16 +266,18 @@ const ContactSection = () => {
                 Find Us Here
               </h3>
               <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124416.84815207968!2d79.0961!3d13.2172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b0b0b0b0b0b%3A0x0!2sChittoor%2C%20Andhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Chittoor Location"
-                ></iframe>
+                <div className="w-full h-full">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.2345!2d79.3451549!3d13.147424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad53d91ba72611%3A0x21e9a92e32b9bead!2sZilla%20Parishad%20High%20School!5e0!3m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Zilla Parishad High School, 48WX+X39, Thirumalarajupuram, Andhra Pradesh 631302, India"
+                  ></iframe>
+                </div>
               </div>
             </Card>
           </motion.div>
